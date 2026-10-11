@@ -6,15 +6,30 @@ import { InteractiveTerminal } from './components/InteractiveTerminal';
 import { SkillsGrid } from './components/SkillsGrid';
 import { GithubIcon } from './components/icons/GithubIcon';
 import { InstagramIcon } from './components/icons/InstagramIcon';
-import { personalInfo, projectsData, skillCategories } from './data/portfolioData';
+import {
+  socialLinks,
+  projectsContent,
+  skillCategoriesData,
+  uiText,
+} from './data/portfolioData';
+import type { Language } from './data/portfolioData';
 
 export function App() {
   const [currentTheme, setCurrentTheme] = useState('indigo');
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem('yugeen-lang') as Language;
+    return saved === 'ru' ? 'ru' : 'en'; // Defaults to English as requested
+  });
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', currentTheme);
   }, [currentTheme]);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    localStorage.setItem('yugeen-lang', language);
+  }, [language]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,6 +42,10 @@ export function App() {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const t = uiText[language];
+  const projects = projectsContent[language];
+  const skills = skillCategoriesData[language];
 
   return (
     <>
@@ -42,10 +61,12 @@ export function App() {
       />
 
       <div className="app-wrapper">
-        {/* Top Navbar */}
+        {/* Top Navbar with Theme Picker, Telemetry & Language Toggle */}
         <Navbar
           currentTheme={currentTheme}
           setTheme={setCurrentTheme}
+          language={language}
+          setLanguage={setLanguage}
           onOpenTerminal={() => scrollToSection('terminal-deck')}
         />
 
@@ -53,32 +74,32 @@ export function App() {
         <section className="hero-section">
           <div className="hero-pill">
             <Sparkles size={14} />
-            <span>VERSATILE SOFTWARE ENGINEER</span>
+            <span>{t.heroBadge}</span>
           </div>
 
           <h1 className="hero-title">
-            Универсальный разработчик:{' '}
-            <span className="hero-title-gradient">десктоп, мобильные сервисы и веб</span>
+            {t.heroTitlePrefix}{' '}
+            <span className="hero-title-gradient">{t.heroTitleGradient}</span>
           </h1>
 
           <p className="hero-subtitle">
-            Привет, я <strong style={{ color: 'var(--text-main)' }}>yugeen</strong>. Разрабатываю десктопные решения и системные утилиты на C++ и C#, кроссплатформенные мобильные приложения и современные веб-платформы на React и TypeScript. От системной логики до отзывчивых интерфейсов.
+            {t.heroSubtitle}
           </p>
 
           {/* Quick CLI Prompt Bar */}
           <div className="cli-bar">
             <span className="cli-prompt">$ yugeen --run</span>
             <button onClick={() => scrollToSection('projects-deck')} className="cli-btn">
-              &gt; projects
+              &gt; {t.cliProjects}
             </button>
             <button onClick={() => scrollToSection('skills-deck')} className="cli-btn">
-              &gt; stack
+              &gt; {t.cliStack}
             </button>
             <button onClick={() => scrollToSection('terminal-deck')} className="cli-btn">
-              &gt; console
+              &gt; {t.cliConsole}
             </button>
             <button onClick={() => scrollToSection('contact-deck')} className="cli-btn">
-              &gt; contact
+              &gt; {t.cliContact}
             </button>
           </div>
         </section>
@@ -88,16 +109,16 @@ export function App() {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
             <h2 style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
               <FolderGit2 size={22} color="var(--accent-primary)" />
-              <span>Проекты & Разработки</span>
+              <span>{t.projectsHeader}</span>
             </h2>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-              FEATURED WORKS
+              {t.projectsSubheader}
             </span>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-            {projectsData.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} repoButtonLabel={t.repoBtn} />
             ))}
           </div>
         </section>
@@ -108,19 +129,19 @@ export function App() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
               <TerminalIcon size={20} color="var(--accent-primary)" />
               <h2 style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '-0.02em' }}>
-                Интерактивная консоль
+                {t.consoleHeader}
               </h2>
             </div>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-              CLI PLAYGROUND
+              {t.consoleSubheader}
             </span>
           </div>
 
           <div className="bento-card" style={{ padding: '1.5rem' }}>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', marginBottom: '1rem' }}>
-              Быстрый терминальный доступ: вводите команды или нажимайте подсказки в шапке консоли:
+              {t.consoleDescription}
             </p>
-            <InteractiveTerminal />
+            <InteractiveTerminal language={language} />
           </div>
         </section>
 
@@ -128,14 +149,14 @@ export function App() {
         <section id="skills-deck" style={{ marginBottom: '5rem', scrollMarginTop: '6rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
             <h2 style={{ fontSize: '1.35rem', fontWeight: 700, letterSpacing: '-0.02em' }}>
-              Технологический стек
+              {t.stackHeader}
             </h2>
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-              MULTI-PLATFORM STACK
+              {t.stackSubheader}
             </span>
           </div>
 
-          <SkillsGrid categories={skillCategories} />
+          <SkillsGrid categories={skills} />
         </section>
 
         {/* CONTACT & CTA */}
@@ -143,20 +164,20 @@ export function App() {
           <div className="bento-card" style={{ padding: '3.5rem 2rem', textAlign: 'center', alignItems: 'center', gap: '1.25rem', background: 'linear-gradient(180deg, rgba(13, 16, 24, 0.9) 0%, rgba(20, 25, 38, 0.95) 100%)' }}>
             <span className="hero-pill">
               <Sparkles size={13} />
-              <span>LET'S BUILD SOMETHING GREAT</span>
+              <span>{t.contactBadge}</span>
             </span>
 
             <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, letterSpacing: '-0.03em' }}>
-              Свяжитесь со мной
+              {t.contactHeader}
             </h2>
 
             <p style={{ color: 'var(--text-secondary)', maxWidth: '560px', fontSize: '0.98rem', lineHeight: 1.6 }}>
-              Открыт к предложениям по разработке игр, мобильных приложений, веб-сервисов или совместным проектам. Напишите мне в Telegram или Instagram:
+              {t.contactSubtitle}
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', marginTop: '0.5rem' }}>
               <a
-                href={personalInfo.telegram}
+                href={socialLinks.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-interactive"
@@ -170,11 +191,11 @@ export function App() {
                 }}
               >
                 <Send size={16} />
-                <span>Написать в Telegram</span>
+                <span>{t.telegramBtn}</span>
               </a>
 
               <a
-                href={personalInfo.instagram}
+                href={socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-interactive"
@@ -188,18 +209,18 @@ export function App() {
                 }}
               >
                 <InstagramIcon size={16} />
-                <span>Instagram</span>
+                <span>{t.instagramBtn}</span>
               </a>
 
               <a
-                href={personalInfo.github}
+                href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-interactive"
                 style={{ padding: '0.75rem 1.6rem', borderRadius: 'var(--radius-md)', fontSize: '0.9rem' }}
               >
                 <GithubIcon size={16} />
-                <span>GitHub</span>
+                <span>{t.githubBtn}</span>
               </a>
             </div>
           </div>
@@ -208,11 +229,11 @@ export function App() {
         {/* Minimal Footer */}
         <footer style={{ marginTop: '4rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', color: 'var(--text-dim)', fontSize: '0.8rem' }}>
           <div>
-            © {new Date().getFullYear()} yugeen
+            © {new Date().getFullYear()} {t.footerRights}
           </div>
           <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
             <a
-              href={personalInfo.telegram}
+              href={socialLinks.telegram}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'var(--text-muted)', textDecoration: 'none' }}
@@ -221,7 +242,7 @@ export function App() {
             </a>
             <span>•</span>
             <a
-              href={personalInfo.instagram}
+              href={socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'var(--text-muted)', textDecoration: 'none' }}
@@ -230,7 +251,7 @@ export function App() {
             </a>
             <span>•</span>
             <a
-              href={personalInfo.github}
+              href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: 'var(--text-muted)', textDecoration: 'none' }}

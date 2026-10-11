@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { personalInfo } from '../data/portfolioData';
+import { socialLinks } from '../data/portfolioData';
+import type { Language } from '../data/portfolioData';
 
 interface HistoryLine {
   id: number;
@@ -7,11 +8,23 @@ interface HistoryLine {
   text: string;
 }
 
-export const InteractiveTerminal = () => {
+interface InteractiveTerminalProps {
+  language?: Language;
+}
+
+export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProps) => {
   const [inputVal, setInputVal] = useState('');
   const [history, setHistory] = useState<HistoryLine[]>([
-    { id: 1, type: 'system', text: 'Yugeen Console v2.4 (x86_64-station)' },
-    { id: 2, type: 'system', text: 'Type "help" or click suggestion pills below.' },
+    {
+      id: 1,
+      type: 'system',
+      text: language === 'ru' ? 'Консоль Yugeen v2.4 (x86_64-station)' : 'Yugeen Console v2.4 (x86_64-station)',
+    },
+    {
+      id: 2,
+      type: 'system',
+      text: language === 'ru' ? 'Введите "help" или нажмите подсказки выше.' : 'Type "help" or click suggestion pills above.',
+    },
   ]);
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -35,18 +48,70 @@ export const InteractiveTerminal = () => {
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Available: projects, stack, contact, hire, whoami, clear',
+          text:
+            language === 'ru'
+              ? 'Доступные команды: projects, stack, contact, hire, whoami, clear'
+              : 'Available commands: projects, stack, contact, hire, whoami, clear',
         });
         break;
       case 'projects':
         newLines.push(
-          { id: Date.now() + 1, type: 'output', text: '1. WinTime — Privacy-first Windows screen tracker (.NET 10, C#, SQLite)' },
-          { id: Date.now() + 2, type: 'output', text: '2. Notiva — AI knowledge base & active recall flashcards (PWA, React)' },
-          { id: Date.now() + 3, type: 'output', text: '3. Aetheria Chronicles — Text CRPG powered by local LLMs (Ollama)' },
-          { id: Date.now() + 4, type: 'output', text: '4. NetMorph — Network protocol inspector & LLM Studio (React, TS)' },
-          { id: Date.now() + 5, type: 'output', text: '5. Unremembered — 3D memory restoration puzzle game (Unity, C#)' },
-          { id: Date.now() + 6, type: 'output', text: '6. Resonance — Desktop audio player with custom audio engine (C#)' },
-          { id: Date.now() + 7, type: 'output', text: '7. Courier-Manager — Arcade parcel dispatch web game (HTML5, JS)' }
+          {
+            id: Date.now() + 1,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '1. WinTime — Privacy-first трекер времени для Windows (.NET 10, C#, SQLite)'
+                : '1. WinTime — Privacy-first Windows screen tracker (.NET 10, C#, SQLite)',
+          },
+          {
+            id: Date.now() + 2,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '2. Notiva — База знаний и флеш-карточки активного вспоминания (PWA, React)'
+                : '2. Notiva — AI study knowledge base & active recall flashcards (PWA, React)',
+          },
+          {
+            id: Date.now() + 3,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '3. Aetheria Chronicles — Текстовая CRPG на локальных LLM (Ollama)'
+                : '3. Aetheria Chronicles — Text CRPG powered by local LLMs (Ollama)',
+          },
+          {
+            id: Date.now() + 4,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '4. NetMorph — Сетевой анализатор дампов & LLM Studio (React, TS)'
+                : '4. NetMorph — Network protocol inspector & LLM Studio (React, TS)',
+          },
+          {
+            id: Date.now() + 5,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '5. Unremembered — 3D головоломка про восстановление памяти (Unity, C#)'
+                : '5. Unremembered — 3D memory restoration puzzle game (Unity, C#)',
+          },
+          {
+            id: Date.now() + 6,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '6. Resonance — Быстрый десктопный аудиоплеер на C# (.NET)'
+                : '6. Resonance — Desktop audio player with custom audio engine (C#)',
+          },
+          {
+            id: Date.now() + 7,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '7. Курьер-Менеджер — Аркадная веб-игра про логистику ПВЗ (HTML5, JS)'
+                : '7. Courier Manager — Action parcel dispatch web game (HTML5, JS)',
+          }
         );
         if (shouldScrollWindow) {
           document.getElementById('projects-deck')?.scrollIntoView({ behavior: 'smooth' });
@@ -56,7 +121,10 @@ export const InteractiveTerminal = () => {
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Languages: C++, C#, Python, TypeScript, JavaScript | Domains: Desktop, Mobile, Web, Systems',
+          text:
+            language === 'ru'
+              ? 'Языки: C#, C++, TypeScript, JavaScript, Python | Сферы: Desktop, .NET, Unity, Web, AI'
+              : 'Languages: C#, C++, TypeScript, JavaScript, Python | Domains: Desktop, .NET, Unity, Web, AI',
         });
         if (shouldScrollWindow) {
           document.getElementById('skills-deck')?.scrollIntoView({ behavior: 'smooth' });
@@ -64,8 +132,8 @@ export const InteractiveTerminal = () => {
         break;
       case 'contact':
         newLines.push(
-          { id: Date.now() + 1, type: 'output', text: `Telegram: ${personalInfo.telegram}` },
-          { id: Date.now() + 2, type: 'output', text: `Instagram: ${personalInfo.instagram}` }
+          { id: Date.now() + 1, type: 'output', text: `Telegram: ${socialLinks.telegram}` },
+          { id: Date.now() + 2, type: 'output', text: `Instagram: ${socialLinks.instagram}` }
         );
         if (shouldScrollWindow) {
           document.getElementById('contact-deck')?.scrollIntoView({ behavior: 'smooth' });
@@ -75,7 +143,10 @@ export const InteractiveTerminal = () => {
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Status: AVAILABLE for desktop solutions, mobile apps, and fullstack projects.',
+          text:
+            language === 'ru'
+              ? 'Статус: ДОСТУПЕН для десктопных решений, мобильных сервисов и fullstack разработки.'
+              : 'Status: AVAILABLE for desktop software, mobile services, and fullstack engineering.',
         });
         break;
       case 'whoami':
@@ -93,7 +164,10 @@ export const InteractiveTerminal = () => {
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: `Command not found: "${trimmed}". Type "help" for options.`,
+          text:
+            language === 'ru'
+              ? `Команда не найдена: "${trimmed}". Введите "help" для списка.`
+              : `Command not found: "${trimmed}". Type "help" for options.`,
         });
     }
 
@@ -103,13 +177,11 @@ export const InteractiveTerminal = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      // User typing command inside console: DO NOT scroll the page
       executeCommand(inputVal, false);
     }
   };
 
   const handleNavPillClick = (target: string) => {
-    // When clicking header pills: execute command in terminal AND smooth-scroll to section
     executeCommand(target, true);
   };
 
@@ -127,7 +199,7 @@ export const InteractiveTerminal = () => {
             onClick={() => handleNavPillClick('projects')}
             className="cli-btn"
             style={{ padding: '0.15rem 0.5rem', fontSize: '0.72rem' }}
-            title="Перейти к проектам"
+            title={language === 'ru' ? 'Перейти к проектам' : 'Scroll to projects'}
           >
             projects
           </button>
@@ -135,7 +207,7 @@ export const InteractiveTerminal = () => {
             onClick={() => handleNavPillClick('stack')}
             className="cli-btn"
             style={{ padding: '0.15rem 0.5rem', fontSize: '0.72rem' }}
-            title="Перейти к стеку"
+            title={language === 'ru' ? 'Перейти к стеку' : 'Scroll to stack'}
           >
             stack
           </button>
@@ -143,7 +215,7 @@ export const InteractiveTerminal = () => {
             onClick={() => handleNavPillClick('contact')}
             className="cli-btn"
             style={{ padding: '0.15rem 0.5rem', fontSize: '0.72rem' }}
-            title="Перейти к контактам"
+            title={language === 'ru' ? 'Перейти к контактам' : 'Scroll to contacts'}
           >
             contact
           </button>
@@ -175,8 +247,8 @@ export const InteractiveTerminal = () => {
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="type 'help'..."
-            aria-label="Ввод команды в терминале"
+            placeholder={language === 'ru' ? "введите 'help'..." : "type 'help'..."}
+            aria-label="Terminal input"
           />
         </div>
       </div>

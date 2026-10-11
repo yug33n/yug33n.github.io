@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Terminal, Send } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
+import { Terminal, Send, Globe } from 'lucide-react';
+import { socialLinks } from '../data/portfolioData';
+import type { Language } from '../data/portfolioData';
 
 interface NavbarProps {
   currentTheme: string;
   setTheme: (theme: string) => void;
+  language: Language;
+  setLanguage: (lang: Language) => void;
   onOpenTerminal?: () => void;
 }
 
-export const Navbar = ({ currentTheme, setTheme, onOpenTerminal }: NavbarProps) => {
+export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onOpenTerminal }: NavbarProps) => {
   const [timeStr, setTimeStr] = useState('');
-  const [ping] = useState(Math.floor(Math.random() * 12) + 16);
+  const [ping] = useState(Math.floor(Math.random() * 10) + 18);
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
       setTimeStr(
-        now.toLocaleTimeString('ru-RU', {
+        now.toLocaleTimeString(language === 'ru' ? 'ru-RU' : 'en-US', {
           hour: '2-digit',
           minute: '2-digit',
           second: '2-digit',
@@ -26,7 +29,7 @@ export const Navbar = ({ currentTheme, setTheme, onOpenTerminal }: NavbarProps) 
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [language]);
 
   return (
     <header className="top-navbar">
@@ -43,7 +46,7 @@ export const Navbar = ({ currentTheme, setTheme, onOpenTerminal }: NavbarProps) 
         </div>
         <span style={{ color: 'var(--text-dim)' }}>|</span>
         <div className="telemetry-item">
-          <span>TIME: {timeStr || '23:44:00'} (UTC+3)</span>
+          <span>TIME: {timeStr || '00:45:00'} (UTC+3)</span>
         </div>
         <span style={{ color: 'var(--text-dim)' }}>|</span>
         <div className="telemetry-item">
@@ -51,28 +54,28 @@ export const Navbar = ({ currentTheme, setTheme, onOpenTerminal }: NavbarProps) 
         </div>
       </div>
 
-      {/* Controls: Theme Switcher & Contact */}
+      {/* Controls: Theme Switcher, Terminal, Language Toggle & Contact */}
       <div className="nav-controls">
-        <div className="theme-switcher" title="Сменить акцентную тему">
+        <div className="theme-switcher" title={language === 'ru' ? 'Сменить акцентную тему' : 'Switch accent color'}>
           <button
             onClick={() => setTheme('indigo')}
             className={`theme-dot indigo ${currentTheme === 'indigo' ? 'active' : ''}`}
-            aria-label="Тема Indigo"
+            aria-label="Indigo theme"
           />
           <button
             onClick={() => setTheme('emerald')}
             className={`theme-dot emerald ${currentTheme === 'emerald' ? 'active' : ''}`}
-            aria-label="Тема Emerald"
+            aria-label="Emerald theme"
           />
           <button
             onClick={() => setTheme('cyan')}
             className={`theme-dot cyan ${currentTheme === 'cyan' ? 'active' : ''}`}
-            aria-label="Тема Cyan"
+            aria-label="Cyan theme"
           />
           <button
             onClick={() => setTheme('amber')}
             className={`theme-dot amber ${currentTheme === 'amber' ? 'active' : ''}`}
-            aria-label="Тема Amber"
+            aria-label="Amber theme"
           />
         </div>
 
@@ -80,22 +83,39 @@ export const Navbar = ({ currentTheme, setTheme, onOpenTerminal }: NavbarProps) 
           <button
             onClick={onOpenTerminal}
             className="btn-interactive"
-            title="Открыть встроенный терминал"
+            title={language === 'ru' ? 'Открыть консоль' : 'Open console'}
             style={{ padding: '0.35rem 0.65rem' }}
           >
             <Terminal size={14} />
           </button>
         )}
 
+        {/* Language Switcher Toggle */}
+        <button
+          onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
+          className="btn-interactive"
+          title={language === 'ru' ? 'Switch to English' : 'Переключить на русский'}
+          style={{
+            padding: '0.35rem 0.65rem',
+            fontFamily: 'var(--font-mono)',
+            fontWeight: 700,
+            fontSize: '0.78rem',
+            letterSpacing: '0.04em',
+          }}
+        >
+          <Globe size={13} color="var(--accent-secondary)" />
+          <span>{language === 'ru' ? 'EN' : 'RU'}</span>
+        </button>
+
         <a
-          href={personalInfo.telegram}
+          href={socialLinks.telegram}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-interactive"
           style={{ background: 'var(--accent-subtle)', borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
         >
           <Send size={13} />
-          <span>Связаться</span>
+          <span>{language === 'ru' ? 'Связаться' : 'Contact'}</span>
         </a>
       </div>
     </header>
