@@ -82,7 +82,7 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onOpenTe
         {onOpenTerminal && (
           <button
             onClick={onOpenTerminal}
-            className="btn-interactive"
+            className="btn-interactive nav-terminal-btn"
             title={language === 'ru' ? 'Открыть консоль' : 'Open console'}
             style={{ padding: '0.35rem 0.65rem' }}
           >
@@ -93,7 +93,7 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onOpenTe
         {/* Language Switcher Toggle */}
         <button
           onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
-          className="btn-interactive"
+          className="btn-interactive nav-lang-btn"
           title={language === 'ru' ? 'Switch to English' : 'Переключить на русский'}
           style={{
             padding: '0.35rem 0.65rem',
@@ -111,11 +111,11 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onOpenTe
           href={socialLinks.telegram}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-interactive"
+          className="btn-interactive nav-contact-btn"
           style={{ background: 'var(--accent-subtle)', borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
         >
           <Send size={13} />
-          <span>{language === 'ru' ? 'Связаться' : 'Contact'}</span>
+          <span className="nav-contact-text">{language === 'ru' ? 'Связаться' : 'Contact'}</span>
         </a>
       </div>
     </header>
