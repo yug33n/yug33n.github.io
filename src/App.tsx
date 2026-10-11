@@ -53,16 +53,16 @@ export function App() {
         <section className="hero-section">
           <div className="hero-pill">
             <Sparkles size={14} />
-            <span>SOFTWARE & GAME DEVELOPER</span>
+            <span>VERSATILE SOFTWARE ENGINEER</span>
           </div>
 
           <h1 className="hero-title">
-            Создаю игры, мобильные сервисы{' '}
-            <span className="hero-title-gradient">и быстрый веб</span>
+            Универсальный разработчик:{' '}
+            <span className="hero-title-gradient">десктоп, мобильные сервисы и веб</span>
           </h1>
 
           <p className="hero-subtitle">
-            Привет, я <strong style={{ color: 'var(--text-main)' }}>yugeen</strong>. Разрабатываю игры и десктопные решения на C++ и C#, кроссплатформенные мобильные приложения и современные веб-платформы на React и TypeScript. От низкоуровневой логики до отзывчивых интерфейсов.
+            Привет, я <strong style={{ color: 'var(--text-main)' }}>yugeen</strong>. Разрабатываю десктопные решения и системные утилиты на C++ и C#, кроссплатформенные мобильные приложения и современные веб-платформы на React и TypeScript. От системной логики до отзывчивых интерфейсов.
           </p>
 
           {/* Quick CLI Prompt Bar */}

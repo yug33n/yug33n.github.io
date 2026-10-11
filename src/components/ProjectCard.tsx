@@ -1,4 +1,4 @@
-import { ExternalLink, FolderGit2 } from 'lucide-react';
+import { FolderGit2 } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import type { ProjectItem } from '../types';
 
@@ -43,19 +43,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               title="Открыть код на GitHub"
             >
               <GithubIcon size={14} />
-              <span>Код</span>
-            </a>
-          )}
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="action-link"
-              title="Демо проекта"
-            >
-              <span>Демо</span>
-              <ExternalLink size={14} />
+              <span>Репозиторий</span>
             </a>
           )}
         </div>

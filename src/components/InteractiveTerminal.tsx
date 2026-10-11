@@ -42,7 +42,7 @@ export const InteractiveTerminal = () => {
         newLines.push(
           { id: Date.now() + 1, type: 'output', text: '1. NetMorph — Network Protocol Inspector & LLM Studio' },
           { id: Date.now() + 2, type: 'output', text: '2. Courier-Manager — Logistics delivery router & dispatch' },
-          { id: Date.now() + 3, type: 'output', text: '3. Game Systems Core — Game loops, physics & ECS architecture' }
+          { id: Date.now() + 3, type: 'output', text: '3. Desktop Core & Tooling — C++, C#, background services & native APIs' }
         );
         if (shouldScrollWindow) {
           document.getElementById('projects-deck')?.scrollIntoView({ behavior: 'smooth' });
@@ -52,7 +52,7 @@ export const InteractiveTerminal = () => {
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Languages: C++, C#, Python, TypeScript, JavaScript | Domains: GameDev, Mobile, Web, Systems',
+          text: 'Languages: C++, C#, Python, TypeScript, JavaScript | Domains: Desktop, Mobile, Web, Systems',
         });
         if (shouldScrollWindow) {
           document.getElementById('skills-deck')?.scrollIntoView({ behavior: 'smooth' });
@@ -71,7 +71,7 @@ export const InteractiveTerminal = () => {
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Status: AVAILABLE for games, mobile apps, and fullstack projects.',
+          text: 'Status: AVAILABLE for desktop solutions, mobile apps, and fullstack projects.',
         });
         break;
       case 'whoami':

@@ -2,15 +2,15 @@ import type { ProjectItem, SkillCategory } from '../types';
 
 export const personalInfo = {
   name: "yugeen",
-  role: "Software & Game Developer",
-  tagline: "Разработка игр, мобильных приложений и высокопроизводительных веб-сервисов.",
+  role: "Software Developer",
+  tagline: "Разработка десктопных приложений, мобильных сервисов и высокопроизводительного веба.",
   status: "Открыт для предложений & проектов",
-  telegram: "https://t.me/yugeen",
-  instagram: "https://instagram.com/yugeen",
-  github: "https://github.com/yugeen",
+  telegram: "https://t.me/dim0kkk",
+  instagram: "https://instagram.com/yug3en",
+  github: "https://github.com/grymik0",
   bio: [
-    "Универсальный разработчик с опытом в системном программировании, геймдеве, мобильных приложениях и современном вебе.",
-    "Пишу на C++, C# и TypeScript. Занимаюсь как созданием игровых механик и клиентских приложений, так и проектированием масштабируемых веб-платформ и сетевых сервисов. Ценю чистую архитектуру, оптимизацию и отзывчивый UX."
+    "Универсальный разработчик с опытом в системном программировании, десктопных решениях, мобильных приложениях и современном вебе.",
+    "Пишу на C++, C# и TypeScript. Занимаюсь созданием десктопных и мобильных клиентских приложений, а также проектированием масштабируемых веб-платформ и сетевых сервисов. Ценю чистую архитектуру, оптимизацию и отзывчивый UX."
   ]
 };
 
@@ -26,8 +26,7 @@ export const projectsData: ProjectItem[] = [
       "Оптимизированный рендеринг тяжелых дампов с нулевым лагом интерфейса"
     ],
     techStack: ["React 19", "TypeScript", "Vite", "Zustand", "Monaco Editor", "Ollama API"],
-    demoUrl: "https://github.com/yugeen/NetMorph",
-    githubUrl: "https://github.com/yugeen/NetMorph",
+    githubUrl: "https://github.com/grymik0/NetMorph",
     status: "Active"
   },
   {
@@ -41,22 +40,21 @@ export const projectsData: ProjectItem[] = [
       "Быстрый отзывчивый интерфейс без избыточных сторонних зависимостей"
     ],
     techStack: ["JavaScript", "HTML5", "Modern CSS", "REST API", "Responsive UI"],
-    demoUrl: "https://github.com/yugeen/Courier-Manager",
-    githubUrl: "https://github.com/yugeen/Courier-Manager",
+    githubUrl: "https://github.com/grymik0/Courier-Manager",
     status: "Completed"
   },
   {
-    id: "game-engine-core",
-    title: "Game Systems & Core Logic",
-    tagline: "Игровые механики, физика и десктопные сервисы",
-    description: "Разработка игровой логики, систем взаимодействия сущностей, симуляции физики и графических конвейеров на C++ и C#.",
+    id: "desktop-core-tooling",
+    title: "Desktop Core & System Tooling",
+    tagline: "Системные утилиты, асинхронная логика и десктопные сервисы",
+    description: "Разработка высокопроизводительной системной логики, фоновых служб и десктопных приложений на C++ и C#.",
     highlights: [
-      "Оптимизированный менеджмент памяти, циклы обновления (Game Loop) и обработка коллизий",
-      "Архитектура ECS (Entity Component System) для масштабируемых симуляций",
-      "Кроссплатформенная сборка и интеграция шейдеров / ассетов"
+      "Оптимизированный менеджмент памяти и многопоточная обработка задач",
+      "Модульная архитектура для расширяемых клиентских и консольных приложений",
+      "Кроссплатформенная сборка и интеграция нативных системных API"
     ],
-    techStack: ["C++", "C#", ".NET", "GameDev", "Algorithms & Math", "Multi-threading"],
-    githubUrl: "https://github.com/yugeen",
+    techStack: ["C++", "C#", ".NET", "Desktop", "Algorithms & Math", "Multi-threading"],
+    githubUrl: "https://github.com/grymik0",
     status: "Core Dev"
   }
 ];
@@ -68,9 +66,9 @@ export const skillCategories: SkillCategory[] = [
     skills: ["C++", "C#", "Python", "TypeScript", "JavaScript", "SQL", "HTML5 / CSS3"]
   },
   {
-    category: "GameDev & Десктоп",
-    iconName: "Gamepad2",
-    skills: ["Game Engines", ".NET / C#", "Game Physics", "ECS Architecture", "Math & 3D Math", "Desktop Apps"]
+    category: "Десктоп & Системное ПО",
+    iconName: "Cpu",
+    skills: [".NET / C#", "Desktop Apps", "System Tooling", "Algorithms & Math", "Multi-threading", "Native APIs"]
   },
   {
     category: "Мобильная разработка",
