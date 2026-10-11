@@ -40,9 +40,13 @@ export const InteractiveTerminal = () => {
         break;
       case 'projects':
         newLines.push(
-          { id: Date.now() + 1, type: 'output', text: '1. NetMorph — Network Protocol Inspector & LLM Studio' },
-          { id: Date.now() + 2, type: 'output', text: '2. Courier-Manager — Logistics delivery router & dispatch' },
-          { id: Date.now() + 3, type: 'output', text: '3. Desktop Core & Tooling — C++, C#, background services & native APIs' }
+          { id: Date.now() + 1, type: 'output', text: '1. WinTime — Privacy-first Windows screen tracker (.NET 10, C#, SQLite)' },
+          { id: Date.now() + 2, type: 'output', text: '2. Notiva — AI knowledge base & active recall flashcards (PWA, React)' },
+          { id: Date.now() + 3, type: 'output', text: '3. Aetheria Chronicles — Text CRPG powered by local LLMs (Ollama)' },
+          { id: Date.now() + 4, type: 'output', text: '4. NetMorph — Network protocol inspector & LLM Studio (React, TS)' },
+          { id: Date.now() + 5, type: 'output', text: '5. Unremembered — 3D memory restoration puzzle game (Unity, C#)' },
+          { id: Date.now() + 6, type: 'output', text: '6. Resonance — Desktop audio player with custom audio engine (C#)' },
+          { id: Date.now() + 7, type: 'output', text: '7. Courier-Manager — Arcade parcel dispatch web game (HTML5, JS)' }
         );
         if (shouldScrollWindow) {
           document.getElementById('projects-deck')?.scrollIntoView({ behavior: 'smooth' });
