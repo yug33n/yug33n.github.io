@@ -31,8 +31,8 @@ export const Navbar = ({ currentTheme, setTheme, onOpenTerminal }: NavbarProps) 
   return (
     <header className="top-navbar">
       <a href="#" className="nav-brand">
-        <span className="brand-badge">G</span>
-        <span>grymik.dev</span>
+        <span className="brand-badge">Y</span>
+        <span>yugeen</span>
       </a>
 
       {/* Live System Telemetry */}

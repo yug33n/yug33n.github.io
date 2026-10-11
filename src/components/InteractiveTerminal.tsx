@@ -10,8 +10,8 @@ interface HistoryLine {
 export const InteractiveTerminal = () => {
   const [inputVal, setInputVal] = useState('');
   const [history, setHistory] = useState<HistoryLine[]>([
-    { id: 1, type: 'system', text: 'Grymik OS v2.4 (x86_64-pc-linux-gnu)' },
-    { id: 2, type: 'system', text: 'Type "help" or click suggestions below.' },
+    { id: 1, type: 'system', text: 'Yugeen Console v2.4 (x86_64-station)' },
+    { id: 2, type: 'system', text: 'Type "help" or click suggestion pills below.' },
   ]);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -39,34 +39,34 @@ export const InteractiveTerminal = () => {
         newLines.push(
           { id: Date.now() + 1, type: 'output', text: '1. NetMorph — Network Protocol Inspector & LLM Studio' },
           { id: Date.now() + 2, type: 'output', text: '2. Courier-Manager — Logistics delivery router & dispatch' },
-          { id: Date.now() + 3, type: 'output', text: '3. Telemetry Monitor — Microservice health agent' }
+          { id: Date.now() + 3, type: 'output', text: '3. Game Systems Core — Game loops, physics & ECS architecture' }
         );
         break;
       case 'stack':
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Core: React 19, TypeScript, Vite, Node.js, Docker, Nginx, Zustand, Linux',
+          text: 'Languages: C++, C#, TypeScript, JavaScript | Domains: GameDev, Mobile, Web, Systems',
         });
         break;
       case 'contact':
         newLines.push(
           { id: Date.now() + 1, type: 'output', text: `Telegram: ${personalInfo.telegram}` },
-          { id: Date.now() + 2, type: 'output', text: `Email: ${personalInfo.email}` }
+          { id: Date.now() + 2, type: 'output', text: `Instagram: ${personalInfo.instagram}` }
         );
         break;
       case 'hire':
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Status: AVAILABLE for interesting engineering contracts & teams.',
+          text: 'Status: AVAILABLE for games, mobile apps, and fullstack projects.',
         });
         break;
       case 'whoami':
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'guest@grymik-station: session authenticated.',
+          text: 'guest@yugeen-station: session authenticated [guest-mode].',
         });
         break;
       case 'clear':
@@ -99,9 +99,9 @@ export const InteractiveTerminal = () => {
           <span className="terminal-dot min" />
           <span className="terminal-dot max" />
         </div>
-        <span>terminal@grymik:~</span>
+        <span>terminal@yugeen:~</span>
         <div style={{ display: 'flex', gap: '0.3rem' }}>
-          {['stack', 'projects', 'hire'].map((btn) => (
+          {['stack', 'projects', 'contact'].map((btn) => (
             <button
               key={btn}
               onClick={() => executeCommand(btn)}
