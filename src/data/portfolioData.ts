@@ -65,7 +65,7 @@ export const skillCategories: SkillCategory[] = [
   {
     category: "Языки программирования",
     iconName: "Code2",
-    skills: ["C++", "C#", "TypeScript", "JavaScript", "SQL", "HTML5 / CSS3"]
+    skills: ["C++", "C#", "Python", "TypeScript", "JavaScript", "SQL", "HTML5 / CSS3"]
   },
   {
     category: "GameDev & Десктоп",

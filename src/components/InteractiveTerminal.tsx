@@ -13,13 +13,16 @@ export const InteractiveTerminal = () => {
     { id: 1, type: 'system', text: 'Yugeen Console v2.4 (x86_64-station)' },
     { id: 2, type: 'system', text: 'Type "help" or click suggestion pills below.' },
   ]);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
 
+  // Auto-scroll ONLY internal terminal body, NEVER the browser window
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (bodyRef.current) {
+      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+    }
   }, [history]);
 
-  const executeCommand = (cmdStr: string) => {
+  const executeCommand = (cmdStr: string, shouldScrollWindow: boolean = false) => {
     const trimmed = cmdStr.trim().toLowerCase();
     if (!trimmed) return;
 
@@ -41,19 +44,28 @@ export const InteractiveTerminal = () => {
           { id: Date.now() + 2, type: 'output', text: '2. Courier-Manager — Logistics delivery router & dispatch' },
           { id: Date.now() + 3, type: 'output', text: '3. Game Systems Core — Game loops, physics & ECS architecture' }
         );
+        if (shouldScrollWindow) {
+          document.getElementById('projects-deck')?.scrollIntoView({ behavior: 'smooth' });
+        }
         break;
       case 'stack':
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'Languages: C++, C#, TypeScript, JavaScript | Domains: GameDev, Mobile, Web, Systems',
+          text: 'Languages: C++, C#, Python, TypeScript, JavaScript | Domains: GameDev, Mobile, Web, Systems',
         });
+        if (shouldScrollWindow) {
+          document.getElementById('skills-deck')?.scrollIntoView({ behavior: 'smooth' });
+        }
         break;
       case 'contact':
         newLines.push(
           { id: Date.now() + 1, type: 'output', text: `Telegram: ${personalInfo.telegram}` },
           { id: Date.now() + 2, type: 'output', text: `Instagram: ${personalInfo.instagram}` }
         );
+        if (shouldScrollWindow) {
+          document.getElementById('contact-deck')?.scrollIntoView({ behavior: 'smooth' });
+        }
         break;
       case 'hire':
         newLines.push({
@@ -87,8 +99,14 @@ export const InteractiveTerminal = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      executeCommand(inputVal);
+      // User typing command inside console: DO NOT scroll the page
+      executeCommand(inputVal, false);
     }
+  };
+
+  const handleNavPillClick = (target: string) => {
+    // When clicking header pills: execute command in terminal AND smooth-scroll to section
+    executeCommand(target, true);
   };
 
   return (
@@ -100,21 +118,35 @@ export const InteractiveTerminal = () => {
           <span className="terminal-dot max" />
         </div>
         <span>terminal@yugeen:~</span>
-        <div style={{ display: 'flex', gap: '0.3rem' }}>
-          {['stack', 'projects', 'contact'].map((btn) => (
-            <button
-              key={btn}
-              onClick={() => executeCommand(btn)}
-              className="cli-btn"
-              style={{ padding: '0.1rem 0.4rem', fontSize: '0.7rem' }}
-            >
-              {btn}
-            </button>
-          ))}
+        <div style={{ display: 'flex', gap: '0.4rem' }}>
+          <button
+            onClick={() => handleNavPillClick('projects')}
+            className="cli-btn"
+            style={{ padding: '0.15rem 0.5rem', fontSize: '0.72rem' }}
+            title="Перейти к проектам"
+          >
+            projects
+          </button>
+          <button
+            onClick={() => handleNavPillClick('stack')}
+            className="cli-btn"
+            style={{ padding: '0.15rem 0.5rem', fontSize: '0.72rem' }}
+            title="Перейти к стеку"
+          >
+            stack
+          </button>
+          <button
+            onClick={() => handleNavPillClick('contact')}
+            className="cli-btn"
+            style={{ padding: '0.15rem 0.5rem', fontSize: '0.72rem' }}
+            title="Перейти к контактам"
+          >
+            contact
+          </button>
         </div>
       </div>
 
-      <div className="terminal-body">
+      <div className="terminal-body" ref={bodyRef}>
         {history.map((line) => (
           <div
             key={line.id}
@@ -143,7 +175,6 @@ export const InteractiveTerminal = () => {
             aria-label="Ввод команды в терминале"
           />
         </div>
-        <div ref={bottomRef} />
       </div>
     </div>
   );
