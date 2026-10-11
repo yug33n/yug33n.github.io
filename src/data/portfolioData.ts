@@ -5,7 +5,7 @@ export type Language = 'ru' | 'en';
 export const socialLinks = {
   telegram: "https://t.me/dim0kkk",
   instagram: "https://instagram.com/yug3en",
-  github: "https://github.com/grymik0",
+  github: "https://github.com/yug33n",
 };
 
 export const personalInfo = {
@@ -61,7 +61,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Геймификация продуктивности: уровни XP, квесты и 20-недельная тепловая карта активности"
       ],
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
-      githubUrl: "https://github.com/grymik0/WinTime",
+      githubUrl: "https://github.com/yug33n/WinTime",
       status: "Featured App"
     },
     {
@@ -76,7 +76,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "PWA-архитектура: автономная работа оффлайн и установка на любое устройство"
       ],
       techStack: ["TypeScript", "React", "PWA", "Node.js", "AI Knowledge Base", "PDF Parsing"],
-      githubUrl: "https://github.com/grymik0/Notiva",
+      githubUrl: "https://github.com/yug33n/Notiva",
       status: "Web & PWA"
     },
     {
@@ -90,7 +90,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "100% приватность и автономность без использования внешних платных облачных API"
       ],
       techStack: ["TypeScript / Python", "Ollama API", "Local LLMs", "CRPG Mechanics", "Procedural Story"],
-      githubUrl: "https://github.com/grymik0/aetheria-chronicles",
+      githubUrl: "https://github.com/yug33n/aetheria-chronicles",
       status: "AI Game"
     },
     {
@@ -104,7 +104,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Оптимизированный рендеринг тяжелых дампов с нулевым лагом интерфейса"
       ],
       techStack: ["React 19", "TypeScript", "Vite", "Zustand", "Monaco Editor", "Ollama API"],
-      githubUrl: "https://github.com/grymik0/NetMorph",
+      githubUrl: "https://github.com/yug33n/NetMorph",
       status: "Active"
     },
     {
@@ -118,7 +118,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Чистая компонентная архитектура на C# и интерактивное физическое взаимодействие"
       ],
       techStack: ["Unity", "C#", "3D Puzzles", "Game Physics", "Level Design", "Atmospheric Audio"],
-      githubUrl: "https://github.com/grymik0/Unremembered",
+      githubUrl: "https://github.com/yug33n/Unremembered",
       status: "Unity Game"
     },
     {
@@ -132,7 +132,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Чистый современный интерфейс без рекламы и фоновых процессов"
       ],
       techStack: ["C#", ".NET", "Desktop Audio", "Low Memory Footprint", "XAML / Modern UI"],
-      githubUrl: "https://github.com/grymik0/Resonance",
+      githubUrl: "https://github.com/yug33n/Resonance",
       status: "Desktop"
     },
     {
@@ -146,7 +146,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Интеграция с Yandex Games SDK, звуковыми эффектами и таблицей рекордов"
       ],
       techStack: ["JavaScript", "HTML5", "Modern CSS", "Game Loop", "Yandex Games SDK", "Web Audio"],
-      githubUrl: "https://github.com/grymik0/Courier-Manager",
+      githubUrl: "https://github.com/yug33n/Courier-Manager",
       status: "Web Game"
     }
   ],
@@ -163,7 +163,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Productivity gamification: XP levels, daily quests, and a 20-week GitHub-style activity heatmap"
       ],
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
-      githubUrl: "https://github.com/grymik0/WinTime",
+      githubUrl: "https://github.com/yug33n/WinTime",
       status: "Featured App"
     },
     {
@@ -178,7 +178,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "PWA architecture: fully functional offline with instant install on any device"
       ],
       techStack: ["TypeScript", "React", "PWA", "Node.js", "AI Knowledge Base", "PDF Parsing"],
-      githubUrl: "https://github.com/grymik0/Notiva",
+      githubUrl: "https://github.com/yug33n/Notiva",
       status: "Web & PWA"
     },
     {
@@ -192,7 +192,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "100% private and autonomous operation with zero reliance on paid cloud APIs"
       ],
       techStack: ["TypeScript / Python", "Ollama API", "Local LLMs", "CRPG Mechanics", "Procedural Story"],
-      githubUrl: "https://github.com/grymik0/aetheria-chronicles",
+      githubUrl: "https://github.com/yug33n/aetheria-chronicles",
       status: "AI Game"
     },
     {
@@ -206,7 +206,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Optimized rendering engine for massive dumps with zero UI stutter"
       ],
       techStack: ["React 19", "TypeScript", "Vite", "Zustand", "Monaco Editor", "Ollama API"],
-      githubUrl: "https://github.com/grymik0/NetMorph",
+      githubUrl: "https://github.com/yug33n/NetMorph",
       status: "Active"
     },
     {
@@ -220,7 +220,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Clean component architecture in C# with responsive event triggers and sound design"
       ],
       techStack: ["Unity", "C#", "3D Puzzles", "Game Physics", "Level Design", "Atmospheric Audio"],
-      githubUrl: "https://github.com/grymik0/Unremembered",
+      githubUrl: "https://github.com/yug33n/Unremembered",
       status: "Unity Game"
     },
     {
@@ -234,7 +234,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Clean modern UI without ads, bloatware, or background telemetry"
       ],
       techStack: ["C#", ".NET", "Desktop Audio", "Low Memory Footprint", "XAML / Modern UI"],
-      githubUrl: "https://github.com/grymik0/Resonance",
+      githubUrl: "https://github.com/yug33n/Resonance",
       status: "Desktop"
     },
     {
@@ -248,7 +248,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Yandex Games SDK integration, web audio sound effects, and global leaderboards"
       ],
       techStack: ["JavaScript", "HTML5", "Modern CSS", "Game Loop", "Yandex Games SDK", "Web Audio"],
-      githubUrl: "https://github.com/grymik0/Courier-Manager",
+      githubUrl: "https://github.com/yug33n/Courier-Manager",
       status: "Web Game"
     }
   ]
