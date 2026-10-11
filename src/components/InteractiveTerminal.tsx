@@ -193,8 +193,8 @@ export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProp
           <span className="terminal-dot min" />
           <span className="terminal-dot max" />
         </div>
-        <span>terminal@yugeen:~</span>
-        <div style={{ display: 'flex', gap: '0.4rem' }}>
+        <span className="terminal-title">terminal@yugeen:~</span>
+        <div className="terminal-pills-wrap">
           <button
             onClick={() => handleNavPillClick('projects')}
             className="cli-btn"
