@@ -65,6 +65,20 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       status: "Featured App"
     },
     {
+      id: "pipeflow",
+      title: "PipeFlow",
+      tagline: "Визуальный симулятор архитектуры процессора и веб-IDE",
+      description: "Интерактивная обучающая игра-головоломка и веб-IDE, вдохновленная классической архитектурой фон Неймана и концепцией Human Resource Machine. Игрок берет на себя роль архитектора низкоуровневых алгоритмов, собирая программы из ассемблероподобных инструкций (ISA-9) для управления потоками данных процессора.",
+      highlights: [
+        "Визуальная симуляция процессора в реальном времени: регистры, RAM Floor, очереди INBOX/OUTBOX и шины данных",
+        "Полноценная система команд ISA-9: арифметические инструкции, адресация памяти и условные переходы (JUMP, JUMP_ZERO, JUMP_NEG)",
+        "Интерактивный Drag & Drop редактор на dnd-kit, пошаговый отладчик с регулировкой тактовой частоты и система валидации тестов"
+      ],
+      techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "dnd-kit", "Web IDE"],
+      githubUrl: "https://github.com/yug33n/PipeFlow",
+      status: "Web Game & IDE"
+    },
+    {
       id: "notiva",
       title: "Notiva",
       tagline: "Интеллектуальная база знаний и учебный ассистент (PWA)",
@@ -165,6 +179,20 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
       githubUrl: "https://github.com/yug33n/WinTime",
       status: "Featured App"
+    },
+    {
+      id: "pipeflow",
+      title: "PipeFlow",
+      tagline: "Visual CPU architecture simulator & puzzle Web IDE",
+      description: "Interactive educational puzzle game and web IDE inspired by classic von Neumann architecture and Human Resource Machine. Players design low-level algorithms by assembling assembly-like instructions (ISA-9) to control data streams, registers, and memory slots in real time.",
+      highlights: [
+        "Real-time CPU execution visualization: registers, RAM floor, INBOX/OUTBOX queues, and animated data buses",
+        "Full ISA-9 instruction set architecture: arithmetic, memory manipulation, and conditional branch jumps",
+        "Interactive Drag & Drop instruction editor on dnd-kit, step debugger with variable clock speed, and test runner"
+      ],
+      techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "dnd-kit", "Web IDE"],
+      githubUrl: "https://github.com/yug33n/PipeFlow",
+      status: "Web Game & IDE"
     },
     {
       id: "notiva",
