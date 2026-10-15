@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Send, Sparkles, Terminal as TerminalIcon, FolderGit2 } from 'lucide-react';
+import { Send, Sparkles, Terminal as TerminalIcon, FolderGit2, Archive, ChevronDown } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { ProjectCard } from './components/ProjectCard';
+import { CompactProjectCard } from './components/CompactProjectCard';
+import type { ProjectItem } from './types';
 import { InteractiveTerminal } from './components/InteractiveTerminal';
 import { SkillsGrid } from './components/SkillsGrid';
 import { GithubIcon } from './components/icons/GithubIcon';
@@ -21,6 +23,8 @@ export function App() {
     return saved === 'ru' ? 'ru' : 'en'; // Defaults to English as requested
   });
   const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
+  const [isArchiveOpen, setIsArchiveOpen] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'csharp' | 'web' | 'ai' | 'gamedev'>('all');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -44,8 +48,53 @@ export function App() {
   };
 
   const t = uiText[language];
-  const projects = projectsContent[language];
+  const allProjects = projectsContent[language];
+  const featuredProjects = allProjects.filter((p) => p.featured);
+  const archiveProjects = allProjects.filter((p) => !p.featured);
   const skills = skillCategoriesData[language];
+
+  const filterCategoryMatches = (project: ProjectItem, filter: string) => {
+    if (filter === 'all') return true;
+    const stack = project.techStack.map((s) => s.toLowerCase()).join(' ');
+    const desc = (project.title + ' ' + project.tagline + ' ' + project.description).toLowerCase();
+
+    if (filter === 'csharp') {
+      return stack.includes('c#') || stack.includes('.net') || desc.includes('c#') || desc.includes('.net');
+    }
+    if (filter === 'web') {
+      return (
+        stack.includes('react') ||
+        stack.includes('typescript') ||
+        stack.includes('javascript') ||
+        stack.includes('html') ||
+        stack.includes('web') ||
+        stack.includes('pwa')
+      );
+    }
+    if (filter === 'ai') {
+      return (
+        stack.includes('llm') ||
+        stack.includes('ai') ||
+        stack.includes('ollama') ||
+        desc.includes('llm') ||
+        desc.includes('нейросет')
+      );
+    }
+    if (filter === 'gamedev') {
+      return stack.includes('unity') || stack.includes('game') || desc.includes('game') || desc.includes('игр');
+    }
+    return true;
+  };
+
+  const filteredArchiveProjects = archiveProjects.filter((p) => filterCategoryMatches(p, activeFilter));
+
+  const filterOptions = [
+    { id: 'all', label: t.filterAll, count: archiveProjects.length },
+    { id: 'csharp', label: t.filterCsharp, count: archiveProjects.filter((p) => filterCategoryMatches(p, 'csharp')).length },
+    { id: 'web', label: t.filterWeb, count: archiveProjects.filter((p) => filterCategoryMatches(p, 'web')).length },
+    { id: 'ai', label: t.filterAi, count: archiveProjects.filter((p) => filterCategoryMatches(p, 'ai')).length },
+    { id: 'gamedev', label: t.filterGames, count: archiveProjects.filter((p) => filterCategoryMatches(p, 'gamedev')).length },
+  ];
 
   return (
     <>
@@ -117,10 +166,59 @@ export function App() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-            {projects.map((project) => (
+            {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} repoButtonLabel={t.repoBtn} />
             ))}
           </div>
+
+          {/* ARCHIVE TOGGLE BUTTON */}
+          <div className="archive-toggle-wrap">
+            <button
+              onClick={() => setIsArchiveOpen(!isArchiveOpen)}
+              className="archive-toggle-btn"
+              aria-expanded={isArchiveOpen}
+            >
+              <Archive size={17} color="var(--accent-primary)" />
+              <span>
+                {isArchiveOpen
+                  ? t.archiveHideBtn
+                  : `${t.archiveBtn} (${archiveProjects.length})`}
+              </span>
+              <ChevronDown
+                size={17}
+                style={{
+                  transform: isArchiveOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'transform var(--transition-fast)',
+                }}
+              />
+            </button>
+          </div>
+
+          {/* EXPANDABLE ARCHIVE DRAWER */}
+          {isArchiveOpen && (
+            <div className="archive-container">
+              {/* Quick Access Filter Chips */}
+              <div className="archive-filters-bar">
+                {filterOptions.map((opt) => (
+                  <button
+                    key={opt.id}
+                    onClick={() => setActiveFilter(opt.id as any)}
+                    className={`archive-filter-chip ${activeFilter === opt.id ? 'active' : ''}`}
+                  >
+                    <span>{opt.label}</span>
+                    <span className="archive-chip-count">{opt.count}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Compact Archive Cards Grid */}
+              <div className="archive-grid">
+                {filteredArchiveProjects.map((project) => (
+                  <CompactProjectCard key={project.id} project={project} />
+                ))}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* INTERACTIVE CONSOLE / TERMINAL DECK */}

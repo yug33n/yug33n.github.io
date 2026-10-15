@@ -51,6 +51,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
   ru: [
     {
       id: "wintime",
+      featured: true,
       title: "WinTime",
       tagline: "Privacy-first трекер экранного времени и продуктивности для Windows",
       description: "Тихое приложение в системном трее Windows: детально отслеживает активные процессы, вкладки браузеров (Chrome, Edge, Opera) и проекты без замедления системы. 100% данных хранятся локально в SQLite — никакой телеметрии, облаков и учетных записей.",
@@ -66,6 +67,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
     },
     {
       id: "lucidtune",
+      featured: true,
       title: "LucidTune",
       tagline: "Плавающий Dynamic Island медиа-виджет для Windows 10/11",
       description: "Ультралегковесный кастомизируемый оверлей-виджет в стиле Dynamic Island для Windows 10 и 11. Отображает метаданные треков в реальном времени, обложки альбомов, шкалу прогресса и элементы управления воспроизведением поверх окон и игр с эффектом тёмного матового стекла и поддержкой глобальных хоткеев.",
@@ -74,12 +76,13 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Элегантный оверлей в стиле матового стекла (Frosted Glass), кинематографичная анимация сворачивания и автоскрытие",
         "Глобальные горячие клавиши, интеграция с системным треем, минимальный футпринт (< 25 МБ RAM) и нулевой лаг"
       ],
-      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
+      techStack: [".NET 10", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
       githubUrl: "https://github.com/yug33n/LucidTune",
       status: "Desktop Overlay"
     },
     {
       id: "pipeflow",
+      featured: true,
       title: "PipeFlow",
       tagline: "Визуальный симулятор архитектуры процессора и веб-IDE",
       description: "Интерактивная обучающая игра-головоломка и веб-IDE, вдохновленная классической архитектурой фон Неймана и концепцией Human Resource Machine. Игрок берет на себя роль архитектора низкоуровневых алгоритмов, собирая программы из ассемблероподобных инструкций (ISA-9) для управления потоками данных процессора.",
@@ -94,6 +97,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
     },
     {
       id: "notiva",
+      featured: true,
       title: "Notiva",
       tagline: "Интеллектуальная база знаний и учебный ассистент (PWA)",
       description: "Кроссплатформенное клиент-серверное веб-приложение для студентов и исследователей. Принимает учебные материалы (конспекты, PDF-учебники, аудио лекций) и автоматически трансформирует их в структурированную базу знаний, флеш-карточки Anki и интерактивные квизы.",
@@ -181,6 +185,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
   en: [
     {
       id: "wintime",
+      featured: true,
       title: "WinTime",
       tagline: "Privacy-first Windows screen time & productivity tracker",
       description: "Runs quietly in your Windows system tray, tracking foreground window activity, process uptime, detailed browser tabs (Chrome, Edge, Opera), and projects without slowing down your system. 100% of your data stays in a local SQLite database — zero cloud sync, zero telemetry.",
@@ -196,6 +201,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
     },
     {
       id: "lucidtune",
+      featured: true,
       title: "LucidTune",
       tagline: "Floating Dynamic Island media overlay widget for Windows 10/11",
       description: "Ultra-lightweight, customizable desktop overlay widget in Dynamic Island style for Windows 10 and 11. Brings real-time media metadata, album artwork, track playback progress, and playback controls directly above apps and games with a frosted glass aesthetic and customizable global hotkeys.",
@@ -210,6 +216,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
     },
     {
       id: "pipeflow",
+      featured: true,
       title: "PipeFlow",
       tagline: "Visual CPU architecture simulator & puzzle Web IDE",
       description: "Interactive educational puzzle game and web IDE inspired by classic von Neumann architecture and Human Resource Machine. Players design low-level algorithms by assembling assembly-like instructions (ISA-9) to control data streams, registers, and memory slots in real time.",
@@ -224,6 +231,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
     },
     {
       id: "notiva",
+      featured: true,
       title: "Notiva",
       tagline: "Intelligent knowledge base & study assistant (PWA)",
       description: "Cross-platform client-server web app for students and academic professionals. It ingests study materials (notes, PDF textbooks, lecture audio recordings) and automatically transforms them into structured knowledge bases, Anki-style active recall flashcards, and interactive quizzes.",
@@ -402,6 +410,14 @@ export const uiText: Record<Language, {
   instagramBtn: string;
   githubBtn: string;
   repoBtn: string;
+  archiveBtn: string;
+  archiveHideBtn: string;
+  archiveSubheader: string;
+  filterAll: string;
+  filterCsharp: string;
+  filterWeb: string;
+  filterAi: string;
+  filterGames: string;
   footerRights: string;
 }> = {
   ru: {
@@ -428,6 +444,14 @@ export const uiText: Record<Language, {
     telegramBtn: "Написать в Telegram",
     instagramBtn: "Instagram",
     githubBtn: "GitHub",
+    archiveBtn: "Архив проектов",
+    archiveHideBtn: "Скрыть архив",
+    archiveSubheader: "Остальные разработки и эксперименты",
+    filterAll: "Все",
+    filterCsharp: "C# / .NET",
+    filterWeb: "React / Web",
+    filterAi: "AI & LLM",
+    filterGames: "GameDev",
     repoBtn: "Репозиторий",
     footerRights: "yugeen"
   },
@@ -455,6 +479,14 @@ export const uiText: Record<Language, {
     telegramBtn: "Message on Telegram",
     instagramBtn: "Instagram",
     githubBtn: "GitHub",
+    archiveBtn: "Project Archive",
+    archiveHideBtn: "Hide Archive",
+    archiveSubheader: "More projects & lab experiments",
+    filterAll: "All",
+    filterCsharp: "C# / .NET",
+    filterWeb: "React / Web",
+    filterAi: "AI & LLM",
+    filterGames: "GameDev",
     repoBtn: "Repository",
     footerRights: "yugeen"
   }
