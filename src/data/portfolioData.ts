@@ -65,6 +65,20 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       status: "Featured App"
     },
     {
+      id: "lucidtune",
+      title: "LucidTune",
+      tagline: "Плавающий Dynamic Island медиа-виджет для Windows 10/11",
+      description: "Ультралегковесный кастомизируемый оверлей-виджет в стиле Dynamic Island для Windows 10 и 11. Отображает метаданные треков в реальном времени, обложки альбомов, шкалу прогресса и элементы управления воспроизведением поверх окон и игр с эффектом тёмного матового стекла и поддержкой глобальных хоткеев.",
+      highlights: [
+        "Интеграция с Windows Media (SMTC): автосинхронизация со Spotify, Яндекс Музыкой, VK, YouTube, Telegram, VLC и AIMP",
+        "Элегантный оверлей в стиле матового стекла (Frosted Glass), кинематографичная анимация сворачивания и автоскрытие",
+        "Глобальные горячие клавиши, интеграция с системным треем, минимальный футпринт (< 25 МБ RAM) и нулевой лаг"
+      ],
+      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
+      githubUrl: "https://github.com/yug33n/LucidTune",
+      status: "Desktop Overlay"
+    },
+    {
       id: "pipeflow",
       title: "PipeFlow",
       tagline: "Визуальный симулятор архитектуры процессора и веб-IDE",
@@ -179,6 +193,20 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
       githubUrl: "https://github.com/yug33n/WinTime",
       status: "Featured App"
+    },
+    {
+      id: "lucidtune",
+      title: "LucidTune",
+      tagline: "Floating Dynamic Island media overlay widget for Windows 10/11",
+      description: "Ultra-lightweight, customizable desktop overlay widget in Dynamic Island style for Windows 10 and 11. Brings real-time media metadata, album artwork, track playback progress, and playback controls directly above apps and games with a frosted glass aesthetic and customizable global hotkeys.",
+      highlights: [
+        "Windows Media (SMTC) integration: seamlessly syncs with Spotify, Yandex Music, YouTube, Telegram, VLC, and AIMP",
+        "Frosted glass Dynamic Island design, cinematic minimize-to-taskbar animations, and hover-triggered controls",
+        "Configurable global hotkeys, Windows system tray integration, ultra-low resource footprint (< 25 MB RAM), and zero latency"
+      ],
+      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
+      githubUrl: "https://github.com/yug33n/LucidTune",
+      status: "Desktop Overlay"
     },
     {
       id: "pipeflow",
