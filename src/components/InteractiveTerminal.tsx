@@ -69,56 +69,64 @@ export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProp
             type: 'output',
             text:
               language === 'ru'
-                ? '2. PipeFlow — Визуальный симулятор архитектуры CPU и веб-IDE (React 19, TS)'
-                : '2. PipeFlow — Visual CPU architecture simulator & puzzle Web IDE (React 19, TS)',
+                ? '2. LucidTune — Плавающий Dynamic Island медиа-виджет для Windows (.NET 9, C#)'
+                : '2. LucidTune — Floating Dynamic Island media overlay widget (.NET 9, C#)',
           },
           {
             id: Date.now() + 3,
             type: 'output',
             text:
               language === 'ru'
-                ? '3. Notiva — База знаний и флеш-карточки активного вспоминания (PWA, React)'
-                : '3. Notiva — AI study knowledge base & active recall flashcards (PWA, React)',
+                ? '3. PipeFlow — Визуальный симулятор архитектуры CPU и веб-IDE (React 19, TS)'
+                : '3. PipeFlow — Visual CPU architecture simulator & puzzle Web IDE (React 19, TS)',
           },
           {
             id: Date.now() + 4,
             type: 'output',
             text:
               language === 'ru'
-                ? '4. Aetheria Chronicles — Текстовая CRPG на локальных LLM (Ollama)'
-                : '4. Aetheria Chronicles — Text CRPG powered by local LLMs (Ollama)',
+                ? '4. Notiva — База знаний и флеш-карточки активного вспоминания (PWA, React)'
+                : '4. Notiva — AI study knowledge base & active recall flashcards (PWA, React)',
           },
           {
             id: Date.now() + 5,
             type: 'output',
             text:
               language === 'ru'
-                ? '5. NetMorph — Сетевой анализатор дампов & LLM Studio (React, TS)'
-                : '5. NetMorph — Network protocol inspector & LLM Studio (React, TS)',
+                ? '5. Aetheria Chronicles — Текстовая CRPG на локальных LLM (Ollama)'
+                : '5. Aetheria Chronicles — Text CRPG powered by local LLMs (Ollama)',
           },
           {
             id: Date.now() + 6,
             type: 'output',
             text:
               language === 'ru'
-                ? '6. Unremembered — 3D головоломка про восстановление памяти (Unity, C#)'
-                : '6. Unremembered — 3D memory restoration puzzle game (Unity, C#)',
+                ? '6. NetMorph — Сетевой анализатор дампов & LLM Studio (React, TS)'
+                : '6. NetMorph — Network protocol inspector & LLM Studio (React, TS)',
           },
           {
             id: Date.now() + 7,
             type: 'output',
             text:
               language === 'ru'
-                ? '7. Resonance — Быстрый десктопный аудиоплеер на C# (.NET)'
-                : '7. Resonance — Desktop audio player with custom audio engine (C#)',
+                ? '7. Unremembered — 3D головоломка про восстановление памяти (Unity, C#)'
+                : '7. Unremembered — 3D memory restoration puzzle game (Unity, C#)',
           },
           {
             id: Date.now() + 8,
             type: 'output',
             text:
               language === 'ru'
-                ? '8. Курьер-Менеджер — Аркадная веб-игра про логистику ПВЗ (HTML5, JS)'
-                : '8. Courier Manager — Action parcel dispatch web game (HTML5, JS)',
+                ? '8. Resonance — Быстрый десктопный аудиоплеер на C# (.NET)'
+                : '8. Resonance — Desktop audio player with custom audio engine (C#)',
+          },
+          {
+            id: Date.now() + 9,
+            type: 'output',
+            text:
+              language === 'ru'
+                ? '9. Курьер-Менеджер — Аркадная веб-игра про логистику ПВЗ (HTML5, JS)'
+                : '9. Courier Manager — Action parcel dispatch web game (HTML5, JS)',
           }
         );
         if (shouldScrollWindow) {
