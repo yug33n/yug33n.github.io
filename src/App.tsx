@@ -330,18 +330,18 @@ export function App() {
           </div>
         </section>
 
-        {/* Footnote about private repositories at the bottom of the site */}
-        <div className="footer-note-wrap">
-          <span className="footer-note-asterisk">*</span>
-          <span>{t.footerPrivateNote}</span>
-        </div>
-
-        {/* Minimal Footer */}
-        <footer style={{ marginTop: '1.25rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', color: 'var(--text-dim)', fontSize: '0.8rem' }}>
-          <div>
+        {/* Minimal Footer with Inline Asterisk Footnote */}
+        <footer className="app-footer">
+          <div className="footer-copyright">
             © {new Date().getFullYear()} {t.footerRights}
           </div>
-          <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
+
+          <div className="footer-middle-note">
+            <span className="footer-note-asterisk">*</span>
+            <span>{t.footerPrivateNote}</span>
+          </div>
+
+          <div className="footer-links">
             <a
               href={socialLinks.telegram}
               target="_blank"
