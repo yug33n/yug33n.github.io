@@ -1,13 +1,18 @@
-import { FolderGit2 } from 'lucide-react';
+﻿import { FolderGit2, Download } from 'lucide-react';
 import { GithubIcon } from './icons/GithubIcon';
 import type { ProjectItem } from '../types';
 
 interface ProjectCardProps {
   project: ProjectItem;
   repoButtonLabel?: string;
+  downloadButtonLabel?: string;
 }
 
-export const ProjectCard = ({ project, repoButtonLabel = 'Репозиторий' }: ProjectCardProps) => {
+export const ProjectCard = ({
+  project,
+  repoButtonLabel = 'Репозиторий',
+  downloadButtonLabel = 'Скачать',
+}: ProjectCardProps) => {
   return (
     <article className="glass-card project-card">
       <div className="project-header">
@@ -35,6 +40,18 @@ export const ProjectCard = ({ project, repoButtonLabel = 'Репозиторий
         </div>
 
         <div className="project-links">
+          {project.downloadUrl && (
+            <a
+              href={project.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="action-link download-btn"
+              title={downloadButtonLabel}
+            >
+              <Download size={14} />
+              <span>{downloadButtonLabel}</span>
+            </a>
+          )}
           {project.githubUrl && (
             <a
               href={project.githubUrl}

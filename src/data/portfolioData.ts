@@ -63,6 +63,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       ],
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
       githubUrl: "https://github.com/yug33n/WinTime",
+      downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
       status: "Featured App"
     },
     {
@@ -76,8 +77,9 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Элегантный оверлей в стиле матового стекла (Frosted Glass), кинематографичная анимация сворачивания и автоскрытие",
         "Глобальные горячие клавиши, интеграция с системным треем, минимальный футпринт (< 25 МБ RAM) и нулевой лаг"
       ],
-      techStack: [".NET 10", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
+      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
       githubUrl: "https://github.com/yug33n/LucidTune",
+      downloadUrl: "https://github.com/yug33n/LucidTune/releases/tag/v1.0.3",
       status: "Desktop Overlay"
     },
     {
@@ -197,6 +199,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       ],
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
       githubUrl: "https://github.com/yug33n/WinTime",
+      downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
       status: "Featured App"
     },
     {
@@ -212,6 +215,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       ],
       techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
       githubUrl: "https://github.com/yug33n/LucidTune",
+      downloadUrl: "https://github.com/yug33n/LucidTune/releases/tag/v1.0.3",
       status: "Desktop Overlay"
     },
     {
@@ -413,11 +417,14 @@ export const uiText: Record<Language, {
   archiveBtn: string;
   archiveHideBtn: string;
   archiveSubheader: string;
+  archivePrivateNote: string;
+  footerPrivateNote: string;
   filterAll: string;
   filterCsharp: string;
   filterWeb: string;
   filterAi: string;
   filterGames: string;
+  downloadBtn: string;
   footerRights: string;
 }> = {
   ru: {
@@ -447,11 +454,14 @@ export const uiText: Record<Language, {
     archiveBtn: "Архив проектов",
     archiveHideBtn: "Скрыть архив",
     archiveSubheader: "Остальные разработки и эксперименты",
+    archivePrivateNote: "Часть репозиториев находится в приватном доступе (NDA / активная разработка). Доступ к исходному коду может быть предоставлен по запросу.",
+    footerPrivateNote: "Многие репозитории проектов являются приватными. Исходный код может быть предоставлен по запросу.",
     filterAll: "Все",
     filterCsharp: "C# / .NET",
     filterWeb: "React / Web",
     filterAi: "AI & LLM",
     filterGames: "GameDev",
+    downloadBtn: "Скачать",
     repoBtn: "Репозиторий",
     footerRights: "yugeen"
   },
@@ -482,11 +492,14 @@ export const uiText: Record<Language, {
     archiveBtn: "Project Archive",
     archiveHideBtn: "Hide Archive",
     archiveSubheader: "More projects & lab experiments",
+    archivePrivateNote: "Some project repositories are private (NDA / active development). Source code access can be provided upon request.",
+    footerPrivateNote: "Many project repositories are private. Source code access can be provided upon request.",
     filterAll: "All",
     filterCsharp: "C# / .NET",
     filterWeb: "React / Web",
     filterAi: "AI & LLM",
     filterGames: "GameDev",
+    downloadBtn: "Download",
     repoBtn: "Repository",
     footerRights: "yugeen"
   }

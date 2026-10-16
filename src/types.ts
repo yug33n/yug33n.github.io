@@ -7,6 +7,7 @@ export interface ProjectItem {
   techStack: string[];
   demoUrl?: string;
   githubUrl?: string;
+  downloadUrl?: string;
   featured?: boolean;
   status?: string;
 }
