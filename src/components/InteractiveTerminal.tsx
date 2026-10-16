@@ -93,40 +93,8 @@ export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProp
             type: 'output',
             text:
               language === 'ru'
-                ? '5. Aetheria Chronicles — Текстовая CRPG на локальных LLM (Ollama)'
-                : '5. Aetheria Chronicles — Text CRPG powered by local LLMs (Ollama)',
-          },
-          {
-            id: Date.now() + 6,
-            type: 'output',
-            text:
-              language === 'ru'
-                ? '6. NetMorph — Сетевой анализатор дампов & LLM Studio (React, TS)'
-                : '6. NetMorph — Network protocol inspector & LLM Studio (React, TS)',
-          },
-          {
-            id: Date.now() + 7,
-            type: 'output',
-            text:
-              language === 'ru'
-                ? '7. Unremembered — 3D головоломка про восстановление памяти (Unity, C#)'
-                : '7. Unremembered — 3D memory restoration puzzle game (Unity, C#)',
-          },
-          {
-            id: Date.now() + 8,
-            type: 'output',
-            text:
-              language === 'ru'
-                ? '8. Resonance — Быстрый десктопный аудиоплеер на C# (.NET)'
-                : '8. Resonance — Desktop audio player with custom audio engine (C#)',
-          },
-          {
-            id: Date.now() + 9,
-            type: 'output',
-            text:
-              language === 'ru'
-                ? '9. Курьер-Менеджер — Аркадная веб-игра про логистику ПВЗ (HTML5, JS)'
-                : '9. Courier Manager — Action parcel dispatch web game (HTML5, JS)',
+                ? '... и многое другое в архиве проектов на сайте'
+                : '... and much more in the project archive below',
           }
         );
         if (shouldScrollWindow) {
