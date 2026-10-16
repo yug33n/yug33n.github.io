@@ -167,7 +167,7 @@ export function App() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
             {featuredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} repoButtonLabel={t.repoBtn} />
+              <ProjectCard key={project.id} project={project} repoButtonLabel={t.repoBtn} downloadButtonLabel={t.downloadBtn} />
             ))}
           </div>
 
@@ -216,6 +216,12 @@ export function App() {
                 {filteredArchiveProjects.map((project) => (
                   <CompactProjectCard key={project.id} project={project} />
                 ))}
+              </div>
+
+              {/* Private Repositories Footnote in Archive */}
+              <div className="archive-note">
+                <span className="archive-note-asterisk">*</span>
+                <span>{t.archivePrivateNote}</span>
               </div>
             </div>
           )}
@@ -324,12 +330,18 @@ export function App() {
           </div>
         </section>
 
-        {/* Minimal Footer */}
-        <footer style={{ marginTop: '4rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', color: 'var(--text-dim)', fontSize: '0.8rem' }}>
-          <div>
+        {/* Minimal Footer with Inline Asterisk Footnote */}
+        <footer className="app-footer">
+          <div className="footer-copyright">
             © {new Date().getFullYear()} {t.footerRights}
           </div>
-          <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
+
+          <div className="footer-middle-note">
+            <span className="footer-note-asterisk">*</span>
+            <span>{t.footerPrivateNote}</span>
+          </div>
+
+          <div className="footer-links">
             <a
               href={socialLinks.telegram}
               target="_blank"
