@@ -11,7 +11,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, language, onOpenDetails }: ProjectCardProps) => {
   return (
-    <div className="bento-featured-card" onClick={() => onOpenDetails(project)}>
+    <div className="bento-featured-card scroll-reveal" onClick={() => onOpenDetails(project)}>
       {/* Top Media / Mockup Preview Stage */}
       <div className="card-mockup-wrapper">
         <div className="mockup-window-header">

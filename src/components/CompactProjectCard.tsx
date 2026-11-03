@@ -9,7 +9,7 @@ interface CompactProjectCardProps {
 
 export const CompactProjectCard = ({ project, language }: CompactProjectCardProps) => {
   return (
-    <div className="bento-archive-card static-archive-card">
+    <div className="bento-archive-card static-archive-card scroll-reveal">
       <div className="archive-card-top">
         <div className="archive-icon-pill">
           <FolderGit2 size={16} />

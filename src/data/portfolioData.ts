@@ -155,7 +155,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
     },
     {
       id: "kinotask",
-      title: "Кинотаск (Kinotask)",
+      title: "KinTask",
       tagline: "Умный Telegram-бот для совместных заметок и задач с AI",
       description: "Современный многопользовательский Telegram-сервис для совместного ведения списков, заметок, фильмов и командных задач с интеллектуальной сортировкой и AI-помощником.",
       highlights: [
@@ -288,7 +288,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
     },
     {
       id: "kinotask",
-      title: "Kinotask",
+      title: "KinTask",
       tagline: "Smart Telegram bot for collaborative task & note management",
       description: "Real-time Telegram collaborative service for managing shared notes, watchlists, and task boards with automated AI categorization.",
       highlights: [
@@ -337,8 +337,8 @@ export const keypadSkillsData: KeypadSkill[] = [
     name: "C# & .NET",
     category: "desktop",
     color: "#a855f7",
-    descriptionRu: "Основной язык для разработки высокопроизводительного Windows-софта, служб и игровых движков. Опыт более 3 лет.",
-    descriptionEn: "Core language for high-performance Windows software, background services, and games. 3+ years experience.",
+    descriptionRu: "Основной язык для разработки высокопроизводительного Windows-софта, системных служб и архитектурных решений.",
+    descriptionEn: "Core language for high-performance Windows software, background services, and native desktop systems.",
     relatedProjects: ["WinTime", "LucidTune"]
   },
   {
@@ -519,7 +519,7 @@ export const uiText: Record<Language, {
     filterAi: "AI / LLM",
     detailsModalTitle: "Детали проекта",
     closeBtn: "Закрыть",
-    rightsText: "Югин 2026"
+    rightsText: "yug33n • 2026"
   },
   en: {
     status: "AVAILABLE FOR PROJECTS",
@@ -553,6 +553,6 @@ export const uiText: Record<Language, {
     filterAi: "AI / LLM",
     detailsModalTitle: "Project Details",
     closeBtn: "Close",
-    rightsText: "Yugin 2026"
+    rightsText: "yug33n • 2026"
   }
 };

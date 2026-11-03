@@ -40,6 +40,28 @@ export default function App() {
     localStorage.setItem('yugeen-lang', language);
   }, [language]);
 
+  // Cinematic Scroll Reveal Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [language, activeFilter]);
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -112,7 +134,7 @@ export default function App() {
         </section>
 
         {/* SECTION 1: FEATURED PROJECTS (Bento 2x2) */}
-        <section id="featured-deck" className="content-section">
+        <section id="featured-deck" className="content-section scroll-reveal">
           <div className="section-header-row">
             <div>
               <span className="section-tag-eyebrow">{t.featuredSubheader}</span>
@@ -138,7 +160,7 @@ export default function App() {
         </section>
 
         {/* SECTION 2: INTERACTIVE SKILLS KEYPAD */}
-        <section id="keypad-deck" className="content-section">
+        <section id="keypad-deck" className="content-section scroll-reveal">
           <div className="section-header-row">
             <div>
               <span className="section-tag-eyebrow">{t.keypadSubheader}</span>
@@ -150,7 +172,7 @@ export default function App() {
         </section>
 
         {/* SECTION 3: ARCHIVE & OTHER PROJECTS */}
-        <section id="archive-deck" className="content-section">
+        <section id="archive-deck" className="content-section scroll-reveal">
           <div className="section-header-row">
             <div>
               <span className="section-tag-eyebrow">{t.archiveSubheader}</span>
@@ -197,7 +219,7 @@ export default function App() {
         </section>
 
         {/* SECTION 4: GET IN TOUCH / CONTACT DOCK */}
-        <section id="contact-deck" className="content-section contact-section">
+        <section id="contact-deck" className="content-section contact-section scroll-reveal">
           <div className="contact-studio-card">
             <div className="contact-sparkle-pill">
               <Sparkles size={13} />
