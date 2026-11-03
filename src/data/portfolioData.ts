@@ -108,8 +108,8 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "nexora",
       featured: true,
       title: "Nexora",
-      tagline: "База данных",
-      description: "База данных.",
+      tagline: "Интеллектуальное пространство заметок и базы знаний с AI",
+      description: "Современная модульная среда для ведения заметок и командных баз знаний с акцентом на эстетику, приватность и скорость. Локальное хранение файлов, интерактивный граф связей между мыслями, совместные рабочие пространства и локальный AI-ассистент для быстрого поиска инсайтов и структурирования контента.",
       highlights: [
         "Интерактивный граф связей между заметками и концепциями в реальном времени",
         "Встроенный интеллектуальный AI-ассистент для анализа и быстрого синтеза идей",
@@ -241,8 +241,8 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "nexora",
       featured: true,
       title: "Nexora",
-      tagline: "Database",
-      description: "Database.",
+      tagline: "Next-gen intelligent note workspace & AI knowledge base",
+      description: "Modern modular environment for personal notes and collaborative team knowledge bases, built with a focus on aesthetics, privacy, and speed. Features local-first file storage, interactive concept graph, shared team spaces, and a local AI copilot for instant synthesis and structuring.",
       highlights: [
         "Interactive real-time graph visualization connecting ideas and notes",
         "Embedded AI copilot for summarizing and extracting knowledge",
