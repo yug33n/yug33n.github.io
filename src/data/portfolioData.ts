@@ -30,7 +30,7 @@ export const personalInfoData: Record<Language, {
     name: "Митя (yug33n)",
     role: "Software Developer",
     experienceBadge: "3 года опыта",
-    tagline: "Разработка десктопных решений, мобильных сервисов, игр и современного веба.",
+    tagline: "Разработка десктопных решений, мобильных сервисов и современного веба.",
     status: "Открыт для предложений & проектов",
     bio: [
       "Привет! Я Митя (в сети известен как yug33n). Занимаюсь разработкой софта уже более 3 лет: от системных утилит на C# и .NET 10 до интерактивных веб-сервисов на React 19 и архитектур с локальными LLM.",
@@ -41,7 +41,7 @@ export const personalInfoData: Record<Language, {
     name: "Mitya (yug33n)",
     role: "Software Developer",
     experienceBadge: "3+ Years of Experience",
-    tagline: "Engineering desktop software, mobile services, games & modern web.",
+    tagline: "Engineering desktop software, mobile services & modern web.",
     status: "Available for contracts & projects",
     bio: [
       "Hi! I'm Mitya (known online as yug33n). I've been engineering software for over 3 years: spanning native Windows system tools in C# & .NET 10, reactive web apps on React 19, and local LLM workflows.",
@@ -70,7 +70,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
       isPrivate: false,
       category: "csharp",
-      status: "Open Source"
+      status: "Desktop Utility"
     },
     {
       id: "lucidtune",
@@ -108,8 +108,8 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "nexora",
       featured: true,
       title: "Nexora",
-      tagline: "Модульное рабочее пространство заметок нового поколения с AI",
-      description: "Продвинутая среда для структурирования мыслей, конспектов и проектов по типу улучшенного Obsidian. Объединяет локальное хранение данных, интерактивный граф связей, командные рабочие пространства и встроенного локального AI-ассистента для суммаризации и поиска инсайтов.",
+      tagline: "Интеллектуальное пространство заметок и базы знаний с AI",
+      description: "Современная модульная среда для ведения заметок и командных баз знаний в духе Obsidian, переосмысленная с акцентом на эстетику и скорость. Локальное хранение файлов, интерактивный граф связей между мыслями, совместные рабочие пространства и локальный AI-ассистент для мгновенного поиска инсайтов и структурирования контента.",
       highlights: [
         "Интерактивный граф связей между заметками и концепциями в реальном времени",
         "Встроенный интеллектуальный AI-ассистент для анализа и быстрого синтеза идей",
@@ -119,7 +119,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       githubUrl: "https://github.com/yug33n/Nexora",
       isPrivate: false,
       category: "ai",
-      status: "Active Team Project"
+      status: "Workspace & AI"
     },
 
     // 4 Other Archive Projects
@@ -203,7 +203,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
       isPrivate: false,
       category: "csharp",
-      status: "Open Source"
+      status: "Desktop Utility"
     },
     {
       id: "lucidtune",
@@ -241,8 +241,8 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "nexora",
       featured: true,
       title: "Nexora",
-      tagline: "Next-gen modular AI knowledge workspace & notes",
-      description: "Advanced workspace for structuring knowledge, notes, and team projects inspired by an enhanced Obsidian. Blends local-first storage, dynamic concept graphs, collaborative spaces, and an embedded local AI assistant.",
+      tagline: "Next-gen intelligent note workspace & AI knowledge base",
+      description: "Modern modular environment for notes and team knowledge bases inspired by Obsidian, reimagined with refined aesthetics and speed. Features local-first file storage, interactive thought graph, collaborative spaces, and a local AI copilot for instant synthesis and structuring.",
       highlights: [
         "Interactive real-time graph visualization connecting ideas and notes",
         "Embedded AI copilot for summarizing and extracting knowledge",
@@ -252,7 +252,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       githubUrl: "https://github.com/yug33n/Nexora",
       isPrivate: false,
       category: "ai",
-      status: "Active Team Project"
+      status: "Workspace & AI"
     },
 
     // 4 Other Archive Projects
@@ -492,7 +492,7 @@ export const uiText: Record<Language, {
     heroGreeting: "Привет, я",
     heroName: "Митя (yug33n)",
     heroRole: "Универсальный разработчик",
-    heroBio: "Разрабатываю десктопные решения, мобильные сервисы, игры и современный веб. 3 года практического опыта. Фокусируюсь на чистой архитектуре, высокой отзывчивости и продуманном пользовательском опыте.",
+    heroBio: "Разрабатываю десктопные решения, мобильные сервисы и современный веб. 3 года практического опыта: чистая архитектура, высокая отзывчивость и продуманный UX.",
     navProjects: "Проекты",
     navSkills: "Стек & Клавиатура",
     navContact: "Связаться",
@@ -525,7 +525,7 @@ export const uiText: Record<Language, {
     heroGreeting: "Hi, I am",
     heroName: "Mitya (yug33n)",
     heroRole: "Versatile Software Engineer",
-    heroBio: "Engineering desktop software, mobile services, games & modern web platforms. 3 years of hands-on development. Focused on solid architecture, responsive performance, and refined UX.",
+    heroBio: "Engineering desktop software, mobile services & modern web platforms. 3+ years of hands-on experience: solid architecture, responsive performance, and refined UX.",
     navProjects: "Projects",
     navSkills: "Stack & Keypad",
     navContact: "Contact",

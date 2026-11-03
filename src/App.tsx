@@ -90,8 +90,6 @@ export default function App() {
           <div className="hero-status-pill">
             <span className="live-status-dot" />
             <span className="status-label">{t.status}</span>
-            <span className="dot-divider">•</span>
-            <span className="exp-label">{t.experiencePill}</span>
           </div>
 
           <h1 className="hero-main-heading">
