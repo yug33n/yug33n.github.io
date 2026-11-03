@@ -19,8 +19,6 @@ import {
   Sparkles,
   ArrowRight,
   Code2,
-  Check,
-  Copy,
   ExternalLink,
 } from 'lucide-react';
 
@@ -31,8 +29,7 @@ export default function App() {
     return saved === 'ru' ? 'ru' : 'en';
   });
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
-  const [activeFilter, setActiveFilter] = useState<'all' | 'csharp' | 'web' | 'ai'>('all');
-  const [copiedTg, setCopiedTg] = useState(false);
+  const [activeFilter, setActiveFilter] = useState<'all' | 'web' | 'ai'>('all');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -61,12 +58,6 @@ export default function App() {
     if (activeFilter === 'all') return true;
     return proj.category === activeFilter;
   });
-
-  const handleCopyTelegram = () => {
-    navigator.clipboard.writeText('@dim0kkk');
-    setCopiedTg(true);
-    setTimeout(() => setCopiedTg(false), 2000);
-  };
 
   return (
     <div className="portfolio-app-root">
@@ -153,7 +144,6 @@ export default function App() {
               <span className="section-tag-eyebrow">{t.keypadSubheader}</span>
               <h2 className="section-title">{t.keypadHeader}</h2>
             </div>
-            <p className="section-subtitle-text">{t.keypadHint}</p>
           </div>
 
           <SkillsKeypad language={language} />
@@ -167,19 +157,13 @@ export default function App() {
               <h2 className="section-title">{t.archiveHeader}</h2>
             </div>
 
-            {/* Category Filter Pills */}
+            {/* Category Filter Pills (All, Web, AI) */}
             <div className="archive-filter-tabs">
               <button
                 onClick={() => setActiveFilter('all')}
                 className={`filter-tab ${activeFilter === 'all' ? 'active' : ''}`}
               >
                 {t.filterAll}
-              </button>
-              <button
-                onClick={() => setActiveFilter('csharp')}
-                className={`filter-tab ${activeFilter === 'csharp' ? 'active' : ''}`}
-              >
-                {t.filterCsharp}
               </button>
               <button
                 onClick={() => setActiveFilter('web')}
@@ -202,10 +186,14 @@ export default function App() {
                 key={project.id}
                 project={project}
                 language={language}
-                onOpenDetails={setActiveProject}
               />
             ))}
           </div>
+
+          {/* Subtle Archive Footer Note */}
+          <p className="archive-footer-note">
+            + {t.archiveFooterNote}
+          </p>
         </section>
 
         {/* SECTION 4: GET IN TOUCH / CONTACT DOCK */}
@@ -219,39 +207,28 @@ export default function App() {
             <h2 className="contact-heading">{t.contactHeader}</h2>
             <p className="contact-description">{t.contactSubtitle}</p>
 
-            <div className="contact-channels-grid">
+            <div className="contact-channels-grid uniform-channels">
               {/* Telegram Card */}
-              <div className="contact-channel-item">
-                <a
-                  href={socialLinks.telegram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="channel-link-btn primary-tg"
-                >
-                  <Send size={16} />
-                  <span>{t.telegramBtn}</span>
-                  <ExternalLink size={13} className="ext-icon" />
-                </a>
-                <button
-                  onClick={handleCopyTelegram}
-                  className="copy-handle-btn"
-                  title="Copy Telegram username"
-                >
-                  {copiedTg ? <Check size={14} className="check-copied" /> : <Copy size={14} />}
-                  <span>@dim0kkk</span>
-                </button>
-              </div>
+              <a
+                href={socialLinks.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="channel-link-btn primary-tg uniform-item"
+              >
+                <Send size={18} />
+                <span>{t.telegramBtn}</span>
+                <ExternalLink size={13} className="ext-icon" />
+              </a>
 
               {/* GitHub Card */}
               <a
                 href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-channel-item channel-link-btn"
+                className="channel-link-btn uniform-item"
               >
-                <GithubIcon size={16} />
+                <GithubIcon size={18} />
                 <span>{t.githubBtn}</span>
-                <span className="channel-handle">github.com/yug33n</span>
                 <ExternalLink size={13} className="ext-icon" />
               </a>
 
@@ -260,11 +237,10 @@ export default function App() {
                 href={socialLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-channel-item channel-link-btn"
+                className="channel-link-btn uniform-item"
               >
-                <InstagramIcon size={16} />
+                <InstagramIcon size={18} />
                 <span>{t.instagramBtn}</span>
-                <span className="channel-handle">@yug3en</span>
                 <ExternalLink size={13} className="ext-icon" />
               </a>
             </div>
@@ -277,7 +253,7 @@ export default function App() {
         <p className="footer-copy-text">{t.rightsText}</p>
       </footer>
 
-      {/* Project Details Modal */}
+      {/* Project Details Modal (Only for 4 Featured Projects) */}
       <ProjectModal
         project={activeProject}
         language={language}

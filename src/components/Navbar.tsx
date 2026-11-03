@@ -27,7 +27,7 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onNaviga
           {language === 'ru' ? 'Проекты' : 'Projects'}
         </button>
         <button onClick={() => onNavigate('keypad-deck')} className="nav-link-btn">
-          {language === 'ru' ? 'Стек & Клавиатура' : 'Stack & Keypad'}
+          {language === 'ru' ? 'Стек' : 'Stack'}
         </button>
         <button onClick={() => onNavigate('archive-deck')} className="nav-link-btn">
           {language === 'ru' ? 'Архив' : 'Archive'}
@@ -42,14 +42,14 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onNaviga
         {/* Subtle Theme Selector */}
         <div className="theme-pills-row" title={language === 'ru' ? 'Сменить акцент' : 'Accent theme'}>
           <button
-            onClick={() => setTheme('indigo')}
-            className={`theme-dot indigo ${currentTheme === 'indigo' ? 'active' : ''}`}
-            aria-label="Indigo accent"
-          />
-          <button
             onClick={() => setTheme('amber')}
             className={`theme-dot amber ${currentTheme === 'amber' ? 'active' : ''}`}
             aria-label="Amber accent"
+          />
+          <button
+            onClick={() => setTheme('indigo')}
+            className={`theme-dot indigo ${currentTheme === 'indigo' ? 'active' : ''}`}
+            aria-label="Indigo accent"
           />
           <button
             onClick={() => setTheme('emerald')}

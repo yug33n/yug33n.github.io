@@ -1,16 +1,15 @@
 import type { ProjectItem } from '../types';
 import type { Language } from '../data/portfolioData';
-import { Lock, ArrowUpRight, FolderGit2 } from 'lucide-react';
+import { Lock, FolderGit2 } from 'lucide-react';
 
 interface CompactProjectCardProps {
   project: ProjectItem;
   language: Language;
-  onOpenDetails: (project: ProjectItem) => void;
 }
 
-export const CompactProjectCard = ({ project, language, onOpenDetails }: CompactProjectCardProps) => {
+export const CompactProjectCard = ({ project, language }: CompactProjectCardProps) => {
   return (
-    <div className="bento-archive-card" onClick={() => onOpenDetails(project)}>
+    <div className="bento-archive-card static-archive-card">
       <div className="archive-card-top">
         <div className="archive-icon-pill">
           <FolderGit2 size={16} />
@@ -38,13 +37,6 @@ export const CompactProjectCard = ({ project, language, onOpenDetails }: Compact
             {tech}
           </span>
         ))}
-      </div>
-
-      <div className="archive-card-footer">
-        <span className="archive-view-link">
-          <span>{language === 'ru' ? 'Смотреть' : 'Inspect'}</span>
-          <ArrowUpRight size={13} />
-        </span>
       </div>
     </div>
   );

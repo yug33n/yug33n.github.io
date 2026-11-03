@@ -7,10 +7,117 @@ interface SkillsKeypadProps {
   language: Language;
 }
 
+// Crisp Vector Logos for Keycaps
+const SkillKeycapIcon = ({ skillId, color }: { skillId: string; color: string }) => {
+  switch (skillId) {
+    case 'csharp':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M10 9a3 3 0 1 0 0 6" />
+          <path d="M14 9l1 6M17 9l1 6M13.5 11h5M13 14h5" />
+        </svg>
+      );
+    case 'cpp':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M9 9a3 3 0 1 0 0 6" />
+          <path d="M14 12h3M15.5 10.5v3M19 12h2M20 11v2" />
+        </svg>
+      );
+    case 'ts':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="4" />
+          <path d="M7 8h6M10 8v8M14 14.5c.5.9 1.5 1.5 2.7 1.5 1.5 0 2.3-.8 2.3-1.8 0-2.4-4-1.6-4-4 0-.9.8-1.7 2.1-1.7 1 0 1.9.5 2.4 1.3" />
+        </svg>
+      );
+    case 'react':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="1.8">
+          <ellipse cx="12" cy="12" rx="10" ry="4" />
+          <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+          <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+          <circle cx="12" cy="12" r="1.8" fill={color} />
+        </svg>
+      );
+    case 'python':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2c-3.3 0-5 1.2-5 3.5V8h5v1H5C2.8 9 2 11.2 2 13.5S3 18 5.5 18H7v-2.5c0-1.7 1.3-3 3-3h5c1.4 0 2.5-1.1 2.5-2.5V5.5C17.5 3.2 15.3 2 12 2z" />
+          <path d="M12 22c3.3 0 5-1.2 5-3.5V16h-5v-1h7c2.2 0 3-2.2 3-4.5S21 6 18.5 6H17v2.5c0 1.7-1.3 3-3 3H9c-1.4 0-2.5 1.1-2.5 2.5v4.5C6.5 20.8 8.7 22 12 22z" />
+          <circle cx="9" cy="5" r="0.8" fill={color} />
+          <circle cx="15" cy="19" r="0.8" fill={color} />
+        </svg>
+      );
+    case 'ollama':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2a5 5 0 0 1 5 5v1a4 4 0 0 1 3 3.9v3.2a4 4 0 0 1-2.2 3.5L16 22H8l-1.8-3.4A4 4 0 0 1 4 15.1v-3.2A4 4 0 0 1 7 8V7a5 5 0 0 1 5-5z" />
+          <circle cx="9" cy="12" r="1.2" fill={color} />
+          <circle cx="15" cy="12" r="1.2" fill={color} />
+        </svg>
+      );
+    case 'sqlite':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round">
+          <ellipse cx="12" cy="5" rx="8" ry="3" />
+          <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+          <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" />
+        </svg>
+      );
+    case 'wpf':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="3" />
+          <path d="M3 9h18M9 21V9" />
+        </svg>
+      );
+    case 'docker':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round">
+          <path d="M2 13a7 7 0 0 0 13 4 8 8 0 0 0 7-5c0-.5-.5-1-1-1-1.5 0-3 .5-4 1.5A9.5 9.5 0 0 0 2 13z" />
+          <rect x="5" y="9" width="2" height="2" />
+          <rect x="8" y="9" width="2" height="2" />
+          <rect x="11" y="9" width="2" height="2" />
+          <rect x="8" y="6" width="2" height="2" />
+        </svg>
+      );
+    case 'git':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="6" cy="6" r="2.5" />
+          <circle cx="6" cy="18" r="2.5" />
+          <circle cx="18" cy="9" r="2.5" />
+          <path d="M6 8.5v7M8.5 7.5l7 2.5" />
+        </svg>
+      );
+    case 'postgres':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="6" rx="7" ry="2.5" />
+          <path d="M5 6v10c0 2 3.1 3.5 7 3.5s7-1.5 7-3.5V6" />
+          <path d="M5 11c0 1.8 3.1 3 7 3s7-1.2 7-3" />
+          <path d="M12 14v5" />
+        </svg>
+      );
+    case 'unity':
+      return (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z" />
+          <path d="M12 2v9M4 6.5l8 4.5M20 6.5l-8 4.5" />
+        </svg>
+      );
+    default:
+      return <Terminal size={18} color={color} />;
+  }
+};
+
 export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
   const [selectedSkill, setSelectedSkill] = useState<KeypadSkill>(keypadSkillsData[0]);
   const [pressedKeyId, setPressedKeyId] = useState<string | null>(null);
-  const [bongoPaw, setBongoPaw] = useState<'left' | 'right' | 'both'>('left');
+  const [bongoPaw, setBongoPaw] = useState<'left' | 'right'>('left');
 
   const triggerKey = useCallback((skill: KeypadSkill) => {
     setSelectedSkill(skill);
@@ -50,7 +157,6 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
       if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
 
       const keyChar = e.key.toUpperCase();
-      // Find matching skill by label or character
       const match = keypadSkillsData.find(
         (s) => s.keyLabel.toUpperCase() === keyChar || s.keyLabel[0]?.toUpperCase() === keyChar
       );
@@ -58,7 +164,6 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
       if (match) {
         triggerKey(match);
       } else {
-        // Default random hit on any key press for playful engagement
         const randIndex = Math.floor(Math.random() * keypadSkillsData.length);
         const randomSkill = keypadSkillsData[randIndex];
         if (randomSkill) triggerKey(randomSkill);
@@ -141,8 +246,10 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
                     title={`${skill.name} (${skill.keyLabel})`}
                   >
                     <span className="keycap-top">
+                      <span className="keycap-icon-stage">
+                        <SkillKeycapIcon skillId={skill.id} color={skill.color} />
+                      </span>
                       <span className="keycap-text">{skill.keyLabel}</span>
-                      <span className="keycap-dot" style={{ backgroundColor: skill.color }} />
                     </span>
                     <span className="keycap-side-front" />
                     <span className="keycap-side-right" />
@@ -164,7 +271,7 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
           <div className="hud-header">
             <div className="hud-badge-group">
               <span className="hud-icon-badge" style={{ backgroundColor: `${selectedSkill.color}20`, color: selectedSkill.color }}>
-                <Terminal size={15} />
+                <SkillKeycapIcon skillId={selectedSkill.id} color={selectedSkill.color} />
               </span>
               <span className="hud-title">{selectedSkill.name}</span>
             </div>

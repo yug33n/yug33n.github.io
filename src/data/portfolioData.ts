@@ -108,8 +108,8 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "nexora",
       featured: true,
       title: "Nexora",
-      tagline: "Интеллектуальное пространство заметок и базы знаний с AI",
-      description: "Современная модульная среда для ведения заметок и командных баз знаний в духе Obsidian, переосмысленная с акцентом на эстетику и скорость. Локальное хранение файлов, интерактивный граф связей между мыслями, совместные рабочие пространства и локальный AI-ассистент для мгновенного поиска инсайтов и структурирования контента.",
+      tagline: "База данных",
+      description: "База данных.",
       highlights: [
         "Интерактивный граф связей между заметками и концепциями в реальном времени",
         "Встроенный интеллектуальный AI-ассистент для анализа и быстрого синтеза идей",
@@ -241,8 +241,8 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "nexora",
       featured: true,
       title: "Nexora",
-      tagline: "Next-gen intelligent note workspace & AI knowledge base",
-      description: "Modern modular environment for notes and team knowledge bases inspired by Obsidian, reimagined with refined aesthetics and speed. Features local-first file storage, interactive thought graph, collaborative spaces, and a local AI copilot for instant synthesis and structuring.",
+      tagline: "Database",
+      description: "Database.",
       highlights: [
         "Interactive real-time graph visualization connecting ideas and notes",
         "Embedded AI copilot for summarizing and extracting knowledge",
@@ -432,14 +432,14 @@ export const keypadSkillsData: KeypadSkill[] = [
     relatedProjects: ["Все проекты", "All Projects"]
   },
   {
-    id: "zustand",
-    keyLabel: "Zust",
-    name: "Zustand & State",
-    category: "web",
-    color: "#d97706",
-    descriptionRu: "Минималистичный и быстрый стейт-менеджмент для сложных веб-приложений без лишних ре-рендеров.",
-    descriptionEn: "Lightweight, un-opinionated state management for complex web apps without re-render overhead.",
-    relatedProjects: ["PipeFlow", "NetMorph"]
+    id: "postgres",
+    keyLabel: "PG",
+    name: "PostgreSQL",
+    category: "desktop",
+    color: "#336791",
+    descriptionRu: "Реляционные базы данных, проектирование схем, транзакции, индексы и оптимизация SQL-запросов.",
+    descriptionEn: "Relational database schema design, ACID transactions, indexing, and SQL optimization.",
+    relatedProjects: ["Nexora", "Kinotask"]
   },
   {
     id: "unity",
@@ -467,6 +467,7 @@ export const uiText: Record<Language, {
   featuredSubheader: string;
   archiveHeader: string;
   archiveSubheader: string;
+  archiveFooterNote: string;
   keypadHeader: string;
   keypadSubheader: string;
   keypadHint: string;
@@ -488,18 +489,19 @@ export const uiText: Record<Language, {
 }> = {
   ru: {
     status: "ДОСТУПЕН ДЛЯ ПРОЕКТОВ",
-    experiencePill: "3 года опыта",
+    experiencePill: "Frontend / Backend",
     heroGreeting: "Привет, я",
     heroName: "Митя (yug33n)",
     heroRole: "Универсальный разработчик",
-    heroBio: "Разрабатываю десктопные решения, мобильные сервисы и современный веб. 3 года практического опыта: чистая архитектура, высокая отзывчивость и продуманный UX.",
+    heroBio: "Разрабатываю десктопные решения, мобильные сервисы и современный веб. Frontend и Backend разработка: чистая архитектура, высокая отзывчивость и продуманный UX.",
     navProjects: "Проекты",
-    navSkills: "Стек & Клавиатура",
+    navSkills: "Стек",
     navContact: "Связаться",
     featuredHeader: "Избранные работы",
     featuredSubheader: "FEATURED PROJECTS",
     archiveHeader: "Другие разработки",
     archiveSubheader: "PROJECT ARCHIVE",
+    archiveFooterNote: "и многое другое в приватных репозиториях и пет-проектах",
     keypadHeader: "Интерактивный стек",
     keypadSubheader: "INTERACTIVE SKILLS PAD",
     keypadHint: "Нажимай клавиши на макропаде мышкой или на клавиатуре ПК",
@@ -507,7 +509,7 @@ export const uiText: Record<Language, {
     contactSubtitle: "Открыт к интересным предложениям, совместным проектам и разработке софта. Напишите мне в удобный мессенджер:",
     telegramBtn: "Написать в Telegram",
     instagramBtn: "Instagram",
-    githubBtn: "GitHub Профиль",
+    githubBtn: "GitHub",
     privateBadge: "Приват",
     openSourceBadge: "Open Source",
     viewRepoBtn: "Репозиторий",
@@ -517,22 +519,23 @@ export const uiText: Record<Language, {
     filterAi: "AI / LLM",
     detailsModalTitle: "Детали проекта",
     closeBtn: "Закрыть",
-    rightsText: "Митя (yug33n) • 2026"
+    rightsText: "Югин 2026"
   },
   en: {
     status: "AVAILABLE FOR PROJECTS",
-    experiencePill: "3+ Years Exp",
+    experiencePill: "Frontend / Backend",
     heroGreeting: "Hi, I am",
     heroName: "Mitya (yug33n)",
     heroRole: "Versatile Software Engineer",
-    heroBio: "Engineering desktop software, mobile services & modern web platforms. 3+ years of hands-on experience: solid architecture, responsive performance, and refined UX.",
+    heroBio: "Engineering desktop software, mobile services & modern web platforms. Frontend and Backend development: solid architecture, responsive performance, and refined UX.",
     navProjects: "Projects",
-    navSkills: "Stack & Keypad",
+    navSkills: "Stack",
     navContact: "Contact",
     featuredHeader: "Featured Works",
     featuredSubheader: "FEATURED PROJECTS",
     archiveHeader: "More Projects",
     archiveSubheader: "PROJECT ARCHIVE",
+    archiveFooterNote: "and much more in private repositories & experiments",
     keypadHeader: "Interactive Stack",
     keypadSubheader: "INTERACTIVE SKILLS PAD",
     keypadHint: "Click keys on the macropad or press matching keys on your keyboard",
@@ -540,7 +543,7 @@ export const uiText: Record<Language, {
     contactSubtitle: "Open for interesting opportunities, software contracts, and collaborative builds. Reach out directly:",
     telegramBtn: "Message on Telegram",
     instagramBtn: "Instagram",
-    githubBtn: "GitHub Profile",
+    githubBtn: "GitHub",
     privateBadge: "Private",
     openSourceBadge: "Open Source",
     viewRepoBtn: "Repository",
@@ -550,6 +553,6 @@ export const uiText: Record<Language, {
     filterAi: "AI / LLM",
     detailsModalTitle: "Project Details",
     closeBtn: "Close",
-    rightsText: "Mitya (yug33n) • 2026"
+    rightsText: "Yugin 2026"
   }
 };
