@@ -1,92 +1,99 @@
-﻿import { FolderGit2, Download } from 'lucide-react';
-import { GithubIcon } from './icons/GithubIcon';
 import type { ProjectItem } from '../types';
+import type { Language } from '../data/portfolioData';
+import { Lock, CheckCircle2, ArrowUpRight, Monitor, Layers } from 'lucide-react';
+import { GithubIcon } from './icons/GithubIcon';
 
 interface ProjectCardProps {
   project: ProjectItem;
-  repoButtonLabel?: string;
-  downloadButtonLabel?: string;
+  language: Language;
+  onOpenDetails: (project: ProjectItem) => void;
 }
 
-export const ProjectCard = ({
-  project,
-  repoButtonLabel = 'Репозиторий',
-  downloadButtonLabel = 'Скачать',
-}: ProjectCardProps) => {
+export const ProjectCard = ({ project, language, onOpenDetails }: ProjectCardProps) => {
   return (
-    <article className="glass-card project-card">
-      <div className="project-header">
-        <div>
-          <div className="project-title-wrap">
-            <FolderGit2 size={18} color="var(--accent-indigo)" />
-            <h3 className="project-title">{project.title}</h3>
-            {project.status && (
-              <span
-                style={{
-                  fontSize: '0.7rem',
-                  padding: '0.15rem 0.5rem',
-                  borderRadius: 'var(--radius-full)',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid var(--border-subtle)',
-                  color: 'var(--text-muted)',
-                  fontFamily: 'var(--font-mono)',
-                }}
-              >
-                {project.status}
-              </span>
-            )}
+    <div className="bento-featured-card" onClick={() => onOpenDetails(project)}>
+      {/* Top Media / Mockup Preview Stage */}
+      <div className="card-mockup-wrapper">
+        <div className="mockup-window-header">
+          <div className="mockup-dots">
+            <span className="dot dot-red" />
+            <span className="dot dot-yellow" />
+            <span className="dot dot-green" />
           </div>
-          <p className="project-tagline">{project.tagline}</p>
+          <span className="mockup-header-title">{project.id}.app</span>
         </div>
 
-        <div className="project-links">
-          {project.downloadUrl && (
-            <a
-              href={project.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="action-link download-btn"
-              title={downloadButtonLabel}
-            >
-              <Download size={14} />
-              <span>{downloadButtonLabel}</span>
-            </a>
+        <div className="mockup-screen-container">
+          {project.image ? (
+            <img src={project.image} alt={project.title} className="mockup-real-img" />
+          ) : (
+            <div className="mockup-abstract-preview">
+              <div className="abstract-glow-orb" />
+              <Monitor size={32} className="abstract-icon" />
+              <span className="abstract-title">{project.title}</span>
+            </div>
           )}
-          {project.githubUrl && (
+        </div>
+      </div>
+
+      {/* Card Info Content */}
+      <div className="card-info-pane">
+        <div className="card-status-row">
+          <span className="card-type-tag">
+            <Layers size={12} />
+            <span>{project.status || 'Project'}</span>
+          </span>
+
+          {project.isPrivate ? (
+            <span className="status-badge-private">
+              <Lock size={12} />
+              <span>{language === 'ru' ? 'Приват' : 'Private'}</span>
+            </span>
+          ) : (
+            <span className="status-badge-open">
+              <CheckCircle2 size={12} />
+              <span>Open Source</span>
+            </span>
+          )}
+        </div>
+
+        <h3 className="card-heading">{project.title}</h3>
+        <p className="card-tagline">{project.tagline}</p>
+        <p className="card-desc-preview">{project.description}</p>
+
+        {/* Tech Stack Pills */}
+        <div className="card-tech-chips">
+          {project.techStack.slice(0, 4).map((tech, i) => (
+            <span key={i} className="tech-chip">
+              {tech}
+            </span>
+          ))}
+          {project.techStack.length > 4 && (
+            <span className="tech-chip-more">+{project.techStack.length - 4}</span>
+          )}
+        </div>
+
+        {/* Action Row */}
+        <div className="card-bottom-actions" onClick={(e) => e.stopPropagation()}>
+          <button className="details-trigger-btn" onClick={() => onOpenDetails(project)}>
+            <span>{language === 'ru' ? 'Подробнее' : 'View Details'}</span>
+            <ArrowUpRight size={14} />
+          </button>
+
+          {project.githubUrl && !project.isPrivate && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="action-link"
-              title="Открыть код на GitHub"
+              className="github-link-btn"
+              title="GitHub Repository"
             >
-              <GithubIcon size={14} />
-              <span>{repoButtonLabel}</span>
+              <GithubIcon size={15} />
+              <span>GitHub</span>
             </a>
           )}
         </div>
       </div>
-
-      <p className="project-desc">{project.description}</p>
-
-      {project.highlights && project.highlights.length > 0 && (
-        <ul className="project-highlights">
-          {project.highlights.map((highlight, index) => (
-            <li key={index} className="project-highlight-item">
-              <span className="project-highlight-bullet">▹</span>
-              <span>{highlight}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <div className="tags-row">
-        {project.techStack.map((tech) => (
-          <span key={tech} className="tech-tag">
-            {tech}
-          </span>
-        ))}
-      </div>
-    </article>
+    </div>
   );
 };

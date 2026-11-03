@@ -1,121 +1,87 @@
-import { useState, useEffect } from 'react';
-import { Terminal, Send, Globe } from 'lucide-react';
 import { socialLinks } from '../data/portfolioData';
 import type { Language } from '../data/portfolioData';
+import { Send, Globe } from 'lucide-react';
 
 interface NavbarProps {
   currentTheme: string;
   setTheme: (theme: string) => void;
   language: Language;
   setLanguage: (lang: Language) => void;
-  onOpenTerminal?: () => void;
+  onNavigate: (sectionId: string) => void;
 }
 
-export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onOpenTerminal }: NavbarProps) => {
-  const [timeStr, setTimeStr] = useState('');
-  const [ping] = useState(Math.floor(Math.random() * 10) + 18);
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTimeStr(
-        now.toLocaleTimeString(language === 'ru' ? 'ru-RU' : 'en-US', {
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-        })
-      );
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, [language]);
-
+export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onNavigate }: NavbarProps) => {
   return (
-    <header className="top-navbar">
-      <a href="#" className="nav-brand">
-        <span className="brand-badge">Y</span>
-        <span>yugeen</span>
-      </a>
-
-      {/* Live System Telemetry */}
-      <div className="nav-telemetry">
-        <div className="telemetry-item">
-          <span className="live-indicator" />
-          <span>STATUS: ONLINE</span>
-        </div>
-        <span style={{ color: 'var(--text-dim)' }}>|</span>
-        <div className="telemetry-item">
-          <span>TIME: {timeStr || '00:45:00'} (UTC+3)</span>
-        </div>
-        <span style={{ color: 'var(--text-dim)' }}>|</span>
-        <div className="telemetry-item">
-          <span>LATENCY: {ping}ms</span>
+    <header className="modern-glass-navbar">
+      <div className="nav-brand-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <span className="brand-avatar">Y</span>
+        <div className="brand-info">
+          <span className="brand-name">yug33n</span>
+          <span className="brand-status-dot" title="Online" />
         </div>
       </div>
 
-      {/* Controls: Theme Switcher, Terminal, Language Toggle & Contact */}
-      <div className="nav-controls">
-        <div className="theme-switcher" title={language === 'ru' ? 'Сменить акцентную тему' : 'Switch accent color'}>
+      {/* Navigation Links */}
+      <nav className="nav-links-menu">
+        <button onClick={() => onNavigate('featured-deck')} className="nav-link-btn">
+          {language === 'ru' ? 'Проекты' : 'Projects'}
+        </button>
+        <button onClick={() => onNavigate('keypad-deck')} className="nav-link-btn">
+          {language === 'ru' ? 'Стек & Клавиатура' : 'Stack & Keypad'}
+        </button>
+        <button onClick={() => onNavigate('archive-deck')} className="nav-link-btn">
+          {language === 'ru' ? 'Архив' : 'Archive'}
+        </button>
+        <button onClick={() => onNavigate('contact-deck')} className="nav-link-btn">
+          {language === 'ru' ? 'Контакты' : 'Contact'}
+        </button>
+      </nav>
+
+      {/* Action Controls */}
+      <div className="nav-right-controls">
+        {/* Subtle Theme Selector */}
+        <div className="theme-pills-row" title={language === 'ru' ? 'Сменить акцент' : 'Accent theme'}>
           <button
             onClick={() => setTheme('indigo')}
             className={`theme-dot indigo ${currentTheme === 'indigo' ? 'active' : ''}`}
-            aria-label="Indigo theme"
-          />
-          <button
-            onClick={() => setTheme('emerald')}
-            className={`theme-dot emerald ${currentTheme === 'emerald' ? 'active' : ''}`}
-            aria-label="Emerald theme"
-          />
-          <button
-            onClick={() => setTheme('cyan')}
-            className={`theme-dot cyan ${currentTheme === 'cyan' ? 'active' : ''}`}
-            aria-label="Cyan theme"
+            aria-label="Indigo accent"
           />
           <button
             onClick={() => setTheme('amber')}
             className={`theme-dot amber ${currentTheme === 'amber' ? 'active' : ''}`}
-            aria-label="Amber theme"
+            aria-label="Amber accent"
+          />
+          <button
+            onClick={() => setTheme('emerald')}
+            className={`theme-dot emerald ${currentTheme === 'emerald' ? 'active' : ''}`}
+            aria-label="Emerald accent"
+          />
+          <button
+            onClick={() => setTheme('cyan')}
+            className={`theme-dot cyan ${currentTheme === 'cyan' ? 'active' : ''}`}
+            aria-label="Cyan accent"
           />
         </div>
 
-        {onOpenTerminal && (
-          <button
-            onClick={onOpenTerminal}
-            className="btn-interactive nav-terminal-btn"
-            title={language === 'ru' ? 'Открыть консоль' : 'Open console'}
-            style={{ padding: '0.35rem 0.65rem' }}
-          >
-            <Terminal size={14} />
-          </button>
-        )}
-
-        {/* Language Switcher Toggle */}
+        {/* Language Pill */}
         <button
           onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
-          className="btn-interactive nav-lang-btn"
-          title={language === 'ru' ? 'Switch to English' : 'Переключить на русский'}
-          style={{
-            padding: '0.35rem 0.65rem',
-            fontFamily: 'var(--font-mono)',
-            fontWeight: 700,
-            fontSize: '0.78rem',
-            letterSpacing: '0.04em',
-          }}
+          className="lang-pill-btn"
+          aria-label="Toggle language"
         >
-          <Globe size={13} color="var(--accent-secondary)" />
-          <span>{language === 'ru' ? 'EN' : 'RU'}</span>
+          <Globe size={13} />
+          <span>{language.toUpperCase()}</span>
         </button>
 
+        {/* Quick Contact Primary Button */}
         <a
           href={socialLinks.telegram}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-interactive nav-contact-btn"
-          style={{ background: 'var(--accent-subtle)', borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)' }}
+          className="nav-contact-cta"
         >
           <Send size={13} />
-          <span className="nav-contact-text">{language === 'ru' ? 'Связаться' : 'Contact'}</span>
+          <span>{language === 'ru' ? 'Связаться' : 'Get in touch'}</span>
         </a>
       </div>
     </header>

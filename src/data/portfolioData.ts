@@ -1,4 +1,4 @@
-import type { ProjectItem, SkillCategory } from '../types';
+import type { ProjectItem } from '../types';
 
 export type Language = 'ru' | 'en';
 
@@ -9,7 +9,7 @@ export const socialLinks = {
 };
 
 export const personalInfo = {
-  name: "yugeen",
+  name: "Митя (yug33n)",
   role: "Software Developer",
   tagline: "Engineering desktop software, mobile services, games & modern web.",
   status: "Available for contracts & projects",
@@ -21,65 +21,71 @@ export const personalInfo = {
 export const personalInfoData: Record<Language, {
   name: string;
   role: string;
+  experienceBadge: string;
   tagline: string;
   status: string;
   bio: string[];
 }> = {
   ru: {
-    name: "yugeen",
+    name: "Митя (yug33n)",
     role: "Software Developer",
-    tagline: "Разработка десктопных приложений, мобильных сервисов, игр и современного веба.",
+    experienceBadge: "3 года опыта",
+    tagline: "Разработка десктопных решений, мобильных сервисов, игр и современного веба.",
     status: "Открыт для предложений & проектов",
     bio: [
-      "Универсальный разработчик с разносторонним опытом: от системных Windows-приложений на C# и .NET 10 до нарративных 3D-игр на Unity и систем на базе локальных LLM.",
-      "Пишу на C#, C++, TypeScript и Python. Создаю софт, который уважает приватность пользователей, и интерактивные веб-сервисы с продуманным UX. Люблю глубокие технические задачи: трекинг системных процессов, интеграцию локальных нейросетей и разработку игровых механик."
+      "Привет! Я Митя (в сети известен как yug33n). Занимаюсь разработкой софта уже более 3 лет: от системных утилит на C# и .NET 10 до интерактивных веб-сервисов на React 19 и архитектур с локальными LLM.",
+      "Люблю продуманные технические решения, высокую производительность и чистый, отзывчивый интерфейс. Разрабатываю проекты с нуля: от логики работы с процессами и API до готового пользовательского продукта."
     ]
   },
   en: {
-    name: "yugeen",
+    name: "Mitya (yug33n)",
     role: "Software Developer",
+    experienceBadge: "3+ Years of Experience",
     tagline: "Engineering desktop software, mobile services, games & modern web.",
     status: "Available for contracts & projects",
     bio: [
-      "Versatile software engineer with multidisciplinary experience: from privacy-first Windows desktop utilities in C# & .NET 10 to narrative 3D Unity games and local LLM workflows.",
-      "Proficient in C#, C++, TypeScript, and Python. I craft software that respects user privacy and high-performance web platforms with refined UX. Driven by deep engineering challenges: process tracking, local AI models, and game logic."
+      "Hi! I'm Mitya (known online as yug33n). I've been engineering software for over 3 years: spanning native Windows system tools in C# & .NET 10, reactive web apps on React 19, and local LLM workflows.",
+      "Focused on solid architectural decisions, low resource consumption, and intuitive user experiences. Crafting products from low-level OS mechanics up to refined, modern interfaces."
     ]
   }
 };
 
 export const projectsContent: Record<Language, ProjectItem[]> = {
   ru: [
+    // 4 Featured Projects
     {
       id: "wintime",
       featured: true,
       title: "WinTime",
-      tagline: "Privacy-first трекер экранного времени и продуктивности для Windows",
-      description: "Тихое приложение в системном трее Windows: детально отслеживает активные процессы, вкладки браузеров (Chrome, Edge, Opera) и проекты без замедления системы. 100% данных хранятся локально в SQLite — никакой телеметрии, облаков и учетных записей.",
+      tagline: "Трекер экранного времени и продуктивности для Windows",
+      description: "Системное приложение в трее Windows: отслеживает активные процессы, окна, вкладки браузеров и проекты. 100% данных хранятся локально в SQLite — полный контроль и приватность.",
       highlights: [
-        "Глубокий мониторинг вкладок браузера, открытых проектов в IDE и авто-распознавание игр (Steam/Epic)",
-        "Цели и лимиты экранного времени с мягкими уведомлениями или авто-закрытием процессов",
-        "Анализ ритмов сна через системный лог событий Windows и плавающий рабочий виджет (Micro-Mode)",
-        "Геймификация продуктивности: уровни XP, квесты и 20-недельная тепловая карта активности"
+        "Мониторинг активных вкладок браузера, проектов в IDE и игровых процессов",
+        "Лимиты экранного времени с мягкими уведомлениями",
+        "Анализ ритмов сна через системный лог событий Windows и плавающий мини-виджет",
+        "Геймификация продуктивности: уровни XP и тепловая карта активности"
       ],
-      techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
+      techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI"],
       githubUrl: "https://github.com/yug33n/WinTime",
       downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
-      status: "Featured App"
+      isPrivate: false,
+      category: "csharp",
+      status: "Open Source"
     },
     {
       id: "lucidtune",
       featured: true,
       title: "LucidTune",
       tagline: "Плавающий Dynamic Island медиа-виджет для Windows 10/11",
-      description: "Ультралегковесный кастомизируемый оверлей-виджет в стиле Dynamic Island для Windows 10 и 11. Отображает метаданные треков в реальном времени, обложки альбомов, шкалу прогресса и элементы управления воспроизведением поверх окон и игр с эффектом тёмного матового стекла и поддержкой глобальных хоткеев.",
+      description: "Легковесный кастомизируемый оверлей-виджет в стиле Dynamic Island. Отображает обложки треков, таймлайн и элементы управления поверх любых окон и полноэкранных игр с эффектом матового стекла.",
       highlights: [
-        "Интеграция с Windows Media (SMTC): автосинхронизация со Spotify, Яндекс Музыкой, VK, YouTube, Telegram, VLC и AIMP",
-        "Элегантный оверлей в стиле матового стекла (Frosted Glass), кинематографичная анимация сворачивания и автоскрытие",
-        "Глобальные горячие клавиши, интеграция с системным треем, минимальный футпринт (< 25 МБ RAM) и нулевой лаг"
+        "Интеграция с Windows Media (SMTC): автосинхронизация со Spotify, Яндекс Музыкой, VK, YouTube",
+        "Эстетичный Frosted Glass оверлей с плавной анимацией сворачивания",
+        "Глобальные хоткеи, минимальное потребление памяти (< 25 МБ) и нулевой инпут-лаг"
       ],
-      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
-      githubUrl: "https://github.com/yug33n/LucidTune",
-      downloadUrl: "https://github.com/yug33n/LucidTune/releases/tag/v1.0.3",
+      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs"],
+      isPrivate: true,
+      category: "csharp",
       status: "Desktop Overlay"
     },
     {
@@ -87,135 +93,132 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       featured: true,
       title: "PipeFlow",
       tagline: "Визуальный симулятор архитектуры процессора и веб-IDE",
-      description: "Интерактивная обучающая игра-головоломка и веб-IDE, вдохновленная классической архитектурой фон Неймана и концепцией Human Resource Machine. Игрок берет на себя роль архитектора низкоуровневых алгоритмов, собирая программы из ассемблероподобных инструкций (ISA-9) для управления потоками данных процессора.",
+      description: "Интерактивная обучающая среда и веб-IDE, вдохновленная классической архитектурой фон Неймана. Пользователь проектирует алгоритмы из ассемблероподобных инструкций (ISA-9), визуализируя перемещение данных по шинам и регистрам в реальном времени.",
       highlights: [
-        "Визуальная симуляция процессора в реальном времени: регистры, RAM Floor, очереди INBOX/OUTBOX и шины данных",
-        "Полноценная система команд ISA-9: арифметические инструкции, адресация памяти и условные переходы (JUMP, JUMP_ZERO, JUMP_NEG)",
-        "Интерактивный Drag & Drop редактор на dnd-kit, пошаговый отладчик с регулировкой тактовой частоты и система валидации тестов"
+        "Визуализация архитектуры процессора: регистры, память RAM, шины данных и очереди",
+        "Собственная система команд ISA-9 с ветвлением и условиями",
+        "Drag & Drop редактор инструкций, пошаговый отладчик с регулировкой частоты тактов"
       ],
-      techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "dnd-kit", "Web IDE"],
-      githubUrl: "https://github.com/yug33n/PipeFlow",
+      techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "dnd-kit", "Web IDE"],
+      isPrivate: true,
+      category: "web",
       status: "Web Game & IDE"
     },
     {
-      id: "notiva",
+      id: "nexora",
       featured: true,
+      title: "Nexora",
+      tagline: "Модульное рабочее пространство заметок нового поколения с AI",
+      description: "Продвинутая среда для структурирования мыслей, конспектов и проектов по типу улучшенного Obsidian. Объединяет локальное хранение данных, интерактивный граф связей, командные рабочие пространства и встроенного локального AI-ассистента для суммаризации и поиска инсайтов.",
+      highlights: [
+        "Интерактивный граф связей между заметками и концепциями в реальном времени",
+        "Встроенный интеллектуальный AI-ассистент для анализа и быстрого синтеза идей",
+        "Коллаборативные пространства и приватное локальное хранение заметок"
+      ],
+      techStack: ["React", "TypeScript", "Python", "SQLite", "Local AI / LLM"],
+      githubUrl: "https://github.com/yug33n/Nexora",
+      isPrivate: false,
+      category: "ai",
+      status: "Active Team Project"
+    },
+
+    // 4 Other Archive Projects
+    {
+      id: "notiva",
       title: "Notiva",
       tagline: "Интеллектуальная база знаний и учебный ассистент (PWA)",
-      description: "Кроссплатформенное клиент-серверное веб-приложение для студентов и исследователей. Принимает учебные материалы (конспекты, PDF-учебники, аудио лекций) и автоматически трансформирует их в структурированную базу знаний, флеш-карточки Anki и интерактивные квизы.",
+      description: "Клиент-серверное приложение для студентов и исследователей. Автоматически преобразует учебные материалы и PDF-документы в структурированные базы знаний, Anki-карточки и проверочные квизы.",
       highlights: [
-        "Мультимодальный импорт учебных материалов: парсинг PDF, структурирование заметок и аудио",
-        "Автоматическая генерация флеш-карточек для интервального повторения (Active Recall)",
-        "Интерактивные проверочные квизы с мгновенной верификацией ответов",
-        "PWA-архитектура: автономная работа оффлайн и установка на любое устройство"
+        "Парсинг PDF и автоматическое структурирование лекций",
+        "Генерация флеш-карточек для интервального повторения",
+        "PWA-архитектура с поддержкой автономной работы"
       ],
-      techStack: ["TypeScript", "React", "PWA", "Node.js", "AI Knowledge Base", "PDF Parsing"],
-      githubUrl: "https://github.com/yug33n/Notiva",
+      techStack: ["TypeScript", "React", "PWA", "Node.js", "PDF Parsing"],
+      isPrivate: true,
+      category: "web",
       status: "Web & PWA"
     },
     {
       id: "aetheria-chronicles",
       title: "Aetheria Chronicles",
-      tagline: "Интерактивная текстовая CRPG на базе локальных LLM (Ollama)",
-      description: "Ролевая игра в мрачном фэнтезийном мире, где в роли гейм-мастера выступает локальная нейросеть через Ollama. Мир динамически адаптируется под любые нестандартные действия игрока, обеспечивая полную свободу выбора и процедурный сюжет.",
+      tagline: "Интерактивная текстовая CRPG на базе локальных LLM",
+      description: "Ролевая игра в фэнтезийном мире, где роль гейм-мастера берет на себя локальная нейросеть через Ollama. Мир процедурно адаптируется к решениям игрока без облачных платных подписок.",
       highlights: [
-        "Органическое повествование: сюжет и диалоги генерируются локальной нейросетью в реальном времени",
-        "Классические CRPG механики: характеристики персонажа, инвентарь и влияние решений на мир",
-        "100% приватность и автономность без использования внешних платных облачных API"
+        "Генерация сюжета и диалогов локальной нейросетью на лету",
+        "Ролевая система: характеристики, инвентарь, броски проверок",
+        "Автономная работа без отправки данных во внешние облака"
       ],
-      techStack: ["TypeScript / Python", "Ollama API", "Local LLMs", "CRPG Mechanics", "Procedural Story"],
-      githubUrl: "https://github.com/yug33n/aetheria-chronicles",
+      techStack: ["TypeScript", "Python", "Ollama API", "Local LLMs", "CRPG"],
+      isPrivate: true,
+      category: "ai",
       status: "AI Game"
+    },
+    {
+      id: "kinotask",
+      title: "Кинотаск (Kinotask)",
+      tagline: "Умный Telegram-бот для совместных заметок и задач с AI",
+      description: "Современный многопользовательский Telegram-сервис для совместного ведения списков, заметок, фильмов и командных задач с интеллектуальной сортировкой и AI-помощником.",
+      highlights: [
+        "Синхронизация списков и заметок между участниками диалога в реальном времени",
+        "Интеллектуальная категоризация записей и напоминания",
+        "Асинхронный быстрый бэкенд на Python и aiogram с БД SQLite"
+      ],
+      techStack: ["Python", "aiogram 3", "SQLite", "FastAPI", "AI / LLM"],
+      isPrivate: true,
+      category: "ai",
+      status: "Telegram Service"
     },
     {
       id: "netmorph",
       title: "NetMorph",
       tagline: "Сетевой анализатор протоколов & LLM Studio",
-      description: "Комплексная среда для инспекции, валидации и трансформации сетевых дампов. Оснащена встроенным Monaco Editor, системой пайплайн-валидации пакетов и коннекторами к локальным моделям Ollama для интерпретации протоколов.",
+      description: "Среда для инспекции, валидации и трансформации сетевых дампов со встроенным Monaco Editor, валидатором пакетов и интеграцией с локальными LLM.",
       highlights: [
-        "Интерактивный редактор протоколов с Monaco Editor и проверкой типов в реальном времени",
-        "Пайплайн валидации сетевых пакетов и генерация тестовых дампов",
-        "Оптимизированный рендеринг тяжелых дампов с нулевым лагом интерфейса"
+        "Инспектор протоколов на базе Monaco Editor с подсветкой типов",
+        "Коннектор к локальным моделям для расшифровки дампов",
+        "Высокая производительность рендеринга больших объемов данных"
       ],
-      techStack: ["React 19", "TypeScript", "Vite", "Zustand", "Monaco Editor", "Ollama API"],
-      githubUrl: "https://github.com/yug33n/NetMorph",
-      status: "Active"
-    },
-    {
-      id: "unremembered",
-      title: "Unremembered",
-      tagline: "Атмосферная 3D головоломка про забытые воспоминания",
-      description: "Нарративная приключенческая игра на движке Unity. Игрок решает пространственные и логические загадки, шаг за шагом возвращая комнате и предметам их первоначальный облик через фрагменты утерянных воспоминаний.",
-      highlights: [
-        "Оригинальные механики восстановления окружения и предметов по воспоминаниям",
-        "Глубокая атмосфера, динамическое освещение и внимание к окружению",
-        "Чистая компонентная архитектура на C# и интерактивное физическое взаимодействие"
-      ],
-      techStack: ["Unity", "C#", "3D Puzzles", "Game Physics", "Level Design", "Atmospheric Audio"],
-      githubUrl: "https://github.com/yug33n/Unremembered",
-      status: "Unity Game"
-    },
-    {
-      id: "resonance",
-      title: "Resonance",
-      tagline: "Минималистичный и быстрый аудиоплеер на C# (.NET)",
-      description: "Десктопный музыкальный плеер для локальной фонотеки. Сфокусирован на чистом звучании, мгновенном отклике интерфейса и минимальном потреблении оперативной памяти.",
-      highlights: [
-        "Легковесный аудиодвижок с поддержкой популярных аудиоформатов",
-        "Удобная организация очередей воспроизведения и кастомных плейлистов",
-        "Чистый современный интерфейс без рекламы и фоновых процессов"
-      ],
-      techStack: ["C#", ".NET", "Desktop Audio", "Low Memory Footprint", "XAML / Modern UI"],
-      githubUrl: "https://github.com/yug33n/Resonance",
-      status: "Desktop"
-    },
-    {
-      id: "courier-manager",
-      title: "Курьер-Менеджер: Пробей Очередь!",
-      tagline: "Аркадная веб-игра про работу пункта выдачи заказов",
-      description: "Динамичная игра про управление логистическим пунктом (ПВЗ). Сортируй коробки с движущейся конвейерной ленты, выдавай правильные посылки клиентам на скорость и удерживай комбо-множители.",
-      highlights: [
-        "Реактивный игровой процесс с механикой выдачи с ленты и комбо-таймингами",
-        "Система прогрессии: магазин улучшений, смена смен и режим «Хардкор-час»",
-        "Интеграция с Yandex Games SDK, звуковыми эффектами и таблицей рекордов"
-      ],
-      techStack: ["JavaScript", "HTML5", "Modern CSS", "Game Loop", "Yandex Games SDK", "Web Audio"],
-      githubUrl: "https://github.com/yug33n/Courier-Manager",
-      status: "Web Game"
+      techStack: ["React 19", "TypeScript", "Vite", "Zustand", "Monaco Editor"],
+      isPrivate: true,
+      category: "web",
+      status: "Network Studio"
     }
   ],
   en: [
+    // 4 Featured Projects
     {
       id: "wintime",
       featured: true,
       title: "WinTime",
-      tagline: "Privacy-first Windows screen time & productivity tracker",
-      description: "Runs quietly in your Windows system tray, tracking foreground window activity, process uptime, detailed browser tabs (Chrome, Edge, Opera), and projects without slowing down your system. 100% of your data stays in a local SQLite database — zero cloud sync, zero telemetry.",
+      tagline: "Windows screen time & productivity tracker",
+      description: "Quiet Windows system tray application: tracks active processes, window titles, browser tabs, and projects. 100% of data is stored locally in SQLite with total privacy.",
       highlights: [
-        "Deep monitoring for browser tabs, code editors, and automated gaming mode detection (Steam/Epic)",
-        "Daily time limits & goals with periodic reminders or automated process closure warnings",
-        "Sleep & daily rhythm analysis via Windows Event Log system power events and a floating desktop widget (Micro-Mode)",
-        "Productivity gamification: XP levels, daily quests, and a 20-week GitHub-style activity heatmap"
+        "Deep monitoring for browser tabs, IDE projects, and game sessions",
+        "Customizable daily screen time goals with gentle notifications",
+        "Sleep rhythm insights via Windows Event Log and floating desktop micro-widget",
+        "Gamified productivity: XP levels, quests, and activity heatmap"
       ],
-      techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI", "System Tray Service"],
+      techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI"],
       githubUrl: "https://github.com/yug33n/WinTime",
       downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
-      status: "Featured App"
+      isPrivate: false,
+      category: "csharp",
+      status: "Open Source"
     },
     {
       id: "lucidtune",
       featured: true,
       title: "LucidTune",
-      tagline: "Floating Dynamic Island media overlay widget for Windows 10/11",
-      description: "Ultra-lightweight, customizable desktop overlay widget in Dynamic Island style for Windows 10 and 11. Brings real-time media metadata, album artwork, track playback progress, and playback controls directly above apps and games with a frosted glass aesthetic and customizable global hotkeys.",
+      tagline: "Floating Dynamic Island media overlay for Windows 10/11",
+      description: "Ultra-lightweight desktop overlay widget inspired by Dynamic Island. Brings live track metadata, artwork, progress bar, and player controls above windows and games with frosted glass styling.",
       highlights: [
-        "Windows Media (SMTC) integration: seamlessly syncs with Spotify, Yandex Music, YouTube, Telegram, VLC, and AIMP",
-        "Frosted glass Dynamic Island design, cinematic minimize-to-taskbar animations, and hover-triggered controls",
-        "Configurable global hotkeys, Windows system tray integration, ultra-low resource footprint (< 25 MB RAM), and zero latency"
+        "Windows Media (SMTC) integration: syncs with Spotify, Yandex Music, YouTube, VK",
+        "Frosted glass aesthetic with smooth collapse animations",
+        "Global hotkeys, low memory footprint (< 25 MB), and zero input latency"
       ],
-      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs", "System Overlay"],
-      githubUrl: "https://github.com/yug33n/LucidTune",
-      downloadUrl: "https://github.com/yug33n/LucidTune/releases/tag/v1.0.3",
+      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs"],
+      isPrivate: true,
+      category: "csharp",
       status: "Desktop Overlay"
     },
     {
@@ -223,284 +226,330 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       featured: true,
       title: "PipeFlow",
       tagline: "Visual CPU architecture simulator & puzzle Web IDE",
-      description: "Interactive educational puzzle game and web IDE inspired by classic von Neumann architecture and Human Resource Machine. Players design low-level algorithms by assembling assembly-like instructions (ISA-9) to control data streams, registers, and memory slots in real time.",
+      description: "Interactive learning environment and web IDE inspired by classic von Neumann architecture. Users construct algorithms using an assembly-like instruction set (ISA-9), animating registers and data buses in real time.",
       highlights: [
-        "Real-time CPU execution visualization: registers, RAM floor, INBOX/OUTBOX queues, and animated data buses",
-        "Full ISA-9 instruction set architecture: arithmetic, memory manipulation, and conditional branch jumps",
-        "Interactive Drag & Drop instruction editor on dnd-kit, step debugger with variable clock speed, and test runner"
+        "Real-time CPU visualization: registers, RAM floor, data buses, and queues",
+        "Complete ISA-9 instruction set with conditional branching",
+        "Drag & Drop instruction editor with variable clock speed debugger"
       ],
-      techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "dnd-kit", "Web IDE"],
-      githubUrl: "https://github.com/yug33n/PipeFlow",
+      techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "dnd-kit", "Web IDE"],
+      isPrivate: true,
+      category: "web",
       status: "Web Game & IDE"
     },
     {
-      id: "notiva",
+      id: "nexora",
       featured: true,
-      title: "Notiva",
-      tagline: "Intelligent knowledge base & study assistant (PWA)",
-      description: "Cross-platform client-server web app for students and academic professionals. It ingests study materials (notes, PDF textbooks, lecture audio recordings) and automatically transforms them into structured knowledge bases, Anki-style active recall flashcards, and interactive quizzes.",
+      title: "Nexora",
+      tagline: "Next-gen modular AI knowledge workspace & notes",
+      description: "Advanced workspace for structuring knowledge, notes, and team projects inspired by an enhanced Obsidian. Blends local-first storage, dynamic concept graphs, collaborative spaces, and an embedded local AI assistant.",
       highlights: [
-        "Multimodal material ingestion: PDF parsing, lecture note structuring, and audio processing",
-        "Automated generation of active recall flashcards and spaced repetition decks",
-        "Interactive self-assessment quizzes with automated response verification",
-        "PWA architecture: fully functional offline with instant install on any device"
+        "Interactive real-time graph visualization connecting ideas and notes",
+        "Embedded AI copilot for summarizing and extracting knowledge",
+        "Collaborative workspaces with strict local data preservation"
       ],
-      techStack: ["TypeScript", "React", "PWA", "Node.js", "AI Knowledge Base", "PDF Parsing"],
-      githubUrl: "https://github.com/yug33n/Notiva",
+      techStack: ["React", "TypeScript", "Python", "SQLite", "Local AI / LLM"],
+      githubUrl: "https://github.com/yug33n/Nexora",
+      isPrivate: false,
+      category: "ai",
+      status: "Active Team Project"
+    },
+
+    // 4 Other Archive Projects
+    {
+      id: "notiva",
+      title: "Notiva",
+      tagline: "Intelligent study knowledge base & assistant (PWA)",
+      description: "Cross-platform app transforming study notes and PDF documents into structured knowledge cards, spaced repetition flashcards, and quizzes.",
+      highlights: [
+        "PDF ingestion and automated lecture structuring",
+        "Active recall flashcard generation for exam prep",
+        "PWA offline-ready architecture"
+      ],
+      techStack: ["TypeScript", "React", "PWA", "Node.js", "PDF Parsing"],
+      isPrivate: true,
+      category: "web",
       status: "Web & PWA"
     },
     {
       id: "aetheria-chronicles",
       title: "Aetheria Chronicles",
-      tagline: "Interactive text-based CRPG powered by local LLMs (Ollama)",
-      description: "Text-based role-playing game set in a dark fantasy universe, powered by local LLMs via Ollama acting as a dynamic Game Master. The game adapts dynamically to your every action, ensuring absolute freedom of choice and organic procedural storytelling.",
+      tagline: "Interactive text-based CRPG powered by local LLMs",
+      description: "Dark fantasy role-playing adventure where a local neural model via Ollama acts as a procedural Game Master adapting dynamically to player choices.",
       highlights: [
-        "Organic storytelling: narrative and dialogue generated on the fly by local neural models",
-        "Classic CRPG depth: character attributes, inventory management, skill checks, and consequential choices",
-        "100% private and autonomous operation with zero reliance on paid cloud APIs"
+        "Procedural narrative and dialogs generated by local LLMs",
+        "CRPG depth: attributes, inventory checks, consequential choices",
+        "100% private operation with zero cloud API dependencies"
       ],
-      techStack: ["TypeScript / Python", "Ollama API", "Local LLMs", "CRPG Mechanics", "Procedural Story"],
-      githubUrl: "https://github.com/yug33n/aetheria-chronicles",
+      techStack: ["TypeScript", "Python", "Ollama API", "Local LLMs", "CRPG"],
+      isPrivate: true,
+      category: "ai",
       status: "AI Game"
+    },
+    {
+      id: "kinotask",
+      title: "Kinotask",
+      tagline: "Smart Telegram bot for collaborative task & note management",
+      description: "Real-time Telegram collaborative service for managing shared notes, watchlists, and task boards with automated AI categorization.",
+      highlights: [
+        "Real-time list sync between chat members with fast commands",
+        "Smart AI categorization and contextual reminders",
+        "High-performance asynchronous backend in Python & aiogram 3"
+      ],
+      techStack: ["Python", "aiogram 3", "SQLite", "FastAPI", "AI / LLM"],
+      isPrivate: true,
+      category: "ai",
+      status: "Telegram Service"
     },
     {
       id: "netmorph",
       title: "NetMorph",
       tagline: "Network protocol analyzer & LLM Studio",
-      description: "Comprehensive environment for inspecting, transforming, and validating network dumps. Features an embedded Monaco Editor, packet pipeline validation, and native connectors to local Ollama models for automated protocol interpretation.",
+      description: "Studio for inspecting and transforming network dumps with Monaco Editor, packet validation pipeline, and local LLM connectors.",
       highlights: [
-        "Interactive protocol editor with Monaco Editor and real-time type checking",
-        "Network packet validation pipeline and synthetic test dump generation",
-        "Optimized rendering engine for massive dumps with zero UI stutter"
+        "Monaco Editor protocol inspector with real-time type diagnostics",
+        "Connectors to local models for automated dump interpretation",
+        "Zero-latency rendering of heavy packet traces"
       ],
-      techStack: ["React 19", "TypeScript", "Vite", "Zustand", "Monaco Editor", "Ollama API"],
-      githubUrl: "https://github.com/yug33n/NetMorph",
-      status: "Active"
-    },
-    {
-      id: "unremembered",
-      title: "Unremembered",
-      tagline: "Atmospheric 3D memory restoration puzzle game",
-      description: "Narrative adventure puzzle game crafted in Unity. Players navigate surreal memory spaces, solving spatial and environmental puzzles to piece together lost fragments and restore the room to its original state.",
-      highlights: [
-        "Unique room restoration mechanics guided by environmental storytelling",
-        "Immersive atmosphere, custom lighting shaders, and meticulous physics interaction",
-        "Clean component architecture in C# with responsive event triggers and sound design"
-      ],
-      techStack: ["Unity", "C#", "3D Puzzles", "Game Physics", "Level Design", "Atmospheric Audio"],
-      githubUrl: "https://github.com/yug33n/Unremembered",
-      status: "Unity Game"
-    },
-    {
-      id: "resonance",
-      title: "Resonance",
-      tagline: "Minimalist, high-performance desktop audio player in C# (.NET)",
-      description: "Native desktop music player for local audio libraries. Focused on pristine audio playback, instant startup, clean ergonomics, and an ultra-low memory footprint.",
-      highlights: [
-        "Lightweight audio engine supporting lossless and standard audio formats",
-        "Seamless queue management, custom playlists, and instant track indexing",
-        "Clean modern UI without ads, bloatware, or background telemetry"
-      ],
-      techStack: ["C#", ".NET", "Desktop Audio", "Low Memory Footprint", "XAML / Modern UI"],
-      githubUrl: "https://github.com/yug33n/Resonance",
-      status: "Desktop"
-    },
-    {
-      id: "courier-manager",
-      title: "Courier Manager: Clear the Queue!",
-      tagline: "Fast-paced parcel logistics dispatch web game",
-      description: "Action logistics game set in a bustling parcel delivery point. Sort incoming packages on a moving conveyor belt, match delivery orders, serve waiting customers before timer runs out, and survive rush hour shifts.",
-      highlights: [
-        "Engaging conveyor dispatch mechanics with combo multipliers and timing precision",
-        "Progression loop: upgrade shop, shifting difficulty levels, and rush hour challenges",
-        "Yandex Games SDK integration, web audio sound effects, and global leaderboards"
-      ],
-      techStack: ["JavaScript", "HTML5", "Modern CSS", "Game Loop", "Yandex Games SDK", "Web Audio"],
-      githubUrl: "https://github.com/yug33n/Courier-Manager",
-      status: "Web Game"
+      techStack: ["React 19", "TypeScript", "Vite", "Zustand", "Monaco Editor"],
+      isPrivate: true,
+      category: "web",
+      status: "Network Studio"
     }
   ]
 };
 
-export const skillCategoriesData: Record<Language, SkillCategory[]> = {
-  ru: [
-    {
-      category: "Языки программирования",
-      iconName: "Code2",
-      skills: ["C#", "C++", "TypeScript", "JavaScript", "Python", "SQL", "HTML5 / CSS3"]
-    },
-    {
-      category: "Десктоп & .NET",
-      iconName: "Cpu",
-      skills: [".NET 10 / C#", "WinTime App", "SQLite", "Windows APIs", "System Tray Services", "Desktop Audio"]
-    },
-    {
-      category: "ИИ & Локальные LLM",
-      iconName: "Server",
-      skills: ["Ollama API", "Local LLMs", "Prompt Engineering", "CRPG Game Master", "AI Knowledge Extraction"]
-    },
-    {
-      category: "GameDev & Интерактив",
-      iconName: "Gamepad2",
-      skills: ["Unity (C#)", "3D Puzzles", "Game Physics", "Web Games", "Yandex Games SDK", "Procedural Narrative"]
-    },
-    {
-      category: "Web & Frontend",
-      iconName: "Layout",
-      skills: ["React 19", "TypeScript", "Vite", "PWA Architecture", "Zustand", "Monaco Editor", "Modern CSS"]
-    },
-    {
-      category: "Инструменты & DevOps",
-      iconName: "Terminal",
-      skills: ["Git & GitHub", "Docker", "Linux / VPS", "Nginx", "CI/CD", "VS Code / Visual Studio"]
-    }
-  ],
-  en: [
-    {
-      category: "Programming Languages",
-      iconName: "Code2",
-      skills: ["C#", "C++", "TypeScript", "JavaScript", "Python", "SQL", "HTML5 / CSS3"]
-    },
-    {
-      category: "Desktop & .NET",
-      iconName: "Cpu",
-      skills: [".NET 10 / C#", "WinTime App", "SQLite", "Windows APIs", "System Tray Services", "Desktop Audio"]
-    },
-    {
-      category: "AI & Local LLMs",
-      iconName: "Server",
-      skills: ["Ollama API", "Local LLMs", "Prompt Engineering", "CRPG Game Master", "AI Knowledge Extraction"]
-    },
-    {
-      category: "GameDev & Interactive",
-      iconName: "Gamepad2",
-      skills: ["Unity (C#)", "3D Puzzles", "Game Physics", "Web Games", "Yandex Games SDK", "Procedural Narrative"]
-    },
-    {
-      category: "Web & Frontend",
-      iconName: "Layout",
-      skills: ["React 19", "TypeScript", "Vite", "PWA Architecture", "Zustand", "Monaco Editor", "Modern CSS"]
-    },
-    {
-      category: "DevOps & Tooling",
-      iconName: "Terminal",
-      skills: ["Git & GitHub", "Docker", "Linux / VPS", "Nginx", "CI/CD", "VS Code / Visual Studio"]
-    }
-  ]
-};
+export interface KeypadSkill {
+  id: string;
+  keyLabel: string;
+  name: string;
+  category: 'langs' | 'desktop' | 'web' | 'ai' | 'tools';
+  color: string;
+  descriptionRu: string;
+  descriptionEn: string;
+  relatedProjects: string[];
+}
+
+export const keypadSkillsData: KeypadSkill[] = [
+  {
+    id: "csharp",
+    keyLabel: "C#",
+    name: "C# & .NET",
+    category: "desktop",
+    color: "#a855f7",
+    descriptionRu: "Основной язык для разработки высокопроизводительного Windows-софта, служб и игровых движков. Опыт более 3 лет.",
+    descriptionEn: "Core language for high-performance Windows software, background services, and games. 3+ years experience.",
+    relatedProjects: ["WinTime", "LucidTune"]
+  },
+  {
+    id: "cpp",
+    keyLabel: "C++",
+    name: "C++ / Win32",
+    category: "langs",
+    color: "#3b82f6",
+    descriptionRu: "Низкоуровневая разработка, работа с Win32 API, системными хуками и оптимизация ресурсоемких модулей.",
+    descriptionEn: "Low-level engineering, Win32 APIs, system hooks, and resource-sensitive optimizations.",
+    relatedProjects: ["WinTime", "LucidTune"]
+  },
+  {
+    id: "ts",
+    keyLabel: "TS",
+    name: "TypeScript",
+    category: "web",
+    color: "#38bdf8",
+    descriptionRu: "Строгая типизация, построение масштабируемых веб-приложений, IDE и клиентских архитектур.",
+    descriptionEn: "Strict typing, building scalable web platforms, IDE interfaces, and robust client architectures.",
+    relatedProjects: ["PipeFlow", "Nexora", "Notiva", "NetMorph"]
+  },
+  {
+    id: "react",
+    keyLabel: "React",
+    name: "React 19",
+    category: "web",
+    color: "#06b6d4",
+    descriptionRu: "Современные реактивные интерфейсы, кастомные хуки, виртуализация и анимации с 60fps.",
+    descriptionEn: "Modern reactive interfaces, state architecture, component virtualization, and smooth 60fps UI.",
+    relatedProjects: ["PipeFlow", "Nexora", "NetMorph"]
+  },
+  {
+    id: "python",
+    keyLabel: "Py",
+    name: "Python 3",
+    category: "langs",
+    color: "#eab308",
+    descriptionRu: "Асинхронные микросервисы (FastAPI, aiogram 3), скрипты обработки данных и интеграция с LLM.",
+    descriptionEn: "Asynchronous microservices (FastAPI, aiogram 3), automation pipelines, and LLM orchestration.",
+    relatedProjects: ["Kinotask", "Nexora", "Aetheria Chronicles"]
+  },
+  {
+    id: "ollama",
+    keyLabel: "AI",
+    name: "Local LLM & Ollama",
+    category: "ai",
+    color: "#10b981",
+    descriptionRu: "Запуск локальных моделей, промпт-инжиниринг, извлечение знаний и автономные агенты.",
+    descriptionEn: "Local model deployment, prompt engineering, structured knowledge extraction, and autonomous agents.",
+    relatedProjects: ["Nexora", "Aetheria Chronicles", "NetMorph"]
+  },
+  {
+    id: "sqlite",
+    keyLabel: "SQL",
+    name: "SQLite & Relational DB",
+    category: "desktop",
+    color: "#64748b",
+    descriptionRu: "Локальные БД без накладных расходов, индексы, миграции данных и быстрые транзакции.",
+    descriptionEn: "Embedded local-first databases, performant indexes, data migrations, and atomic operations.",
+    relatedProjects: ["WinTime", "Nexora", "Kinotask"]
+  },
+  {
+    id: "wpf",
+    keyLabel: "WPF",
+    name: "WPF & XAML",
+    category: "desktop",
+    color: "#8b5cf6",
+    descriptionRu: "Разработка нативных Windows GUI, оверлеев поверх окон, кастомных стилей и шаблонов элементов управления.",
+    descriptionEn: "Native Windows GUI engineering, floating window overlays, hardware-accelerated XAML visuals.",
+    relatedProjects: ["LucidTune", "WinTime"]
+  },
+  {
+    id: "docker",
+    keyLabel: "Dock",
+    name: "Docker & Linux",
+    category: "tools",
+    color: "#0284c7",
+    descriptionRu: "Контейнеризация сервисов, развертывание на VPS, настройка Nginx и работа в среде Linux.",
+    descriptionEn: "Service containerization, VPS deployment, Nginx configuration, and headless Linux workflows.",
+    relatedProjects: ["Kinotask", "Nexora"]
+  },
+  {
+    id: "git",
+    keyLabel: "Git",
+    name: "Git & CI/CD",
+    category: "tools",
+    color: "#f97316",
+    descriptionRu: "Ветвление, код-ревью, автоматизация релизов и деплой через GitHub Actions.",
+    descriptionEn: "Feature branching, pull requests, automated release builds, and GitHub Actions CI/CD.",
+    relatedProjects: ["Все проекты", "All Projects"]
+  },
+  {
+    id: "zustand",
+    keyLabel: "Zust",
+    name: "Zustand & State",
+    category: "web",
+    color: "#d97706",
+    descriptionRu: "Минималистичный и быстрый стейт-менеджмент для сложных веб-приложений без лишних ре-рендеров.",
+    descriptionEn: "Lightweight, un-opinionated state management for complex web apps without re-render overhead.",
+    relatedProjects: ["PipeFlow", "NetMorph"]
+  },
+  {
+    id: "unity",
+    keyLabel: "Unity",
+    name: "Unity Engine",
+    category: "langs",
+    color: "#ffffff",
+    descriptionRu: "Разработка 3D-механик, физики взаимодействия, скриптов на C# и левел-дизайн.",
+    descriptionEn: "3D puzzle mechanics, game physics, interactive C# scripts, and atmospheric level design.",
+    relatedProjects: ["Unremembered"]
+  }
+];
 
 export const uiText: Record<Language, {
   status: string;
-  contactBtn: string;
-  heroBadge: string;
-  heroTitlePrefix: string;
-  heroTitleGradient: string;
-  heroSubtitle: string;
-  cliProjects: string;
-  cliStack: string;
-  cliConsole: string;
-  cliContact: string;
-  projectsHeader: string;
-  projectsSubheader: string;
-  consoleHeader: string;
-  consoleSubheader: string;
-  consoleDescription: string;
-  stackHeader: string;
-  stackSubheader: string;
-  contactBadge: string;
+  experiencePill: string;
+  heroGreeting: string;
+  heroName: string;
+  heroRole: string;
+  heroBio: string;
+  navProjects: string;
+  navSkills: string;
+  navContact: string;
+  featuredHeader: string;
+  featuredSubheader: string;
+  archiveHeader: string;
+  archiveSubheader: string;
+  keypadHeader: string;
+  keypadSubheader: string;
+  keypadHint: string;
   contactHeader: string;
   contactSubtitle: string;
   telegramBtn: string;
   instagramBtn: string;
   githubBtn: string;
-  repoBtn: string;
-  archiveBtn: string;
-  archiveHideBtn: string;
-  archiveSubheader: string;
-  archivePrivateNote: string;
-  footerPrivateNote: string;
+  privateBadge: string;
+  openSourceBadge: string;
+  viewRepoBtn: string;
   filterAll: string;
   filterCsharp: string;
   filterWeb: string;
   filterAi: string;
-  filterGames: string;
-  downloadBtn: string;
-  footerRights: string;
+  detailsModalTitle: string;
+  closeBtn: string;
+  rightsText: string;
 }> = {
   ru: {
-    status: "STATUS: ONLINE",
-    contactBtn: "Связаться",
-    heroBadge: "VERSATILE SOFTWARE ENGINEER",
-    heroTitlePrefix: "Универсальный разработчик:",
-    heroTitleGradient: "десктоп, мобильные сервисы и веб",
-    heroSubtitle: "Привет, я yugeen. Разрабатываю десктопные решения и системные утилиты на C++ и C#, кроссплатформенные мобильные приложения и современные веб-платформы на React и TypeScript. От системной логики до отзывчивых интерфейсов.",
-    cliProjects: "проекты",
-    cliStack: "стек",
-    cliConsole: "консоль",
-    cliContact: "контакты",
-    projectsHeader: "Проекты & Разработки",
-    projectsSubheader: "FEATURED WORKS",
-    consoleHeader: "Интерактивная консоль",
-    consoleSubheader: "CLI PLAYGROUND",
-    consoleDescription: "Быстрый терминальный доступ: вводите команды или нажимайте подсказки в шапке консоли:",
-    stackHeader: "Технологический стек",
-    stackSubheader: "MULTI-PLATFORM STACK",
-    contactBadge: "LET'S BUILD SOMETHING GREAT",
+    status: "ДОСТУПЕН ДЛЯ ПРОЕКТОВ",
+    experiencePill: "3 года опыта",
+    heroGreeting: "Привет, я",
+    heroName: "Митя (yug33n)",
+    heroRole: "Универсальный разработчик",
+    heroBio: "Разрабатываю десктопные решения, мобильные сервисы, игры и современный веб. 3 года практического опыта. Фокусируюсь на чистой архитектуре, высокой отзывчивости и продуманном пользовательском опыте.",
+    navProjects: "Проекты",
+    navSkills: "Стек & Клавиатура",
+    navContact: "Связаться",
+    featuredHeader: "Избранные работы",
+    featuredSubheader: "FEATURED PROJECTS",
+    archiveHeader: "Другие разработки",
+    archiveSubheader: "PROJECT ARCHIVE",
+    keypadHeader: "Интерактивный стек",
+    keypadSubheader: "INTERACTIVE SKILLS PAD",
+    keypadHint: "Нажимай клавиши на макропаде мышкой или на клавиатуре ПК",
     contactHeader: "Свяжитесь со мной",
-    contactSubtitle: "Открыт к предложениям по разработке десктопного ПО, мобильных приложений, веб-сервисов или совместным проектам. Напишите мне в Telegram или Instagram:",
+    contactSubtitle: "Открыт к интересным предложениям, совместным проектам и разработке софта. Напишите мне в удобный мессенджер:",
     telegramBtn: "Написать в Telegram",
     instagramBtn: "Instagram",
-    githubBtn: "GitHub",
-    archiveBtn: "Архив проектов",
-    archiveHideBtn: "Скрыть архив",
-    archiveSubheader: "Остальные разработки и эксперименты",
-    archivePrivateNote: "Часть репозиториев находится в приватном доступе (NDA / активная разработка). Доступ к исходному коду может быть предоставлен по запросу.",
-    footerPrivateNote: "Многие репозитории проектов являются приватными. Исходный код может быть предоставлен по запросу.",
+    githubBtn: "GitHub Профиль",
+    privateBadge: "Приват",
+    openSourceBadge: "Open Source",
+    viewRepoBtn: "Репозиторий",
     filterAll: "Все",
     filterCsharp: "C# / .NET",
     filterWeb: "React / Web",
-    filterAi: "AI & LLM",
-    filterGames: "GameDev",
-    downloadBtn: "Скачать",
-    repoBtn: "Репозиторий",
-    footerRights: "yugeen"
+    filterAi: "AI / LLM",
+    detailsModalTitle: "Детали проекта",
+    closeBtn: "Закрыть",
+    rightsText: "Митя (yug33n) • 2026"
   },
   en: {
-    status: "STATUS: ONLINE",
-    contactBtn: "Contact",
-    heroBadge: "VERSATILE SOFTWARE ENGINEER",
-    heroTitlePrefix: "Versatile Software Engineer:",
-    heroTitleGradient: "Desktop, Mobile Services & Fast Web",
-    heroSubtitle: "Hi, I'm yugeen. I engineer desktop solutions & system utilities in C++ and C#, cross-platform mobile applications, and high-performance web platforms with React & TypeScript. From low-level logic to responsive interfaces.",
-    cliProjects: "projects",
-    cliStack: "stack",
-    cliConsole: "console",
-    cliContact: "contact",
-    projectsHeader: "Featured Projects & Lab",
-    projectsSubheader: "FEATURED WORKS",
-    consoleHeader: "Interactive Console",
-    consoleSubheader: "CLI PLAYGROUND",
-    consoleDescription: "Quick terminal access: enter commands or click suggestion pills in the header:",
-    stackHeader: "Technology Stack",
-    stackSubheader: "MULTI-PLATFORM STACK",
-    contactBadge: "LET'S BUILD SOMETHING GREAT",
+    status: "AVAILABLE FOR PROJECTS",
+    experiencePill: "3+ Years Exp",
+    heroGreeting: "Hi, I am",
+    heroName: "Mitya (yug33n)",
+    heroRole: "Versatile Software Engineer",
+    heroBio: "Engineering desktop software, mobile services, games & modern web platforms. 3 years of hands-on development. Focused on solid architecture, responsive performance, and refined UX.",
+    navProjects: "Projects",
+    navSkills: "Stack & Keypad",
+    navContact: "Contact",
+    featuredHeader: "Featured Works",
+    featuredSubheader: "FEATURED PROJECTS",
+    archiveHeader: "More Projects",
+    archiveSubheader: "PROJECT ARCHIVE",
+    keypadHeader: "Interactive Stack",
+    keypadSubheader: "INTERACTIVE SKILLS PAD",
+    keypadHint: "Click keys on the macropad or press matching keys on your keyboard",
     contactHeader: "Get In Touch",
-    contactSubtitle: "Open for desktop software development, mobile apps, web systems, and collaborative engineering projects. Reach out via Telegram or Instagram:",
+    contactSubtitle: "Open for interesting opportunities, software contracts, and collaborative builds. Reach out directly:",
     telegramBtn: "Message on Telegram",
     instagramBtn: "Instagram",
-    githubBtn: "GitHub",
-    archiveBtn: "Project Archive",
-    archiveHideBtn: "Hide Archive",
-    archiveSubheader: "More projects & lab experiments",
-    archivePrivateNote: "Some project repositories are private (NDA / active development). Source code access can be provided upon request.",
-    footerPrivateNote: "Many project repositories are private. Source code access can be provided upon request.",
+    githubBtn: "GitHub Profile",
+    privateBadge: "Private",
+    openSourceBadge: "Open Source",
+    viewRepoBtn: "Repository",
     filterAll: "All",
     filterCsharp: "C# / .NET",
     filterWeb: "React / Web",
-    filterAi: "AI & LLM",
-    filterGames: "GameDev",
-    downloadBtn: "Download",
-    repoBtn: "Repository",
-    footerRights: "yugeen"
+    filterAi: "AI / LLM",
+    detailsModalTitle: "Project Details",
+    closeBtn: "Close",
+    rightsText: "Mitya (yug33n) • 2026"
   }
 };
