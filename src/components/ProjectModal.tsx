@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import type { ProjectItem } from '../types';
 import type { Language } from '../data/portfolioData';
 import { X, ExternalLink, Lock, CheckCircle2, Monitor } from 'lucide-react';
@@ -11,12 +11,6 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal = ({ project, language, onClose }: ProjectModalProps) => {
-  const [activeIdx, setActiveIdx] = useState(0);
-
-  useEffect(() => {
-    setActiveIdx(0);
-  }, [project]);
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -32,12 +26,6 @@ export const ProjectModal = ({ project, language, onClose }: ProjectModalProps) 
   }, [project, onClose]);
 
   if (!project) return null;
-
-  const currentImage = project.screenshots && project.screenshots.length > 0
-    ? project.screenshots[activeIdx]?.image
-    : (project.fullImage || project.image);
-
-  const isWidget = project.id === 'lucidtune';
 
   return (
     <div className="project-modal-backdrop" onClick={onClose}>
@@ -60,70 +48,6 @@ export const ProjectModal = ({ project, language, onClose }: ProjectModalProps) 
 
         {/* Modal Body */}
         <div className="modal-inner-scroll">
-          {/* Screenshot / Visual Stage */}
-          {isWidget ? (
-            <div className="modal-widget-stage">
-              {currentImage && (
-                <img
-                  src={currentImage}
-                  alt={project.title}
-                  className="modal-widget-img"
-                />
-              )}
-            </div>
-          ) : (
-            <div className="modal-mockup-wrapper">
-              <div className="mockup-window-header modal-inner-window-header">
-                <div className="mockup-dots">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-yellow" />
-                  <span className="dot dot-green" />
-                </div>
-                <span className="mockup-header-title">{project.id}.app</span>
-
-                {project.screenshots && project.screenshots.length > 1 && (
-                  <div className="modal-gallery-tabs">
-                    {project.screenshots.map((s, idx) => (
-                      <button
-                        key={s.image}
-                        type="button"
-                        className={`modal-gallery-tab ${activeIdx === idx ? 'active' : ''}`}
-                        onClick={() => setActiveIdx(idx)}
-                      >
-                        {s.title}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div className="modal-screen-container">
-                {currentImage ? (
-                  <img
-                    src={currentImage}
-                    alt={project.title}
-                    className="modal-preview-img"
-                  />
-                ) : (
-                  <div className="modal-preview-placeholder">
-                    <div className="placeholder-device-mockup">
-                      <div className="mockup-header-bar">
-                        <span className="mockup-url">app://{project.id}.local</span>
-                      </div>
-                      <div className="mockup-content">
-                        <div className="mockup-icon-glow">
-                          <Monitor size={36} />
-                        </div>
-                        <span className="mockup-title">{project.title}</span>
-                        <span className="mockup-subtitle">{project.tagline}</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
           <div className="modal-details-content">
             <div className="modal-headline-row">
               <div>

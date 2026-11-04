@@ -68,7 +68,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI"],
       githubUrl: "https://github.com/yug33n/WinTime",
       downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
-      image: "/projects/wintime-ru.jpg",
+      image: "/projects/wintime-ru.webp",
       isPrivate: false,
       category: "csharp",
       status: "Desktop Utility"
@@ -85,7 +85,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Глобальные хоткеи, минимальное потребление памяти (< 25 МБ) и нулевой инпут-лаг"
       ],
       techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs"],
-      image: "/projects/lucidtune.png",
+      image: "/projects/lucidtune.webp",
       isPrivate: true,
       category: "csharp",
       status: "Desktop Overlay"
@@ -102,7 +102,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Drag & Drop редактор инструкций, пошаговый отладчик с регулировкой частоты тактов"
       ],
       techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "dnd-kit", "Web IDE"],
-      image: "/projects/pipeflow.jpg",
+      image: "/projects/pipeflow.webp",
       isPrivate: true,
       category: "web",
       status: "Web Game & IDE"
@@ -120,11 +120,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       ],
       techStack: ["React", "TypeScript", "Python", "SQLite", "Local AI / LLM"],
       githubUrl: "https://github.com/yug33n/Nexora",
-      image: "/projects/nexora-card.jpg",
-      screenshots: [
-        { title: "Граф знаний", image: "/projects/nexora_graph.jpg" },
-        { title: "ИИ-ассистент", image: "/projects/nexora_chat.jpg" }
-      ],
+      image: "/projects/nexora-card.webp",
       isPrivate: false,
       category: "ai",
       status: "Workspace & AI"
@@ -209,7 +205,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       techStack: [".NET 10", "C#", "SQLite", "Windows APIs", "Fluent UI"],
       githubUrl: "https://github.com/yug33n/WinTime",
       downloadUrl: "https://github.com/yug33n/WinTime/releases/tag/v3.0.0",
-      image: "/projects/wintime-en.jpg",
+      image: "/projects/wintime-en.webp",
       isPrivate: false,
       category: "csharp",
       status: "Desktop Utility"
@@ -226,7 +222,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Global hotkeys, low memory footprint (< 25 MB), and zero input latency"
       ],
       techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs"],
-      image: "/projects/lucidtune.png",
+      image: "/projects/lucidtune.webp",
       isPrivate: true,
       category: "csharp",
       status: "Desktop Overlay"
@@ -243,7 +239,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
         "Drag & Drop instruction editor with variable clock speed debugger"
       ],
       techStack: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "dnd-kit", "Web IDE"],
-      image: "/projects/pipeflow.jpg",
+      image: "/projects/pipeflow.webp",
       isPrivate: true,
       category: "web",
       status: "Web Game & IDE"
@@ -261,11 +257,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       ],
       techStack: ["React", "TypeScript", "Python", "SQLite", "Local AI / LLM"],
       githubUrl: "https://github.com/yug33n/Nexora",
-      image: "/projects/nexora-card.jpg",
-      screenshots: [
-        { title: "Knowledge Graph", image: "/projects/nexora_graph.jpg" },
-        { title: "AI Assistant", image: "/projects/nexora_chat.jpg" }
-      ],
+      image: "/projects/nexora-card.webp",
       isPrivate: false,
       category: "ai",
       status: "Workspace & AI"
