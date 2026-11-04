@@ -154,7 +154,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       status: "AI Game"
     },
     {
-      id: "kinotask",
+      id: "kintask",
       title: "KinTask",
       tagline: "Умный Telegram-бот для совместных заметок и задач с AI",
       description: "Современный многопользовательский Telegram-сервис для совместного ведения списков, заметок, фильмов и командных задач с интеллектуальной сортировкой и AI-помощником.",
@@ -287,7 +287,7 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       status: "AI Game"
     },
     {
-      id: "kinotask",
+      id: "kintask",
       title: "KinTask",
       tagline: "Smart Telegram bot for collaborative task & note management",
       description: "Real-time Telegram collaborative service for managing shared notes, watchlists, and task boards with automated AI categorization.",
@@ -379,7 +379,7 @@ export const keypadSkillsData: KeypadSkill[] = [
     color: "#eab308",
     descriptionRu: "Асинхронные микросервисы (FastAPI, aiogram 3), скрипты обработки данных и интеграция с LLM.",
     descriptionEn: "Asynchronous microservices (FastAPI, aiogram 3), automation pipelines, and LLM orchestration.",
-    relatedProjects: ["Kinotask", "Nexora", "Aetheria Chronicles"]
+    relatedProjects: ["KinTask", "Nexora", "Aetheria Chronicles"]
   },
   {
     id: "ollama",
@@ -399,7 +399,7 @@ export const keypadSkillsData: KeypadSkill[] = [
     color: "#64748b",
     descriptionRu: "Локальные БД без накладных расходов, индексы, миграции данных и быстрые транзакции.",
     descriptionEn: "Embedded local-first databases, performant indexes, data migrations, and atomic operations.",
-    relatedProjects: ["WinTime", "Nexora", "Kinotask"]
+    relatedProjects: ["WinTime", "Nexora", "KinTask"]
   },
   {
     id: "wpf",
@@ -419,7 +419,7 @@ export const keypadSkillsData: KeypadSkill[] = [
     color: "#0284c7",
     descriptionRu: "Контейнеризация сервисов, развертывание на VPS, настройка Nginx и работа в среде Linux.",
     descriptionEn: "Service containerization, VPS deployment, Nginx configuration, and headless Linux workflows.",
-    relatedProjects: ["Kinotask", "Nexora"]
+    relatedProjects: ["KinTask", "Nexora"]
   },
   {
     id: "git",
@@ -439,7 +439,7 @@ export const keypadSkillsData: KeypadSkill[] = [
     color: "#336791",
     descriptionRu: "Реляционные базы данных, проектирование схем, транзакции, индексы и оптимизация SQL-запросов.",
     descriptionEn: "Relational database schema design, ACID transactions, indexing, and SQL optimization.",
-    relatedProjects: ["Nexora", "Kinotask"]
+    relatedProjects: ["Nexora", "KinTask"]
   },
   {
     id: "unity",
