@@ -10,6 +10,11 @@ export interface ProjectItem {
   downloadUrl?: string;
   featured?: boolean;
   status?: string;
+  isPrivate?: boolean;
+  image?: string;
+  fullImage?: string;
+  screenshots?: { title: string; image: string }[];
+  category?: 'csharp' | 'web' | 'ai' | 'gamedev';
 }
 
 export interface ExperienceItem {
