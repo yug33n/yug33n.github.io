@@ -40,8 +40,23 @@ export default function App() {
     localStorage.setItem('yugeen-lang', language);
   }, [language]);
 
-  // Cinematic Scroll Reveal Observer
+  // Cinematic Scroll Reveal Observer with instant mobile fallback
   useEffect(() => {
+    const revealAll = () => {
+      document.querySelectorAll('.scroll-reveal').forEach((el) => {
+        el.classList.add('is-visible');
+      });
+    };
+
+    // On mobile screens, reveal all sections immediately
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+      revealAll();
+      return;
+    }
+
+    // Safety timeout: ensure everything reveals even if observer is throttled by browser
+    const timer = setTimeout(revealAll, 900);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -51,15 +66,18 @@ export default function App() {
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.02,
+        rootMargin: '100px 0px 100px 0px',
       }
     );
 
     const elements = document.querySelectorAll('.scroll-reveal');
     elements.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, [language, activeFilter]);
 
   const scrollToSection = (id: string) => {

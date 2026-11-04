@@ -1450,6 +1450,28 @@
 }
 
 @media (max-width: 768px) {
+  /* Instant Mobile Rendering: disable opacity:0, filters and complex will-change */
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  /* Optimize ambient radial glow for mobile GPU memory */
+  .ambient-radial-glow {
+    filter: blur(50px) !important;
+    opacity: 0.16 !important;
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .bento-featured-card {
+    transform: none !important;
+    transform-style: flat !important;
+  }
+
   .modern-glass-navbar {
     height: auto;
     padding: 10px 16px;
@@ -1464,7 +1486,9 @@
 
   .content-container {
     padding-top: 90px;
-    gap: 80px;
+    gap: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .contact-studio-card {
@@ -1488,10 +1512,42 @@
 
   .macropad-keys-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .keycap-btn {
-    width: 60px;
-    height: 56px;
+    width: 64px;
+    height: 58px;
+  }
+}
+
+@media (max-width: 480px) {
+  .macropad-isometric-stage {
+    perspective: none;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .macropad-deck-base {
+    transform: none !important;
+    padding: 16px 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .macropad-keys-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    justify-items: center;
+  }
+
+  .keycap-btn {
+    width: 100%;
+    max-width: 74px;
+    height: 52px;
+  }
+
+  .keycap-top {
+    height: 46px;
   }
 }
