@@ -121,7 +121,10 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       techStack: ["React", "TypeScript", "Python", "SQLite", "Local AI / LLM"],
       githubUrl: "https://github.com/yug33n/Nexora",
       image: "/projects/nexora-card.jpg",
-      fullImage: "/projects/nexora.jpg",
+      screenshots: [
+        { title: "Граф знаний", image: "/projects/nexora_graph.jpg" },
+        { title: "ИИ-ассистент", image: "/projects/nexora_chat.jpg" }
+      ],
       isPrivate: false,
       category: "ai",
       status: "Workspace & AI"
@@ -259,7 +262,10 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       techStack: ["React", "TypeScript", "Python", "SQLite", "Local AI / LLM"],
       githubUrl: "https://github.com/yug33n/Nexora",
       image: "/projects/nexora-card.jpg",
-      fullImage: "/projects/nexora.jpg",
+      screenshots: [
+        { title: "Knowledge Graph", image: "/projects/nexora_graph.jpg" },
+        { title: "AI Assistant", image: "/projects/nexora_chat.jpg" }
+      ],
       isPrivate: false,
       category: "ai",
       status: "Workspace & AI"

@@ -13,6 +13,7 @@ export interface ProjectItem {
   isPrivate?: boolean;
   image?: string;
   fullImage?: string;
+  screenshots?: { title: string; image: string }[];
   category?: 'csharp' | 'web' | 'ai' | 'gamedev';
 }
 

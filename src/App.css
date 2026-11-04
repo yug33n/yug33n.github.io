@@ -522,10 +522,9 @@
 .mockup-widget-img {
   width: auto;
   max-width: 90%;
-  max-height: 80%;
+  max-height: 85%;
   object-fit: contain;
   filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.85));
-  border-radius: 18px;
   transition: transform var(--transition-smooth), filter var(--transition-smooth);
 }
 
@@ -1292,40 +1291,94 @@
   gap: 24px;
 }
 
-.modal-preview-stage {
-  border-radius: var(--radius-md);
-  overflow: hidden;
+.modal-mockup-wrapper {
+  background: #090a0f;
   border: 1px solid var(--border-subtle);
-  background: #090a10;
-  max-height: 480px;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-inner-window-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.modal-gallery-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-gallery-tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-gallery-tab:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.modal-gallery-tab.active {
+  color: #fff;
+  background: var(--accent-primary);
+  font-weight: 600;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.modal-screen-container {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0d0f17;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 520px;
 }
 
 .modal-preview-img {
   width: 100%;
-  max-height: 480px;
-  object-fit: contain;
-  background: #06070a;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: top center;
   display: block;
 }
 
 .modal-widget-stage {
   background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.12), transparent 70%), #07080d;
-  padding: 40px 24px;
+  padding: 44px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
 }
 
 .modal-widget-img {
-  max-width: 440px;
+  max-width: 520px;
   width: 90%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.9));
-  border-radius: 24px;
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.95));
 }
 
 .modal-preview-placeholder {
