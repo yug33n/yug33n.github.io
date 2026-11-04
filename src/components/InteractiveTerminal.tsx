@@ -18,7 +18,7 @@ export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProp
     {
       id: 1,
       type: 'system',
-      text: language === 'ru' ? 'Консоль Yugeen v2.4 (x86_64-station)' : 'Yugeen Console v2.4 (x86_64-station)',
+      text: language === 'ru' ? 'Консоль yug33n v2.4 (x86_64-station)' : 'yug33n Console v2.4 (x86_64-station)',
     },
     {
       id: 2,
@@ -137,7 +137,7 @@ export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProp
         newLines.push({
           id: Date.now() + 1,
           type: 'output',
-          text: 'guest@yugeen-station: session authenticated [guest-mode].',
+          text: 'guest@yug33n-station: session authenticated [guest-mode].',
         });
         break;
       case 'clear':
@@ -177,7 +177,7 @@ export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProp
           <span className="terminal-dot min" />
           <span className="terminal-dot max" />
         </div>
-        <span className="terminal-title">terminal@yugeen:~</span>
+        <span className="terminal-title">terminal@yug33n:~</span>
         <div className="terminal-pills-wrap">
           <button
             onClick={() => handleNavPillClick('projects')}
@@ -228,6 +228,7 @@ export const InteractiveTerminal = ({ language = 'en' }: InteractiveTerminalProp
           <input
             type="text"
             className="terminal-input"
+            maxLength={100}
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             onKeyDown={handleKeyDown}

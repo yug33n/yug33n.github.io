@@ -114,6 +114,34 @@ const SkillKeycapIcon = ({ skillId, color }: { skillId: string; color: string })
   }
 };
 
+let sharedAudioCtx: AudioContext | null = null;
+const playKeyClick = () => {
+  try {
+    const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    if (!AudioCtx) return;
+    if (!sharedAudioCtx || sharedAudioCtx.state === 'closed') {
+      sharedAudioCtx = new AudioCtx();
+    }
+    if (sharedAudioCtx.state === 'suspended') {
+      sharedAudioCtx.resume();
+    }
+    const ctx = sharedAudioCtx;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(420, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.04);
+    gain.gain.setValueAtTime(0.04, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.05);
+  } catch {
+    // AudioContext muted/unsupported
+  }
+};
+
 export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
   const [selectedSkill, setSelectedSkill] = useState<KeypadSkill>(keypadSkillsData[0]);
   const [pressedKeyId, setPressedKeyId] = useState<string | null>(null);
@@ -125,25 +153,7 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
     setBongoPaw((prev) => (prev === 'left' ? 'right' : 'left'));
 
     // Sound effect using Web Audio API synthesis (soft subtle mechanical click)
-    try {
-      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (AudioCtx) {
-        const ctx = new AudioCtx();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(420, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.04);
-        gain.gain.setValueAtTime(0.04, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.05);
-      }
-    } catch {
-      // AudioContext muted/unsupported, no problem
-    }
+    playKeyClick();
 
     setTimeout(() => {
       setPressedKeyId((curr) => (curr === skill.id ? null : curr));
