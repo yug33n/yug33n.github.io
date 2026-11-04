@@ -27,6 +27,9 @@ export const ProjectModal = ({ project, language, onClose }: ProjectModalProps) 
 
   if (!project) return null;
 
+  const displayImage = project.fullImage || project.image;
+  const isWidget = project.id === 'lucidtune';
+
   return (
     <div className="project-modal-backdrop" onClick={onClose}>
       <div className="project-modal-dialog" onClick={(e) => e.stopPropagation()}>
@@ -48,10 +51,14 @@ export const ProjectModal = ({ project, language, onClose }: ProjectModalProps) 
 
         {/* Modal Body */}
         <div className="modal-inner-scroll">
-          {/* Screenshot / Visual Container Placeholder */}
-          <div className="modal-preview-stage">
-            {project.image ? (
-              <img src={project.image} alt={project.title} className="modal-preview-img" />
+          {/* Screenshot / Visual Container */}
+          <div className={`modal-preview-stage ${isWidget ? 'modal-widget-stage' : ''}`}>
+            {displayImage ? (
+              <img
+                src={displayImage}
+                alt={project.title}
+                className={`modal-preview-img ${isWidget ? 'modal-widget-img' : ''}`}
+              />
             ) : (
               <div className="modal-preview-placeholder">
                 <div className="placeholder-device-mockup">

@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import type { ProjectItem } from '../types';
 import type { Language } from '../data/portfolioData';
 import { Lock, CheckCircle2, ArrowUpRight, Monitor, Layers } from 'lucide-react';
@@ -10,10 +11,58 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, language, onOpenDetails }: ProjectCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ rx: 0, ry: 0, glareX: 50, glareY: 50, opacity: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+
+    const maxTilt = 6;
+    const rx = -((y - cy) / cy) * maxTilt;
+    const ry = ((x - cx) / cx) * maxTilt;
+
+    setTilt({
+      rx,
+      ry,
+      glareX: (x / rect.width) * 100,
+      glareY: (y / rect.height) * 100,
+      opacity: 0.15,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ rx: 0, ry: 0, glareX: 50, glareY: 50, opacity: 0 });
+  };
+
+  const isWidget = project.id === 'lucidtune';
+
   return (
-    <div className="bento-featured-card scroll-reveal" onClick={() => onOpenDetails(project)}>
+    <div
+      ref={cardRef}
+      className="bento-featured-card scroll-reveal"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onClick={() => onOpenDetails(project)}
+      style={{
+        transform: `perspective(1000px) rotateX(${tilt.rx}deg) rotateY(${tilt.ry}deg)`,
+        transition: tilt.opacity === 0 ? 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease' : 'none',
+      }}
+    >
+      {/* 3D Specular Glare Layer */}
+      <div
+        className="card-specular-glare"
+        style={{
+          background: `radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255,255,255,${tilt.opacity}), transparent 60%)`,
+        }}
+      />
+
       {/* Top Media / Mockup Preview Stage */}
-      <div className="card-mockup-wrapper">
+      <div className={`card-mockup-wrapper ${isWidget ? 'widget-mockup-wrapper' : ''}`}>
         <div className="mockup-window-header">
           <div className="mockup-dots">
             <span className="dot dot-red" />
@@ -23,9 +72,14 @@ export const ProjectCard = ({ project, language, onOpenDetails }: ProjectCardPro
           <span className="mockup-header-title">{project.id}.app</span>
         </div>
 
-        <div className="mockup-screen-container">
+        <div className={`mockup-screen-container ${isWidget ? 'widget-screen-container' : ''}`}>
           {project.image ? (
-            <img src={project.image} alt={project.title} className="mockup-real-img" />
+            <img
+              src={project.image}
+              alt={project.title}
+              className={`mockup-real-img ${isWidget ? 'mockup-widget-img' : ''}`}
+              loading="lazy"
+            />
           ) : (
             <div className="mockup-abstract-preview">
               <div className="abstract-glow-orb" />

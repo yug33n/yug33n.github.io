@@ -429,14 +429,24 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: all var(--transition-smooth);
   position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .bento-featured-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7), 0 0 25px var(--accent-glow);
+}
+
+.card-specular-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  z-index: 5;
+  mix-blend-mode: screen;
+  transition: opacity 0.25s ease;
 }
 
 /* Mockup Screen Stage */
@@ -478,7 +488,7 @@
 }
 
 .mockup-screen-container {
-  height: 180px;
+  height: 200px;
   border-radius: 8px;
   overflow: hidden;
   background: #0d0f17;
@@ -493,11 +503,35 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
   transition: transform var(--transition-smooth);
 }
 
 .bento-featured-card:hover .mockup-real-img {
   transform: scale(1.03);
+}
+
+.widget-screen-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.08), transparent 75%), #090a10;
+  padding: 16px;
+}
+
+.mockup-widget-img {
+  width: auto;
+  max-width: 90%;
+  max-height: 80%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.85));
+  border-radius: 18px;
+  transition: transform var(--transition-smooth), filter var(--transition-smooth);
+}
+
+.bento-featured-card:hover .mockup-widget-img {
+  transform: scale(1.05) translateY(-2px);
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 14px rgba(245, 158, 11, 0.2));
 }
 
 .mockup-abstract-preview {
@@ -1263,7 +1297,35 @@
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   background: #090a10;
-  max-height: 320px;
+  max-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-preview-img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  background: #06070a;
+  display: block;
+}
+
+.modal-widget-stage {
+  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.12), transparent 70%), #07080d;
+  padding: 40px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-widget-img {
+  max-width: 440px;
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.9));
+  border-radius: 24px;
 }
 
 .modal-preview-placeholder {
