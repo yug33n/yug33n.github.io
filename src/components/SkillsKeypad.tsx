@@ -385,42 +385,49 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
 
         {/* INTERCONNECT RIBBON CABLE (Шлейф данных между клавиатурой и CRT) */}
         <div className="interconnect-ribbon-cable" aria-hidden="true">
-          <svg className="ribbon-cable-svg" viewBox="0 0 120 180">
+          <svg className="ribbon-cable-svg" viewBox="0 0 170 140">
             <defs>
               <linearGradient id={ribbonGradientId} x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#D1C7B7" />
-                <stop offset="10%" stopColor="#ED4027" />
-                <stop offset="15%" stopColor="#D1C7B7" />
+                <stop offset="8%" stopColor="#ED4027" />
+                <stop offset="14%" stopColor="#D1C7B7" />
                 <stop offset="30%" stopColor="#B8AB9A" />
                 <stop offset="50%" stopColor="#D1C7B7" />
                 <stop offset="70%" stopColor="#B8AB9A" />
                 <stop offset="100%" stopColor="#C2B8A8" />
               </linearGradient>
               <filter id={ribbonShadowId} x="-20%" y="-20%" width="140%" height="140%">
-                <feDropShadow dx="-3" dy="6" stdDeviation="3" floodColor="#141414" floodOpacity="0.35" />
+                <feDropShadow dx="-2" dy="5" stdDeviation="3" floodColor="#141414" floodOpacity="0.35" />
               </filter>
             </defs>
 
+            {/* Left Header Bracket Clamped to Keypad */}
+            <rect x="2" y="62" width="16" height="44" rx="3" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
+            <path d="M 4,56 L 4,62 M 4,106 L 4,112" stroke="#B8AB9A" strokeWidth="2.5" />
+            <text x="3" y="53" fontFamily="monospace" fontSize="8" fontWeight="bold" fill="var(--ink)">J1:BUS</text>
+
+            {/* Main Flat Flex Ribbon Body */}
             <path
-              d="M 0,110 C 50,110 50,45 110,45"
+              d="M 12,84 C 70,84 100,44 158,44"
               fill="none"
               stroke={`url(#${ribbonGradientId})`}
-              strokeWidth="26"
-              strokeLinecap="square"
+              strokeWidth="30"
+              strokeLinecap="butt"
               filter={`url(#${ribbonShadowId})`}
             />
 
             {/* Conductor grooving */}
-            <path d="M 0,110 C 50,110 50,45 110,45" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.4" strokeDasharray="3 1" />
-            <path d="M 0,105 C 50,105 50,40 110,40" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.4" strokeDasharray="3 1" />
-            <path d="M 0,115 C 50,115 50,50 110,50" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.4" strokeDasharray="3 1" />
+            <path d="M 12,84 C 70,84 100,44 158,44" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
+            <path d="M 12,78 C 70,78 100,38 158,38" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
+            <path d="M 12,90 C 70,90 100,50 158,50" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
             
             {/* Red Pin 1 Conductor */}
-            <path d="M 0,99 C 50,99 50,34 110,34" fill="none" stroke="#ED4027" strokeWidth="3" opacity="0.9" />
+            <path d="M 12,71 C 70,71 100,31 158,31" fill="none" stroke="#ED4027" strokeWidth="3.5" opacity="0.95" />
 
-            {/* Header Bracket */}
-            <rect x="108" y="26" width="10" height="38" rx="2" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
-            <text x="110" y="20" fontFamily="monospace" fontSize="7" fontWeight="bold" fill="#141414">J2:IN</text>
+            {/* Right Header Bracket Clamped to Monitor */}
+            <rect x="152" y="22" width="16" height="44" rx="3" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
+            <path d="M 166,16 L 166,22 M 166,66 L 166,72" stroke="#B8AB9A" strokeWidth="2.5" />
+            <text x="146" y="14" fontFamily="monospace" fontSize="8" fontWeight="bold" fill="var(--ink)">J2:IN</text>
           </svg>
         </div>
 

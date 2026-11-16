@@ -5,6 +5,8 @@ import { ProjectCard } from './components/ProjectCard';
 import { CompactProjectCard } from './components/CompactProjectCard';
 import { SkillsKeypad } from './components/SkillsKeypad';
 import { ProjectModal } from './components/ProjectModal';
+import { PcbVerticalBus } from './components/PcbVerticalBus';
+import { SectionPcbDivider } from './components/SectionPcbDivider';
 import { GithubIcon } from './components/icons/GithubIcon';
 import type { ProjectItem } from './types';
 import {
@@ -109,6 +111,9 @@ export default function App() {
       <div className="ambient-radial-glow center-right" />
       <div className="site-fine-noise" />
 
+      {/* Vertical PCB Master Data Bus (Left Spine with Test Points TP-01..05) */}
+      <PcbVerticalBus />
+
       {/* Floating Top Navbar */}
       <Navbar
         currentTheme={currentTheme}
@@ -162,6 +167,7 @@ export default function App() {
         </section>
 
         {/* SECTION 1: FEATURED PROJECTS (Bento 2x2 with PCB Traces Routing) */}
+        <SectionPcbDivider segmentCode="[BUS_SEC:01]" busSpec="DIFF_PAIR_100Ω // PROD_SYSTEMS" />
         <section id="featured-deck" className="content-section scroll-reveal">
           <div className="section-header-row">
             <div>
@@ -211,6 +217,7 @@ export default function App() {
         </section>
 
         {/* SECTION 2: INTERACTIVE SKILLS KEYPAD */}
+        <SectionPcbDivider segmentCode="[BUS_SEC:02]" busSpec="I2C_CLK_44.1KHZ // INTERACTIVE_STACK" />
         <section id="keypad-deck" className="content-section scroll-reveal">
           <div className="section-header-row">
             <div>
@@ -223,6 +230,7 @@ export default function App() {
         </section>
 
         {/* SECTION 3: ARCHIVE & OTHER PROJECTS */}
+        <SectionPcbDivider segmentCode="[BUS_SEC:03]" busSpec="ROM_REGISTRY // ARCHIVE_INDEX" />
         <section id="archive-deck" className="content-section scroll-reveal">
           <div className="section-header-row">
             <div>
@@ -270,6 +278,7 @@ export default function App() {
         </section>
 
         {/* SECTION 4: GET IN TOUCH / CONTACT DOCK */}
+        <SectionPcbDivider segmentCode="[BUS_SEC:04]" busSpec="COMM_CHANNEL // DUPLEX_LINK" />
         <section id="contact-deck" className="content-section contact-section scroll-reveal">
           <div className="contact-studio-card">
             <div className="contact-sparkle-pill">

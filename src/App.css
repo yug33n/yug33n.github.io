@@ -1235,13 +1235,13 @@
 /* Interconnect Ribbon Cable */
 .interconnect-ribbon-cable {
   position: absolute;
-  left: 54%;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 110px;
-  height: 160px;
+  width: 170px;
+  height: 140px;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 
 .ribbon-cable-svg {
@@ -2298,4 +2298,162 @@
 
 [data-theme="dark"] .datasheet-section-card {
   box-shadow: 2px 2px 0px #000000;
+}
+
+/* ========================================================
+   12. PCB MASTER DATA BUS SPINE & TECHNICAL SECTION DIVIDERS
+   ======================================================== */
+.pcb-vertical-bus-spine {
+  position: absolute;
+  top: 130px;
+  bottom: 80px;
+  left: calc((100% - 1140px) / 2 - 40px);
+  width: 28px;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 1280px) {
+  .pcb-vertical-bus-spine {
+    left: 8px;
+  }
+}
+
+@media (max-width: 960px) {
+  .pcb-vertical-bus-spine {
+    display: none;
+  }
+}
+
+.bus-rail-lines {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  display: flex;
+  gap: 3px;
+}
+
+.bus-lane {
+  width: 1.5px;
+  height: 100%;
+  background: var(--ink);
+  opacity: 0.22;
+}
+
+.bus-lane.lane-2 {
+  opacity: 0.45;
+  background: var(--accent-primary);
+}
+
+.pcb-testpoint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 3;
+}
+
+.tp-pad-ring {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: var(--amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 1px var(--ivory);
+  flex-shrink: 0;
+}
+
+.tp-via-hole {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ivory);
+}
+
+.tp-info-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+.tp-id {
+  color: var(--accent-primary);
+  font-weight: 900;
+}
+
+/* PCB Section Divider Bar */
+.pcb-section-divider-bar {
+  width: 100%;
+  margin: 10px 0 -50px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.pcb-divider-trace {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pcb-via-annular {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: var(--amber);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px var(--ivory);
+}
+
+.pcb-trace-groove {
+  flex: 1;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0.16;
+}
+
+.pcb-divider-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  background: var(--ivory-subtle);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 1.5px 1.5px 0px var(--ink);
+  flex-shrink: 0;
+}
+
+.bus-id-text {
+  color: var(--accent-primary);
+  font-weight: 900;
+}
+
+.bus-spec-text {
+  color: var(--ink-secondary);
+  opacity: 0.85;
+}
+
+[data-theme="dark"] .pcb-divider-label {
+  box-shadow: 1.5px 1.5px 0px #000000;
 }
