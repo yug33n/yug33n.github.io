@@ -247,6 +247,10 @@
   box-shadow: none;
 }
 
+.contact-cta-label-short {
+  display: none;
+}
+
 /* ========================================================
    2. HERO STUDIO SECTION
    ======================================================== */
@@ -867,19 +871,19 @@
   z-index: 6;
   width: 100%;
   max-width: 440px;
-  transform: rotateX(25deg) rotateZ(-12deg) rotateY(4deg);
-  transform-style: preserve-3d;
+  transform: rotateX(22deg) rotateZ(-10deg) rotateY(3deg);
+  transform-style: flat;
   box-shadow: 
     -16px 26px 0px var(--ink),
     -26px 38px 30px rgba(20, 20, 20, 0.35);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .isometric-deck-base:hover {
-  transform: rotateX(21deg) rotateZ(-8deg) rotateY(2deg);
+  /* Keep perspective stable so mouse click coordinates never shift or drop keys */
   box-shadow: 
     -18px 28px 0px var(--ink),
-    -30px 42px 35px rgba(20, 20, 20, 0.4);
+    -28px 40px 32px rgba(20, 20, 20, 0.4);
 }
 
 /* Brass Screws */
@@ -1136,7 +1140,7 @@
     0 4px 0px var(--red-dark),
     0 5px 0px var(--ink),
     0 8px 12px rgba(237, 64, 39, 0.45) !important;
-  transform: translateY(3px) !important;
+  transform: translateY(2px) !important;
 }
 
 .keycap-3d-btn.key-active .keycap-sub-index,
@@ -1145,13 +1149,13 @@
   opacity: 1 !important;
 }
 
-/* Deep Mechanical Press */
+/* Mechanical Press: stable 3px depth so the keycap never moves away from the mouse cursor */
 .keycap-3d-btn:active,
 .keycap-3d-btn.pressed {
-  transform: translateY(7px) !important;
+  transform: translateY(3px) !important;
   box-shadow: 
-    0 1px 0px var(--key-cream-side),
-    0 2px 0px var(--ink),
+    0 3px 0px var(--key-cream-side),
+    0 4px 0px var(--ink),
     0 4px 6px rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -1160,8 +1164,8 @@
 .keycap-3d-btn.key-active:active,
 .keycap-3d-btn.key-active.pressed {
   box-shadow: 
-    0 1px 0px var(--red-dark),
-    0 2px 0px var(--ink),
+    0 2px 0px var(--red-dark),
+    0 3px 0px var(--ink),
     0 4px 6px rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -1172,6 +1176,11 @@
   gap: 2px;
   width: 100%;
   padding: 0 4px;
+  pointer-events: none;
+}
+
+.keycap-content * {
+  pointer-events: none;
 }
 
 .keycap-sub-index {
@@ -2196,8 +2205,24 @@
   }
 
   .modern-glass-navbar {
-    height: 52px;
+    top: 10px;
+    height: 50px;
     padding: 0 10px;
+    width: calc(100% - 20px);
+  }
+
+  .nav-brand-container {
+    gap: 6px;
+  }
+
+  .brand-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .brand-name {
+    font-size: 0.92rem;
   }
 
   .brand-badge-mk {
@@ -2208,12 +2233,74 @@
     display: none;
   }
 
+  .nav-right-controls {
+    gap: 6px;
+  }
+
+  .theme-mode-btn {
+    padding: 6px 8px;
+  }
+
+  .theme-mode-btn span {
+    display: none;
+  }
+
+  .lang-pill-btn {
+    padding: 5px 8px;
+    font-size: 0.72rem;
+  }
+
+  .nav-contact-cta {
+    padding: 5px 10px;
+    font-size: 0.74rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
   .datasheet-pinout-grid {
     grid-template-columns: 1fr;
   }
 
   .datasheet-rubber-stamp {
     display: none;
+  }
+}
+
+@media (max-width: 440px) {
+  .modern-glass-navbar {
+    padding: 0 6px;
+    width: calc(100% - 12px);
+  }
+
+  .brand-avatar {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+
+  .brand-name {
+    font-size: 0.82rem;
+  }
+
+  .nav-right-controls {
+    gap: 4px;
+  }
+
+  .lang-pill-btn {
+    padding: 4px 6px;
+  }
+
+  .nav-contact-cta {
+    padding: 5px 8px;
+    font-size: 0.72rem;
+  }
+
+  .contact-cta-label-full {
+    display: none;
+  }
+
+  .contact-cta-label-short {
+    display: inline;
   }
 }
 

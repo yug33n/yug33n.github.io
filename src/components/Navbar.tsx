@@ -70,7 +70,8 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onNaviga
           className="nav-contact-cta"
         >
           <Send size={13} />
-          <span>{language === 'ru' ? 'Связаться' : 'Get in touch'}</span>
+          <span className="contact-cta-label-full">{language === 'ru' ? 'Связаться' : 'Get in touch'}</span>
+          <span className="contact-cta-label-short">{language === 'ru' ? 'Связь' : 'Contact'}</span>
         </a>
       </div>
     </header>

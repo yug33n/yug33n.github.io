@@ -336,11 +336,11 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
                   const isSelected = selectedSkill.id === skill.id;
                   const isPressed = pressedKeyId === skill.id;
                   
-                  // Style classes based on key type
+                  // Dynamic theme classes: active selected key is red; React & WPF are modifier accent keys; others are vintage cream
                   let keycapThemeClass = 'keycap-cream';
-                  if (index === 0 || index === 11) {
+                  if (isSelected) {
                     keycapThemeClass = 'keycap-red';
-                  } else if (index === 3 || index === 7) {
+                  } else if (skill.id === 'react' || skill.id === 'wpf') {
                     keycapThemeClass = 'keycap-mod';
                   }
 
@@ -357,7 +357,7 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
                         <span className="keycap-main-icon">
                           <SkillKeycapIcon
                             skillId={skill.id}
-                            color={isSelected ? '#FFFFFF' : (keycapThemeClass === 'keycap-red' ? '#FFFFFF' : skill.color)}
+                            color={isSelected ? '#FFFFFF' : skill.color}
                           />
                         </span>
                         <span className="keycap-label-code">{skill.keyLabel}</span>
@@ -387,42 +387,54 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
         <div className="interconnect-ribbon-cable" aria-hidden="true">
           <svg className="ribbon-cable-svg" viewBox="0 0 170 140">
             <defs>
-              <linearGradient id={ribbonGradientId} x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#D1C7B7" />
-                <stop offset="8%" stopColor="#ED4027" />
-                <stop offset="14%" stopColor="#D1C7B7" />
-                <stop offset="30%" stopColor="#B8AB9A" />
-                <stop offset="50%" stopColor="#D1C7B7" />
-                <stop offset="70%" stopColor="#B8AB9A" />
-                <stop offset="100%" stopColor="#C2B8A8" />
+              <linearGradient id={ribbonGradientId} x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#DFD5C6" />
+                <stop offset="50%" stopColor="#CEC0AE" />
+                <stop offset="100%" stopColor="#BFAF9B" />
               </linearGradient>
               <filter id={ribbonShadowId} x="-20%" y="-20%" width="140%" height="140%">
                 <feDropShadow dx="-2" dy="5" stdDeviation="3" floodColor="#141414" floodOpacity="0.35" />
               </filter>
             </defs>
 
-            {/* Main Flat Flex Ribbon Body (starts under the macropad on the left) */}
+            {/* 1. Dark outer casing boundary (creates crisp retro outline around the entire ribbon) */}
             <path
-              d="M -15,86 C 55,86 95,44 158,44"
+              d="M -20,84 C 50,84 95,44 160,44"
               fill="none"
-              stroke={`url(#${ribbonGradientId})`}
-              strokeWidth="30"
+              stroke="#141414"
+              strokeWidth="33"
               strokeLinecap="butt"
               filter={`url(#${ribbonShadowId})`}
             />
 
-            {/* Conductor grooving */}
-            <path d="M -15,86 C 55,86 95,44 158,44" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
-            <path d="M -15,80 C 55,80 95,38 158,38" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
-            <path d="M -15,92 C 55,92 95,50 158,50" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
-            
-            {/* Red Pin 1 Conductor */}
-            <path d="M -15,73 C 55,73 95,31 158,31" fill="none" stroke="#ED4027" strokeWidth="3.5" opacity="0.95" />
+            {/* 2. Main Solid Flat Flex Ribbon Body (spans full ribbon width under conductors - guarantees ZERO background gap) */}
+            <path
+              d="M -20,84 C 50,84 95,44 160,44"
+              fill="none"
+              stroke={`url(#${ribbonGradientId})`}
+              strokeWidth="30"
+              strokeLinecap="butt"
+            />
 
-            {/* Right Header Bracket Clamped to Monitor (preserved exactly as requested) */}
-            <rect x="152" y="22" width="16" height="44" rx="3" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
-            <path d="M 166,16 L 166,22 M 166,66 L 166,72" stroke="#B8AB9A" strokeWidth="2.5" />
-            <text x="146" y="14" fontFamily="monospace" fontSize="8" fontWeight="bold" fill="var(--ink)">J2:IN</text>
+            {/* 3. Conductor grooving (embossed channels between parallel data lines) */}
+            <path d="M -20,77 C 50,77 95,37 160,37" fill="none" stroke="#141414" strokeWidth="0.8" opacity="0.25" strokeDasharray="4 2" />
+            <path d="M -20,84 C 50,84 95,44 160,44" fill="none" stroke="#141414" strokeWidth="0.8" opacity="0.25" strokeDasharray="4 2" />
+            <path d="M -20,91 C 50,91 95,51 160,51" fill="none" stroke="#141414" strokeWidth="0.8" opacity="0.25" strokeDasharray="4 2" />
+            
+            {/* 4. Red Pin 1 Conductor (integrated directly onto top track with flush 0px gap) */}
+            <path
+              d="M -20,71 C 50,71 95,31 160,31"
+              fill="none"
+              stroke="#ED4027"
+              strokeWidth="4"
+              strokeLinecap="butt"
+              opacity="0.98"
+            />
+
+            {/* 5. Right Header Bracket Clamped to Monitor (preserved exactly as requested) */}
+            <rect x="150" y="20" width="18" height="48" rx="3" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
+            <path d="M 166,14 L 166,20 M 166,68 L 166,74" stroke="#B8AB9A" strokeWidth="2.5" />
+            <text x="144" y="13" fontFamily="monospace" fontSize="8" fontWeight="bold" fill="var(--ink)">J2:IN</text>
           </svg>
         </div>
 
