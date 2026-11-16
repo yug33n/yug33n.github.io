@@ -19,3 +19,4 @@ export const SectionPcbDivider = ({ segmentCode, busSpec }: SectionPcbDividerPro
     </div>
   );
 };
+

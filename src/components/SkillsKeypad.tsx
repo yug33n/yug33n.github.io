@@ -383,7 +383,7 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
           {/* Note removed per user request: "надпись в низу клавиатуры чуть залазиет под клавиатуру, просто убери ее" */}
         </div>
 
-        {/* INTERCONNECT RIBBON CABLE (Шлейф данных между клавиатурой и CRT) */}
+        {/* INTERCONNECT RIBBON CABLE (Шлейф данных, выходящий ИЗ-ПОД клавиатуры в CRT) */}
         <div className="interconnect-ribbon-cable" aria-hidden="true">
           <svg className="ribbon-cable-svg" viewBox="0 0 170 140">
             <defs>
@@ -401,14 +401,9 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
               </filter>
             </defs>
 
-            {/* Left Header Bracket Clamped to Keypad */}
-            <rect x="2" y="62" width="16" height="44" rx="3" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
-            <path d="M 4,56 L 4,62 M 4,106 L 4,112" stroke="#B8AB9A" strokeWidth="2.5" />
-            <text x="3" y="53" fontFamily="monospace" fontSize="8" fontWeight="bold" fill="var(--ink)">J1:BUS</text>
-
-            {/* Main Flat Flex Ribbon Body */}
+            {/* Main Flat Flex Ribbon Body (starts under the macropad on the left) */}
             <path
-              d="M 12,84 C 70,84 100,44 158,44"
+              d="M -15,86 C 55,86 95,44 158,44"
               fill="none"
               stroke={`url(#${ribbonGradientId})`}
               strokeWidth="30"
@@ -417,14 +412,14 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
             />
 
             {/* Conductor grooving */}
-            <path d="M 12,84 C 70,84 100,44 158,44" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
-            <path d="M 12,78 C 70,78 100,38 158,38" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
-            <path d="M 12,90 C 70,90 100,50 158,50" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
+            <path d="M -15,86 C 55,86 95,44 158,44" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
+            <path d="M -15,80 C 55,80 95,38 158,38" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
+            <path d="M -15,92 C 55,92 95,50 158,50" fill="none" stroke="#141414" strokeWidth="0.75" opacity="0.35" strokeDasharray="3 1" />
             
             {/* Red Pin 1 Conductor */}
-            <path d="M 12,71 C 70,71 100,31 158,31" fill="none" stroke="#ED4027" strokeWidth="3.5" opacity="0.95" />
+            <path d="M -15,73 C 55,73 95,31 158,31" fill="none" stroke="#ED4027" strokeWidth="3.5" opacity="0.95" />
 
-            {/* Right Header Bracket Clamped to Monitor */}
+            {/* Right Header Bracket Clamped to Monitor (preserved exactly as requested) */}
             <rect x="152" y="22" width="16" height="44" rx="3" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
             <path d="M 166,16 L 166,22 M 166,66 L 166,72" stroke="#B8AB9A" strokeWidth="2.5" />
             <text x="146" y="14" fontFamily="monospace" fontSize="8" fontWeight="bold" fill="var(--ink)">J2:IN</text>
