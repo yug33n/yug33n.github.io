@@ -94,9 +94,12 @@ export const ProjectCard = ({ project, language, onOpenDetails }: ProjectCardPro
       <div className="card-info-pane">
         <div className="card-status-row">
           <span className="card-type-tag">
+            <span className="hardware-status-led" />
             <Layers size={12} />
             <span>{project.status || 'Project'}</span>
           </span>
+
+          <span className="card-rev-badge">REV: 3.1</span>
 
           {project.isPrivate ? (
             <span className="status-badge-private">
@@ -130,7 +133,7 @@ export const ProjectCard = ({ project, language, onOpenDetails }: ProjectCardPro
         {/* Action Row */}
         <div className="card-bottom-actions" onClick={(e) => e.stopPropagation()}>
           <button className="details-trigger-btn" onClick={() => onOpenDetails(project)}>
-            <span>{language === 'ru' ? 'Подробнее' : 'View Details'}</span>
+            <span>{language === 'ru' ? '📄 Техпаспорт' : '📄 Datasheet'}</span>
             <ArrowUpRight size={14} />
           </button>
 

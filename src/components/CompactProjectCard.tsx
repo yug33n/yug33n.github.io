@@ -12,9 +12,11 @@ export const CompactProjectCard = ({ project, language }: CompactProjectCardProp
     <div className="bento-archive-card static-archive-card scroll-reveal">
       <div className="archive-card-top">
         <div className="archive-icon-pill">
+          <span className="archive-mini-led" />
           <FolderGit2 size={16} />
         </div>
         <div className="archive-badges">
+          <span className="archive-rev-tag">V1.x</span>
           {project.isPrivate ? (
             <span className="status-badge-private mini">
               <Lock size={11} />

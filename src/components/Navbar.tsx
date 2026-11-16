@@ -16,8 +16,8 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onNaviga
       <div className="nav-brand-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         <span className="brand-avatar">Y</span>
         <div className="brand-info">
-          <span className="brand-name">yug33n</span>
-          <span className="brand-status-dot" title="Online" />
+          <span className="brand-name">yug33n.dev</span>
+          <span className="brand-badge-mk">MK-III</span>
         </div>
       </div>
 

@@ -118,9 +118,16 @@ export default function App() {
       <main className="content-container">
         {/* HERO SECTION */}
         <section className="hero-studio-section">
-          <div className="hero-status-pill">
-            <span className="live-status-dot" />
-            <span className="status-label">{t.status}</span>
+          <div className="hero-status-row">
+            <div className="hero-status-pill">
+              <span className="live-status-dot" />
+              <span className="status-label">{t.status}</span>
+            </div>
+            <div className="hero-schematik-badge">
+              <span>PCB SPEC: FR-4 REV 3.1</span>
+              <span>•</span>
+              <span>MOSCOW GMT+3</span>
+            </div>
           </div>
 
           <h1 className="hero-main-heading">
@@ -151,7 +158,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 1: FEATURED PROJECTS (Bento 2x2) */}
+        {/* SECTION 1: FEATURED PROJECTS (Bento 2x2 with PCB Traces Routing) */}
         <section id="featured-deck" className="content-section scroll-reveal">
           <div className="section-header-row">
             <div>
@@ -165,15 +172,38 @@ export default function App() {
             </p>
           </div>
 
-          <div className="featured-bento-grid">
-            {featuredProjects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                language={language}
-                onOpenDetails={setActiveProject}
-              />
-            ))}
+          <div className="pcb-routing-stage">
+            {/* Subtle PCB Traces SVG layer */}
+            <svg className="pcb-traces-svg-layer" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 40 -10 L 40 25 L 220 25 L 250 55 L 480 55 L 510 25 L 960 25" className="pcb-trace-path" />
+              <path d="M 470 180 L 500 210 L 530 210 L 560 240" className="pcb-trace-path" />
+              <path d="M 470 200 L 495 225 L 535 225 L 560 250" className="pcb-trace-path" />
+              <path d="M 470 220 L 490 240 L 540 240 L 560 260" className="pcb-trace-path" />
+              <path d="M 20 480 L 150 480 L 190 520 L 800 520 L 840 480 L 980 480" className="pcb-trace-path" />
+              
+              <circle cx="220" cy="25" r="3.5" className="pcb-via-pad" />
+              <circle cx="510" cy="25" r="3.5" className="pcb-via-pad" />
+              <circle cx="470" cy="180" r="3" className="pcb-via-pad" />
+              <circle cx="560" cy="240" r="3" className="pcb-via-pad" />
+              <circle cx="190" cy="520" r="3.5" className="pcb-via-pad" />
+              <circle cx="800" cy="520" r="3.5" className="pcb-via-pad" />
+
+              <text x="255" y="50" className="pcb-silkscreen-text">[BUS_D0..D7]</text>
+              <text x="500" y="205" className="pcb-silkscreen-text">[API_SYNC]</text>
+              <text x="200" y="515" className="pcb-silkscreen-text">[GND_PLANE_01]</text>
+              <text x="760" y="515" className="pcb-silkscreen-text">[+3.3V_RAIL]</text>
+            </svg>
+
+            <div className="featured-bento-grid">
+              {featuredProjects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  language={language}
+                  onOpenDetails={setActiveProject}
+                />
+              ))}
+            </div>
           </div>
         </section>
 
