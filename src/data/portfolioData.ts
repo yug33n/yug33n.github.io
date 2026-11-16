@@ -9,7 +9,7 @@ export const socialLinks = {
 };
 
 export const personalInfo = {
-  name: "Митя (yug33n)",
+  name: "yug33n",
   role: "Software Developer",
   tagline: "Engineering desktop software, mobile services, games & modern web.",
   status: "Available for contracts & projects",
@@ -27,24 +27,24 @@ export const personalInfoData: Record<Language, {
   bio: string[];
 }> = {
   ru: {
-    name: "Митя (yug33n)",
+    name: "yug33n",
     role: "Software Developer",
     experienceBadge: "3 года опыта",
     tagline: "Разработка десктопных решений, мобильных сервисов и современного веба.",
     status: "Открыт для предложений & проектов",
     bio: [
-      "Привет! Я Митя (в сети известен как yug33n). Занимаюсь разработкой софта уже более 3 лет: от системных утилит на C# и .NET 10 до интерактивных веб-сервисов на React 19 и архитектур с локальными LLM.",
+      "Привет! Я yug33n. Занимаюсь разработкой софта уже более 3 лет: от системных утилит на C# и .NET 10 до интерактивных веб-сервисов на React 19 и архитектур с локальными LLM.",
       "Люблю продуманные технические решения, высокую производительность и чистый, отзывчивый интерфейс. Разрабатываю проекты с нуля: от логики работы с процессами и API до готового пользовательского продукта."
     ]
   },
   en: {
-    name: "Mitya (yug33n)",
+    name: "yug33n",
     role: "Software Developer",
     experienceBadge: "3+ Years of Experience",
     tagline: "Engineering desktop software, mobile services & modern web.",
     status: "Available for contracts & projects",
     bio: [
-      "Hi! I'm Mitya (known online as yug33n). I've been engineering software for over 3 years: spanning native Windows system tools in C# & .NET 10, reactive web apps on React 19, and local LLM workflows.",
+      "Hi! I'm yug33n. I've been engineering software for over 3 years: spanning native Windows system tools in C# & .NET 10, reactive web apps on React 19, and local LLM workflows.",
       "Focused on solid architectural decisions, low resource consumption, and intuitive user experiences. Crafting products from low-level OS mechanics up to refined, modern interfaces."
     ]
   }
@@ -499,7 +499,7 @@ export const uiText: Record<Language, {
     status: "ДОСТУПЕН ДЛЯ ПРОЕКТОВ",
     experiencePill: "Frontend / Backend",
     heroGreeting: "Привет, я",
-    heroName: "Митя (yug33n)",
+    heroName: "yug33n",
     heroRole: "Универсальный разработчик",
     heroBio: "Разрабатываю десктопные решения, мобильные сервисы и современный веб. Frontend и Backend разработка: чистая архитектура, высокая отзывчивость и продуманный UX.",
     navProjects: "Проекты",
@@ -533,7 +533,7 @@ export const uiText: Record<Language, {
     status: "AVAILABLE FOR PROJECTS",
     experiencePill: "Frontend / Backend",
     heroGreeting: "Hi, I am",
-    heroName: "Mitya (yug33n)",
+    heroName: "yug33n",
     heroRole: "Versatile Software Engineer",
     heroBio: "Engineering desktop software, mobile services & modern web platforms. Frontend and Backend development: solid architecture, responsive performance, and refined UX.",
     navProjects: "Projects",

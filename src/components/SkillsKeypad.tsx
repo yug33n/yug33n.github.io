@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useId } from 'react';
 import { keypadSkillsData, type KeypadSkill } from '../data/portfolioData';
 import type { Language } from '../data/portfolioData';
-import { Terminal, Layers, Sparkles } from 'lucide-react';
+import { Terminal, Layers } from 'lucide-react';
 
 interface SkillsKeypadProps {
   language: Language;
@@ -166,7 +166,7 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
 
     setTimeout(() => {
       setPressedKeyId((curr) => (curr === skill.id ? null : curr));
-    }, 160);
+    }, 180);
   }, [isSoundOn, knobAngle]);
 
   const rotateKnob = () => {
@@ -185,22 +185,43 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
     }
   };
 
-  // Keyboard listeners
+  // Keyboard listeners: maps numbers 1..9, 0, -, = AND letter grid QWER / ASDF / ZXCV AND Russian layout
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
 
-      const keyChar = e.key.toUpperCase();
-      const match = keypadSkillsData.find(
-        (s) => s.keyLabel.toUpperCase() === keyChar || s.keyLabel[0]?.toUpperCase() === keyChar
-      );
+      const key = e.key.toLowerCase();
 
-      if (match) {
-        triggerKey(match);
-      } else {
-        const randIndex = Math.floor(Math.random() * keypadSkillsData.length);
-        const randomSkill = keypadSkillsData[randIndex];
-        if (randomSkill) triggerKey(randomSkill);
+      // 1. Direct number mapping (1..9, 0, -, =)
+      const numKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '='];
+      const numIdx = numKeys.indexOf(key);
+      if (numIdx !== -1 && keypadSkillsData[numIdx]) {
+        triggerKey(keypadSkillsData[numIdx]);
+        return;
+      }
+
+      // 2. QWERTY 3x4 grid mapping (Row 1: q,w,e,r / Row 2: a,s,d,f / Row 3: z,x,c,v)
+      const gridKeys = ['q', 'w', 'e', 'r', 'a', 's', 'd', 'f', 'z', 'x', 'c', 'v'];
+      const gridIdx = gridKeys.indexOf(key);
+      if (gridIdx !== -1 && keypadSkillsData[gridIdx]) {
+        triggerKey(keypadSkillsData[gridIdx]);
+        return;
+      }
+
+      // 3. Russian layout equivalent
+      const ruGridKeys = ['й', 'ц', 'у', 'к', 'ф', 'ы', 'в', 'а', 'я', 'ч', 'с', 'м'];
+      const ruIdx = ruGridKeys.indexOf(key);
+      if (ruIdx !== -1 && keypadSkillsData[ruIdx]) {
+        triggerKey(keypadSkillsData[ruIdx]);
+        return;
+      }
+
+      // 4. Exact letter match by skill ID or keyLabel
+      const matchedSkill = keypadSkillsData.find(
+        (s) => s.keyLabel.toLowerCase() === key || s.id.toLowerCase() === key
+      );
+      if (matchedSkill) {
+        triggerKey(matchedSkill);
       }
     };
 
@@ -324,25 +345,24 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
                   }
 
                   return (
-                    <div
+                    <button
                       key={skill.id}
+                      type="button"
                       onClick={() => triggerKey(skill)}
-                      className={`keycap-3d-wrapper ${isSelected ? 'is-selected' : ''}`}
+                      className={`keycap-3d-btn ${keycapThemeClass} ${isSelected ? 'key-active' : ''} ${isPressed ? 'pressed' : ''}`}
+                      title={`${skill.name} (${skill.keyLabel})`}
                     >
-                      <button
-                        type="button"
-                        className={`keycap-3d-btn ${keycapThemeClass} ${isPressed ? 'pressed' : ''}`}
-                        title={`${skill.name} (${skill.keyLabel})`}
-                      >
-                        <div className="keycap-content">
-                          <span className="keycap-sub-index">0{index + 1}</span>
-                          <span className="keycap-main-icon">
-                            <SkillKeycapIcon skillId={skill.id} color={keycapThemeClass === 'keycap-red' ? '#FFFFFF' : skill.color} />
-                          </span>
-                          <span className="keycap-label-code">{skill.keyLabel}</span>
-                        </div>
-                      </button>
-                    </div>
+                      <div className="keycap-content">
+                        <span className="keycap-sub-index">0{index + 1}</span>
+                        <span className="keycap-main-icon">
+                          <SkillKeycapIcon
+                            skillId={skill.id}
+                            color={isSelected ? '#FFFFFF' : (keycapThemeClass === 'keycap-red' ? '#FFFFFF' : skill.color)}
+                          />
+                        </span>
+                        <span className="keycap-label-code">{skill.keyLabel}</span>
+                      </div>
+                    </button>
                   );
                 })}
               </div>
@@ -360,14 +380,7 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
 
           </div>
 
-          <p className="macropad-hint-note">
-            <Sparkles size={13} />
-            <span>
-              {language === 'ru'
-                ? 'Нажимай клавиши мыши, крути энкодер или печатай на физической клавиатуре'
-                : 'Click keys, rotate dial, or type on your physical keyboard to trigger'}
-            </span>
-          </p>
+          {/* Note removed per user request: "надпись в низу клавиатуры чуть залазиет под клавиатуру, просто убери ее" */}
         </div>
 
         {/* INTERCONNECT RIBBON CABLE (Шлейф данных между клавиатурой и CRT) */}

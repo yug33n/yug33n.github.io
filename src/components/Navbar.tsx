@@ -1,16 +1,18 @@
 import { socialLinks } from '../data/portfolioData';
 import type { Language } from '../data/portfolioData';
-import { Send, Globe } from 'lucide-react';
+import { Send, Globe, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
-  currentTheme: string;
-  setTheme: (theme: string) => void;
+  currentTheme: 'light' | 'dark';
+  setTheme: (theme: 'light' | 'dark') => void;
   language: Language;
   setLanguage: (lang: Language) => void;
   onNavigate: (sectionId: string) => void;
 }
 
 export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onNavigate }: NavbarProps) => {
+  const isDark = currentTheme === 'dark';
+
   return (
     <header className="modern-glass-navbar">
       <div className="nav-brand-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -39,29 +41,16 @@ export const Navbar = ({ currentTheme, setTheme, language, setLanguage, onNaviga
 
       {/* Action Controls */}
       <div className="nav-right-controls">
-        {/* Subtle Theme Selector */}
-        <div className="theme-pills-row" title={language === 'ru' ? 'Сменить акцент' : 'Accent theme'}>
-          <button
-            onClick={() => setTheme('amber')}
-            className={`theme-dot amber ${currentTheme === 'amber' ? 'active' : ''}`}
-            aria-label="Amber accent"
-          />
-          <button
-            onClick={() => setTheme('indigo')}
-            className={`theme-dot indigo ${currentTheme === 'indigo' ? 'active' : ''}`}
-            aria-label="Indigo accent"
-          />
-          <button
-            onClick={() => setTheme('emerald')}
-            className={`theme-dot emerald ${currentTheme === 'emerald' ? 'active' : ''}`}
-            aria-label="Emerald accent"
-          />
-          <button
-            onClick={() => setTheme('cyan')}
-            className={`theme-dot cyan ${currentTheme === 'cyan' ? 'active' : ''}`}
-            aria-label="Cyan accent"
-          />
-        </div>
+        {/* Dark / Light Theme Toggle Button */}
+        <button
+          onClick={() => setTheme(isDark ? 'light' : 'dark')}
+          className="theme-mode-btn"
+          aria-label="Toggle theme"
+          title={language === 'ru' ? (isDark ? 'Включить светлую тему' : 'Включить тёмную тему') : (isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme')}
+        >
+          {isDark ? <Sun size={14} /> : <Moon size={14} />}
+          <span>{isDark ? (language === 'ru' ? 'СВЕТЛАЯ' : 'LIGHT') : (language === 'ru' ? 'ТЁМНАЯ' : 'DARK')}</span>
+        </button>
 
         {/* Language Pill */}
         <button

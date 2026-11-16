@@ -66,29 +66,63 @@
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Theme Switcher Overrides (Accent highlights) */
-[data-theme="emerald"] {
-  --accent-primary: #1F7A4D;
-  --accent-glow: rgba(31, 122, 77, 0.2);
-  --accent-secondary: #154586;
-}
+/* ========================================================
+   DARK THEME SYSTEM (INDUSTRIAL CYBER-RETRO)
+   ======================================================== */
+[data-theme="dark"] {
+  --ivory: #111216;
+  --ivory-subtle: #181A22;
+  --ivory-dark: #222633;
+  --deck-body: #1C1F2B;
+  --deck-side: #101218;
+  --deck-bottom: #08090C;
+  --ink: #F2EBD9;
+  --ink-secondary: rgba(242, 235, 217, 0.75);
+  --ink-muted: rgba(242, 235, 217, 0.48);
+  --ink-dim: rgba(242, 235, 217, 0.25);
 
-[data-theme="cyan"] {
-  --accent-primary: #154586;
-  --accent-glow: rgba(21, 69, 134, 0.2);
-  --accent-secondary: #FEB31D;
-}
+  --bg-canvas: #111216;
+  --bg-card: #181A22;
+  --bg-card-hover: #222633;
+  --bg-surface: #1E222E;
+  --bg-pill: #181A22;
 
-[data-theme="amber"] {
+  --border-subtle: #F2EBD9;
+  --border-hover: #F2EBD9;
+  --border-glow: #F2EBD9;
+
+  --text-main: #F2EBD9;
+  --text-secondary: #D4CDBC;
+  --text-muted: #9E9889;
+  --text-dim: #736E62;
+
   --accent-primary: #ED4027;
-  --accent-glow: rgba(237, 64, 39, 0.2);
-  --accent-secondary: #FEB31D;
+  --accent-secondary: #38bdf8;
+  --accent-glow: rgba(237, 64, 39, 0.3);
+  --accent-subtle: rgba(237, 64, 39, 0.15);
+
+  --shadow-card: 4px 4px 0px #000000;
+  --shadow-tactile: 3px 3px 0px #000000;
+  --shadow-glow: 4px 4px 0px #000000;
+
+  /* Keycap Tones for Dark Mode */
+  --key-cream-top: #252936;
+  --key-cream-side: #151720;
+  --key-mod-top: #323748;
+  --key-mod-side: #1C1F2A;
+  --key-red-top: #ED4027;
+  --key-red-side: #8E1C0C;
+  --key-dark-top: #151720;
+  --key-dark-side: #0C0D12;
 }
 
-[data-theme="indigo"] {
-  --accent-primary: #154586;
-  --accent-glow: rgba(21, 69, 134, 0.2);
-  --accent-secondary: #ED4027;
+[data-theme="dark"] body {
+  background-color: var(--ivory);
+  color: var(--ink);
+  background-image: 
+    radial-gradient(rgba(242, 235, 217, 0.12) 1.2px, transparent 1.2px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 *, *::before, *::after {

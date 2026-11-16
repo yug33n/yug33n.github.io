@@ -154,33 +154,34 @@
   gap: 10px;
 }
 
-.theme-pills-row {
+.theme-mode-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 8px;
   background: var(--ivory-subtle);
   border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 5px 12px;
   border-radius: 9999px;
-  box-shadow: 1.5px 1.5px 0px var(--ink);
-}
-
-.theme-dot {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  border: 1.5px solid var(--ink);
   cursor: pointer;
-  transition: transform var(--transition-fast);
+  box-shadow: 1.5px 1.5px 0px var(--ink);
+  transition: all var(--transition-fast);
 }
 
-.theme-dot.amber { background-color: var(--amber); }
-.theme-dot.indigo { background-color: var(--blue); }
-.theme-dot.emerald { background-color: var(--green); }
-.theme-dot.cyan { background-color: #0ea5e9; }
+.theme-mode-btn:hover {
+  background: var(--amber);
+  color: #141414;
+  transform: translate(-1px, -1px);
+  box-shadow: 2.5px 2.5px 0px var(--ink);
+}
 
-.theme-dot:hover { transform: scale(1.2); }
-.theme-dot.active { transform: scale(1.15); box-shadow: 0 0 0 2px var(--ink); }
+.theme-mode-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
 
 .lang-pill-btn {
   display: flex;
@@ -1069,20 +1070,9 @@
 }
 
 /* Volumetric 3D Keycap */
-.keycap-3d-wrapper {
+.keycap-3d-btn {
   position: relative;
   width: 66px;
-  height: 60px;
-  cursor: pointer;
-  user-select: none;
-  transform-style: preserve-3d;
-}
-
-.keycap-3d-btn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 48px;
   border-radius: 8px;
   border: 1.5px solid var(--ink);
@@ -1091,7 +1081,11 @@
   align-items: center;
   justify-content: center;
   outline: none;
-  transition: all 0.08s ease;
+  cursor: pointer;
+  user-select: none;
+  padding: 0;
+  color: var(--ink);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.15s ease;
   z-index: 2;
 }
 
@@ -1120,11 +1114,30 @@
     0 14px 10px rgba(0, 0, 0, 0.3);
 }
 
-.keycap-3d-wrapper:hover .keycap-3d-btn {
+/* Hover float */
+.keycap-3d-btn:hover {
   transform: translateY(-2px);
 }
 
-.keycap-3d-wrapper:active .keycap-3d-btn,
+/* Selected Active State (Highlighted on keyboard) */
+.keycap-3d-btn.key-active {
+  background: var(--red) !important;
+  color: #ffffff !important;
+  box-shadow: 
+    0 4px 0px var(--red-dark),
+    0 5px 0px var(--ink),
+    0 8px 12px rgba(237, 64, 39, 0.45) !important;
+  transform: translateY(3px) !important;
+}
+
+.keycap-3d-btn.key-active .keycap-sub-index,
+.keycap-3d-btn.key-active .keycap-label-code {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Deep Mechanical Press */
+.keycap-3d-btn:active,
 .keycap-3d-btn.pressed {
   transform: translateY(7px) !important;
   box-shadow: 
@@ -1133,10 +1146,12 @@
     0 4px 6px rgba(0, 0, 0, 0.2) !important;
 }
 
-.keycap-3d-wrapper:active .keycap-red,
-.keycap-red.pressed {
+.keycap-3d-btn.keycap-red:active,
+.keycap-3d-btn.keycap-red.pressed,
+.keycap-3d-btn.key-active:active,
+.keycap-3d-btn.key-active.pressed {
   box-shadow: 
-    0 1px 0px var(--key-red-side),
+    0 1px 0px var(--red-dark),
     0 2px 0px var(--ink),
     0 4px 6px rgba(0, 0, 0, 0.2) !important;
 }
@@ -2091,4 +2106,97 @@
   .datasheet-rubber-stamp {
     display: none;
   }
+}
+
+/* ========================================================
+   11. DARK THEME SPECIFIC REFINEMENTS
+   ======================================================== */
+[data-theme="dark"] .modern-glass-navbar {
+  background: #151720;
+  box-shadow: 3px 3px 0px #000000;
+}
+
+[data-theme="dark"] .bento-featured-card {
+  box-shadow: 4px 4px 0px #000000;
+}
+
+[data-theme="dark"] .bento-featured-card:hover {
+  background: #1F222E;
+  box-shadow: 6px 6px 0px #000000;
+}
+
+[data-theme="dark"] .bento-archive-card {
+  box-shadow: 3px 3px 0px #000000;
+}
+
+[data-theme="dark"] .bento-archive-card:hover {
+  background: #1F222E;
+  box-shadow: 5px 5px 0px #000000;
+}
+
+[data-theme="dark"] .contact-studio-card {
+  box-shadow: 6px 6px 0px #000000;
+}
+
+[data-theme="dark"] .channel-link-btn {
+  box-shadow: 3px 3px 0px #000000;
+}
+
+[data-theme="dark"] .channel-link-btn:hover {
+  background: #1F222E;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+[data-theme="dark"] .details-trigger-btn,
+[data-theme="dark"] .github-link-btn,
+[data-theme="dark"] .filter-tab,
+[data-theme="dark"] .lang-pill-btn,
+[data-theme="dark"] .theme-mode-btn,
+[data-theme="dark"] .hero-secondary-btn {
+  box-shadow: 2px 2px 0px #000000;
+}
+
+[data-theme="dark"] .details-trigger-btn:hover,
+[data-theme="dark"] .github-link-btn:hover,
+[data-theme="dark"] .filter-tab:hover,
+[data-theme="dark"] .hero-secondary-btn:hover {
+  background: #1F222E;
+  box-shadow: 3px 3px 0px #000000;
+}
+
+[data-theme="dark"] .hero-primary-btn {
+  box-shadow: 3.5px 3.5px 0px #000000;
+}
+
+[data-theme="dark"] .hero-status-pill {
+  box-shadow: 2.5px 2.5px 0px #000000;
+}
+
+[data-theme="dark"] .deck-switch-plate {
+  background: #13151D;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .isometric-deck-base {
+  box-shadow: 
+    -16px 26px 0px #000000,
+    -26px 38px 30px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] .isometric-deck-base:hover {
+  box-shadow: 
+    -18px 28px 0px #000000,
+    -30px 42px 35px rgba(0, 0, 0, 0.85);
+}
+
+[data-theme="dark"] .schematik-specs-card {
+  box-shadow: 3px 3px 0px #000000;
+}
+
+[data-theme="dark"] .datasheet-modal-dialog {
+  box-shadow: 10px 10px 0px #000000;
+}
+
+[data-theme="dark"] .datasheet-section-card {
+  box-shadow: 2px 2px 0px #000000;
 }

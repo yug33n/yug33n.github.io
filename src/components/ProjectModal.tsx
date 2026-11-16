@@ -193,44 +193,6 @@ export const ProjectModal = ({ project, language, onClose }: ProjectModalProps) 
             </div>
           </div>
 
-          {/* Performance & Logic Levels Table */}
-          <div className="datasheet-section-card">
-            <div className="datasheet-section-title">
-              // 05. {language === 'ru' ? 'СПЕЦИФИКАЦИЯ И МЕТРИКИ' : 'SPECIFICATIONS & METRICS'}
-            </div>
-            <table className="datasheet-specs-table">
-              <thead>
-                <tr>
-                  <th>{language === 'ru' ? 'ПАРАМЕТР' : 'PARAMETER'}</th>
-                  <th>{language === 'ru' ? 'ЗНАЧЕНИЕ' : 'VALUE'}</th>
-                  <th>{language === 'ru' ? 'УСЛОВИЯ / СТЕК' : 'CONDITIONS / STACK'}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="spec-name">Execution Model</td>
-                  <td className="spec-val-green">Native / Async</td>
-                  <td className="spec-cond">High-Performance Non-blocking</td>
-                </tr>
-                <tr>
-                  <td className="spec-name">Data Storage</td>
-                  <td className="spec-val-blue">{isCsharp ? 'SQLite Embedded' : 'PostgreSQL / Neon'}</td>
-                  <td className="spec-cond">Zero data leaks, fully secured</td>
-                </tr>
-                <tr>
-                  <td className="spec-name">UI Refresh Rate</td>
-                  <td className="spec-val-amber">60-120 FPS</td>
-                  <td className="spec-cond">Hardware GPU accelerated rendering</td>
-                </tr>
-                <tr>
-                  <td className="spec-name">Reliability Status</td>
-                  <td className="spec-val-green">99.9% Uptime</td>
-                  <td className="spec-cond">Production Verified Architecture</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
           {/* Actions Bar */}
           <div className="datasheet-actions-bar">
             {project.githubUrl && !project.isPrivate && (

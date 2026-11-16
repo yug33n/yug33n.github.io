@@ -6,7 +6,6 @@ import { CompactProjectCard } from './components/CompactProjectCard';
 import { SkillsKeypad } from './components/SkillsKeypad';
 import { ProjectModal } from './components/ProjectModal';
 import { GithubIcon } from './components/icons/GithubIcon';
-import { InstagramIcon } from './components/icons/InstagramIcon';
 import type { ProjectItem } from './types';
 import {
   socialLinks,
@@ -23,7 +22,10 @@ import {
 } from 'lucide-react';
 
 export default function App() {
-  const [currentTheme, setCurrentTheme] = useState('amber');
+  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>(() => {
+    const saved = localStorage.getItem('yugeen-theme');
+    return saved === 'dark' ? 'dark' : 'light';
+  });
   const [language, setLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem('yugeen-lang') as Language;
     return saved === 'ru' ? 'ru' : 'en';
@@ -33,6 +35,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('yugeen-theme', currentTheme);
   }, [currentTheme]);
 
   useEffect(() => {
@@ -299,18 +302,6 @@ export default function App() {
               >
                 <GithubIcon size={18} />
                 <span>{t.githubBtn}</span>
-                <ExternalLink size={13} className="ext-icon" />
-              </a>
-
-              {/* Instagram Card */}
-              <a
-                href={socialLinks.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="channel-link-btn uniform-item"
-              >
-                <InstagramIcon size={18} />
-                <span>{t.instagramBtn}</span>
                 <ExternalLink size={13} className="ext-icon" />
               </a>
             </div>
