@@ -2171,6 +2171,10 @@
     grid-template-columns: 1fr;
   }
 
+  .brand-badge-mk {
+    display: none !important;
+  }
+
   .keypad-layout-grid {
     grid-template-columns: 1fr;
   }
@@ -2194,6 +2198,10 @@
   .modern-glass-navbar {
     height: 52px;
     padding: 0 10px;
+  }
+
+  .brand-badge-mk {
+    display: none !important;
   }
 
   .nav-links-menu {
@@ -2307,8 +2315,8 @@
    ======================================================== */
 .pcb-vertical-bus-spine {
   position: absolute;
-  top: 130px;
-  bottom: 80px;
+  top: 0;
+  bottom: 0;
   left: max(16px, calc((100% - 1140px) / 2 - 36px));
   width: 14px;
   pointer-events: none;
