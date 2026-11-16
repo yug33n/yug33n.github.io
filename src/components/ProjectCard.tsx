@@ -99,8 +99,6 @@ export const ProjectCard = ({ project, language, onOpenDetails }: ProjectCardPro
             <span>{project.status || 'Project'}</span>
           </span>
 
-          <span className="card-rev-badge">REV: 3.1</span>
-
           {project.isPrivate ? (
             <span className="status-badge-private">
               <Lock size={12} />

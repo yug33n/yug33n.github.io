@@ -434,7 +434,6 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
             {/* 5. Right Header Bracket Clamped to Monitor (preserved exactly as requested) */}
             <rect x="150" y="20" width="18" height="48" rx="3" fill="#141414" stroke="#DACAB0" strokeWidth="1.5" />
             <path d="M 166,14 L 166,20 M 166,68 L 166,74" stroke="#B8AB9A" strokeWidth="2.5" />
-            <text x="144" y="13" fontFamily="monospace" fontSize="8" fontWeight="bold" fill="var(--ink)">J2:IN</text>
           </svg>
         </div>
 

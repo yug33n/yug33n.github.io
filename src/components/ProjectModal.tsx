@@ -75,7 +75,6 @@ export const ProjectModal = ({ project, language, onClose }: ProjectModalProps) 
         <div className="datasheet-chrome-header">
           <div className="datasheet-header-left">
             <span className="datasheet-badge-red">ENGINEERING DATASHEET</span>
-            <span className="datasheet-rev-tag">REV: 3.1</span>
             <span className="datasheet-doc-num">#DS-{project.id.toUpperCase()}-2026</span>
           </div>
 
