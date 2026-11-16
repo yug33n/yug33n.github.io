@@ -56,6 +56,9 @@
   --shadow-tactile: 3px 3px 0px #141414;
   --shadow-glow: 4px 4px 0px #141414;
 
+  --grid-dot: rgba(20, 20, 20, 0.15);
+  --grid-line: rgba(20, 20, 20, 0.05);
+
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -105,6 +108,9 @@
   --shadow-tactile: 3px 3px 0px #000000;
   --shadow-glow: 4px 4px 0px #000000;
 
+  --grid-dot: rgba(242, 235, 217, 0.22);
+  --grid-line: rgba(242, 235, 217, 0.06);
+
   /* Keycap Tones for Dark Mode */
   --key-cream-top: #252936;
   --key-cream-side: #151720;
@@ -120,9 +126,10 @@
   background-color: var(--ivory);
   color: var(--ink);
   background-image: 
-    radial-gradient(rgba(242, 235, 217, 0.12) 1.2px, transparent 1.2px),
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    radial-gradient(var(--grid-dot) 1.2px, transparent 1.2px),
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 20px 20px, 100px 100px, 100px 100px;
 }
 
 *, *::before, *::after {
@@ -148,9 +155,9 @@ body {
   color: var(--ink);
   /* Schematik Blueprint Millimeter Grid */
   background-image: 
-    radial-gradient(rgba(20, 20, 20, 0.15) 1.2px, transparent 1.2px),
-    linear-gradient(to right, rgba(20, 20, 20, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(20, 20, 20, 0.05) 1px, transparent 1px);
+    radial-gradient(var(--grid-dot) 1.2px, transparent 1.2px),
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 20px 20px, 100px 100px, 100px 100px;
 }
 

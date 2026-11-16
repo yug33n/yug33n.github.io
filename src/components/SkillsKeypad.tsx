@@ -436,37 +436,76 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
                 <div className="crt-top-status-row">
                   <span className="crt-live-badge">
                     <span className="crt-pulse-dot" />
-                    <span>TERMINAL // MONITOR-01</span>
+                    <span>TERMINAL // STATION-YG</span>
                   </span>
-                  <span className="crt-baud-rate">RATE: 44.1 kHz</span>
+                  <span className="crt-baud-rate">44.1 kHz • BUS: ACTIVE</span>
                 </div>
 
-                <div className="crt-field-group">
-                  <div className="crt-field-label">// {language === 'ru' ? 'ВЫБРАННЫЙ АППАРАТНЫЙ НАВЫК' : 'SELECTED HARDWARE KEY'}</div>
-                  <div className="crt-key-display">
-                    {selectedSkill.name.toUpperCase()}
+                {/* Dynamic CLI Command Execution line */}
+                <div className="crt-cli-command-line">
+                  <span className="crt-prompt">yug33n@station:~$</span>
+                  <span className="crt-command">inspect --skill {selectedSkill.id}</span>
+                </div>
+
+                {/* Active Skill Banner with Colored Icon */}
+                <div className="crt-skill-header-row">
+                  <div className="crt-skill-title-group">
+                    <span
+                      className="crt-skill-icon-badge"
+                      style={{
+                        borderColor: selectedSkill.color,
+                        backgroundColor: `${selectedSkill.color}25`,
+                      }}
+                    >
+                      <SkillKeycapIcon skillId={selectedSkill.id} color={selectedSkill.color} />
+                    </span>
+                    <div>
+                      <div className="crt-key-display">{selectedSkill.name}</div>
+                      <div className="crt-category-tag">MODULE // {selectedSkill.category.toUpperCase()}</div>
+                    </div>
                   </div>
-                </div>
-
-                <div className="crt-field-group">
-                  <div className="crt-field-label">// {language === 'ru' ? 'ПРОФИЛЬ СПЕЦИАЛИЗАЦИИ' : 'SPECIALIZATION PROFILE'}</div>
-                  <div className="crt-spec-tag">
+                  <div
+                    className="crt-spec-tag"
+                    style={{
+                      borderColor: selectedSkill.color,
+                      color: selectedSkill.color,
+                    }}
+                  >
                     KEY: {selectedSkill.keyLabel}
                   </div>
                 </div>
 
+                {/* Architecture details & Description */}
                 <div className="crt-field-group">
-                  <div className="crt-field-label">// {language === 'ru' ? 'АРХИТЕКТУРНЫЕ ДЕТАЛИ' : 'ARCHITECTURE DETAILS'}</div>
+                  <div className="crt-field-label">
+                    // {language === 'ru' ? 'АРХИТЕКТУРА И ПРИМЕНЕНИЕ' : 'ARCHITECTURE & CAPABILITIES'}
+                  </div>
                   <p className="crt-desc-text">
                     {language === 'ru' ? selectedSkill.descriptionRu : selectedSkill.descriptionEn}
                   </p>
                 </div>
 
-                {/* Live telemetry row */}
+                {/* Applied In Projects (Shown right inside terminal!) */}
+                <div className="crt-field-group">
+                  <div className="crt-field-label">
+                    <Layers size={11} style={{ display: 'inline', marginRight: '4px', verticalAlign: '-1px' }} />
+                    // {language === 'ru' ? 'ИСПОЛЬЗУЕТСЯ В ПРОЕКТАХ' : 'APPLIED IN PROJECTS'}
+                  </div>
+                  <div className="crt-projects-row">
+                    {selectedSkill.relatedProjects.map((proj, idx) => (
+                      <span key={idx} className="crt-proj-pill" style={{ borderColor: `${selectedSkill.color}80` }}>
+                        {proj}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Live telemetry row with cursor */}
                 <div className="crt-telemetry-row">
-                  <span>KNOB: {knobPercent}%</span>
-                  <span>SFX: {isSoundOn ? 'ON' : 'MUTED'}</span>
                   <span>PRESSES: {pressCount}</span>
+                  <span>VOL: {knobPercent}%</span>
+                  <span>SFX: {isSoundOn ? 'ON' : 'MUTED'}</span>
+                  <span className="crt-blink-cursor">█</span>
                 </div>
               </div>
             </div>
@@ -476,28 +515,14 @@ export const SkillsKeypad = ({ language }: SkillsKeypadProps) => {
           <div className="schematik-specs-card">
             <div className="schematik-specs-header">
               <span>[+] SCHEMATIK TECH SHEET</span>
-              <span className="text-red">PIN ASSIGNMENTS: OK</span>
-            </div>
-
-            <div className="schematik-applied-projects">
-              <div className="applied-label">
-                <Layers size={12} />
-                <span>{language === 'ru' ? 'ПРИМЕНЯЕТСЯ В ПРОЕКТАХ:' : 'APPLIED IN PROJECTS:'}</span>
-              </div>
-              <div className="applied-pills-row">
-                {selectedSkill.relatedProjects.map((proj, idx) => (
-                  <span key={idx} className="schematik-proj-pill">
-                    {proj}
-                  </span>
-                ))}
-              </div>
+              <span className="text-red">BUS STATUS: LINKED</span>
             </div>
 
             <div className="schematik-specs-grid">
               <div>• SPEED: <span className="spec-val">MAX_PERF</span></div>
-              <div>• DB: <span className="spec-val">SQLITE / PG</span></div>
-              <div>• ARCH: <span className="spec-val">ASYNC IO</span></div>
-              <div>• HOST: <span className="spec-val">DOCKER VPS</span></div>
+              <div>• DB: <span className="spec-val">{selectedSkill.id.includes('sql') || selectedSkill.id === 'postgres' ? 'RELATIONAL' : 'SQLITE / PG'}</span></div>
+              <div>• ARCH: <span className="spec-val">{selectedSkill.category === 'desktop' ? 'NATIVE C# / WIN32' : selectedSkill.category === 'web' ? 'ASYNC REACT' : 'MODULAR'}</span></div>
+              <div>• RUNTIME: <span className="spec-val">{selectedSkill.category === 'desktop' ? '.NET 10 CLR' : selectedSkill.category === 'web' ? 'V8 / CHROMIUM' : selectedSkill.category === 'ai' ? 'CUDA / PYTORCH' : 'UNIX / SYSTEM'}</span></div>
             </div>
           </div>
 
