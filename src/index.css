@@ -1,6 +1,8 @@
+@import 'allo-font/allo.css';
+
 :root {
-  --font-display: 'Archivo', sans-serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Allo', 'Archivo', sans-serif;
+  --font-sans: 'Allo', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Rekko & Schematik Industrial Retro Palette */
