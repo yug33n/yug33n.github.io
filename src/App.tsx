@@ -34,6 +34,24 @@ export default function App() {
   });
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
   const [activeFilter, setActiveFilter] = useState<'all' | 'web' | 'ai'>('all');
+  const [timeStr, setTimeStr] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTimeStr(
+        now.toLocaleTimeString('ru-RU', {
+          timeZone: 'Europe/Moscow',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+        })
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -134,7 +152,7 @@ export default function App() {
             <div className="hero-schematik-badge">
               <span>PCB SPEC: FR-4 REV 3.1</span>
               <span>•</span>
-              <span>MOSCOW GMT+3</span>
+              <span className="hero-live-clock">{timeStr || '00:00:00'} GMT+3</span>
             </div>
           </div>
 

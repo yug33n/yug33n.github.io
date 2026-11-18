@@ -16,7 +16,6 @@ export const CompactProjectCard = ({ project, language }: CompactProjectCardProp
           <FolderGit2 size={16} />
         </div>
         <div className="archive-badges">
-          <span className="archive-rev-tag">V1.x</span>
           {project.isPrivate ? (
             <span className="status-badge-private mini">
               <Lock size={11} />

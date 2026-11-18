@@ -77,18 +77,21 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "lucidtune",
       featured: true,
       title: "LucidTune",
-      tagline: "Плавающий Dynamic Island медиа-виджет для Windows 10/11",
-      description: "Легковесный кастомизируемый оверлей-виджет в стиле Dynamic Island. Отображает обложки треков, таймлайн и элементы управления поверх любых окон и полноэкранных игр с эффектом матового стекла.",
+      tagline: "Dynamic Island медиа-виджет и мини-плеер в таскбаре Windows 10/11",
+      description: "Легковесный кастомизируемый оверлей и мини-плеер в панели задач Windows. Отображает обложки треков, таймлайн, живой спектральный анализатор и адаптивную палитру поверх любых окон и игр.",
       highlights: [
-        "Интеграция с Windows Media (SMTC): автосинхронизация со Spotify, Яндекс Музыкой, VK, YouTube",
-        "Эстетичный Frosted Glass оверлей с плавной анимацией сворачивания",
-        "Глобальные хоткеи, минимальное потребление памяти (< 25 МБ) и нулевой инпут-лаг"
+        "Интеграция с Windows Media (SMTC): автосинхронизация со Spotify, Яндекс Музыкой, VK, YouTube, Telegram",
+        "Встраиваемый мини-плеер в панель задач Windows (Taskbar Mini-Player) с умным обходом виджетов погоды",
+        "Аудио-реактивный спектральный визуализатор на базе Core Audio WASAPI и адаптивная палитра цветов обложки",
+        "Discord Rich Presence, режим стримера (скрытие в OBS / Discord) и настраиваемые глобальные хоткеи"
       ],
-      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs"],
+      techStack: [".NET 9", "C#", "WPF", "XAML", "WASAPI Audio", "Win32 APIs", "Discord RPC"],
+      githubUrl: "https://github.com/yug33n/LucidTune",
+      downloadUrl: "https://github.com/yug33n/LucidTune/releases",
       image: "/projects/lucidtune.webp",
-      isPrivate: true,
+      isPrivate: false,
       category: "csharp",
-      status: "Desktop Overlay"
+      status: "Desktop & Taskbar Overlay"
     },
     {
       id: "pipeflow",
@@ -214,18 +217,21 @@ export const projectsContent: Record<Language, ProjectItem[]> = {
       id: "lucidtune",
       featured: true,
       title: "LucidTune",
-      tagline: "Floating Dynamic Island media overlay for Windows 10/11",
-      description: "Ultra-lightweight desktop overlay widget inspired by Dynamic Island. Brings live track metadata, artwork, progress bar, and player controls above windows and games with frosted glass styling.",
+      tagline: "Floating Dynamic Island media overlay & Taskbar mini-player for Windows 10/11",
+      description: "Ultra-lightweight desktop overlay and Windows taskbar mini-player. Brings live track metadata, album artwork, real-time audio visualizer spectrum, dynamic palette shimmer, and responsive controls above windows and games.",
       highlights: [
-        "Windows Media (SMTC) integration: syncs with Spotify, Yandex Music, YouTube, VK",
-        "Frosted glass aesthetic with smooth collapse animations",
-        "Global hotkeys, low memory footprint (< 25 MB), and zero input latency"
+        "Universal Windows Media (SMTC) integration: Spotify, Yandex Music, YouTube, Apple Music, Telegram",
+        "Windows Taskbar Dock mini-player with dynamic sizing and Windows 11 Weather avoidance",
+        "Real-time audio-reactive spectrum visualizer via Core Audio WASAPI and dynamic album palette extraction",
+        "Discord Rich Presence, Streamer Mode (invisible to OBS/Discord captures), and customizable global hotkeys"
       ],
-      techStack: [".NET 9", "C#", "WPF", "XAML", "Windows SMTC", "Win32 APIs"],
+      techStack: [".NET 9", "C#", "WPF", "XAML", "WASAPI Audio", "Win32 APIs", "Discord RPC"],
+      githubUrl: "https://github.com/yug33n/LucidTune",
+      downloadUrl: "https://github.com/yug33n/LucidTune/releases",
       image: "/projects/lucidtune.webp",
-      isPrivate: true,
+      isPrivate: false,
       category: "csharp",
-      status: "Desktop Overlay"
+      status: "Desktop & Taskbar Overlay"
     },
     {
       id: "pipeflow",
